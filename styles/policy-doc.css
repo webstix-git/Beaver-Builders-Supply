@@ -1,0 +1,8 @@
+.bbs-doc h2{margin:0;font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:700;text-transform:uppercase;color:#14183A;line-height:1.05}
+.bbs-doc p,.bbs-doc li{font-size:17px;line-height:1.7;color:#4A4F6A}
+.bbs-doc p{margin:14px 0 0}
+.bbs-doc ul{margin:14px 0 0;padding-left:22px}
+.bbs-doc li+li{margin-top:6px}
+.bbs-doc section{scroll-margin-top:96px;padding:32px 0;border-top:1px solid #E4E5EE}
+.bbs-doc section:first-child{border-top:0;padding-top:0}
+.bbs-doc strong{color:#14183A}
