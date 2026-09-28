@@ -20,7 +20,7 @@ const PHOTOS = [
   { src: '/bbs-img/gal-772696788.jpg', tag: 'Showroom siding, doors, and stone' },
   { src: '/bbs-img/sec-15.jpg', tag: 'Custom kitchen' },
   { src: '/bbs-img/gal-763249197.jpg', tag: 'Kitchen project' },
-  { src: '/bbs-img/contact-hero.jpg', tag: 'Finished home' },
+  { src: '/New-img/Gallery/500103430_9727345597385236_2873127610018809278_n.jpg', tag: 'Finished home' },
   { src: '/bbs-img/bbs-truss-delivery.jpg', tag: 'Truss delivery' },
   { src: '/bbs-img/gal-500289586.jpg', tag: 'Finished home' },
   { src: '/bbs-img/gal-481308960.jpg', tag: 'Kitchen project' },
@@ -107,12 +107,13 @@ export default class GalleryPage extends React.Component {
         <div style={{ position: 'relative' }}>
           <SiteHeader active="gallery" vals={vals} />
           <section
+            className="bbs-hero-banner"
             style={{
               position: 'relative',
-              background: "#14183A url('/bbs-img/gallery-hero.jpg') center 40%/cover no-repeat",
+              background: "#14183A url('/New-img/Gallery/hero-section-banner.jpg') center 40%/cover no-repeat",
               minHeight: '480px',
               display: 'flex',
-              alignItems: 'flex-end',
+              alignItems: 'center',
             }}
           >
             <div
@@ -131,7 +132,7 @@ export default class GalleryPage extends React.Component {
                   margin: '0',
                   fontFamily: "'Barlow Condensed',sans-serif",
                   fontWeight: '700',
-                  fontSize: 'clamp(52px,6.4vw,88px)',
+                  fontSize: 'clamp(52px,6.4vw,60px)',
                   lineHeight: '.95',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -142,7 +143,7 @@ export default class GalleryPage extends React.Component {
               <p
                 style={{
                   margin: '18px 0 0',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: '1.55',
                   color: '#fff',
                   maxWidth: '600px',
@@ -244,7 +245,7 @@ export default class GalleryPage extends React.Component {
         <section
           style={{
             position: 'relative',
-            background: "#14183A url('/bbs-img/gallery-cta.jpg') center/cover no-repeat",
+            background: "#14183A url('/New-img/Gallery/cta-banner.jpg') center/cover no-repeat",
             color: '#fff',
           }}
         >
@@ -260,7 +261,7 @@ export default class GalleryPage extends React.Component {
               position: 'relative',
               maxWidth: '1280px',
               margin: '0 auto',
-              padding: '88px 32px',
+              padding: '52px 32px',
               display: 'flex',
               flexDirection: 'column',
               gap: '32px',

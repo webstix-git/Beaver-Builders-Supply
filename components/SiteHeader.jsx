@@ -1,3 +1,5 @@
+import HeaderHeightSync from './HeaderHeightSync';
+
 function NavLink({ href, active, children }) {
   return active ? (
     <a href={href} style={{ padding: '10px 14px', color: '#fff', borderBottom: '2px solid #E31E26' }}>
@@ -195,6 +197,7 @@ export default function SiteHeader({ active, vals }) {
           </a>
         </nav>
       </div>
+      <HeaderHeightSync />
     </header>
   );
 }

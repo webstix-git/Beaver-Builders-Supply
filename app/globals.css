@@ -1,4 +1,19 @@
 html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+/* The header overlays the hero, so the hero reserves the height of the visible header content (measured by
+   HeaderHeightSync; the fallbacks match the header's wrap points) and centers the text below it. The h1 and p
+   margins trim the line-box space above the capitals and below the last baseline, so the space above and below
+   the text is equal to the eye. */
+.bbs-hero-banner{padding-top:var(--bbs-header-h,78px)}
+.bbs-hero-inner{padding:20px 32px}
+.bbs-hero-inner h1{margin-top:-.175em !important}
+.bbs-hero-inner p{margin-bottom:-.47em !important}
+@media (max-width:1170px){.bbs-hero-banner{padding-top:var(--bbs-header-h,141px)}}
+@media (max-width:851px){.bbs-hero-banner{padding-top:var(--bbs-header-h,190px)}}
+@media (max-width:640px){.bbs-hero-inner{padding:20px 24px}}
+@media (max-width:485px){.bbs-hero-banner{padding-top:var(--bbs-header-h,237px)}}
+@media (max-width:374px){.bbs-hero-banner{padding-top:var(--bbs-header-h,284px)}}
+/* Below ~1170px the header wraps and needs more room than a 400px banner leaves, so the cap is desktop-only. */
+@media (min-width:1200px){.bbs-hero-banner{min-height:400px !important;max-height:400px}}
 @media print {
   @page { margin: 0.5cm; }
   figure, table { break-inside: avoid; }

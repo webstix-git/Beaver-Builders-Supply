@@ -132,13 +132,13 @@ export default class HomePage extends React.Component {
         { n: '04', t: 'Focus on Value', d: 'Quality, value, and service balanced for every project.' }
       ],
       materials: [
-        { name: 'Kitchen & Bath', href: '/materials#kitchen-bath', d: 'Cabinetry, countertops, and fixtures for kitchens and baths.', img: '/bbs-img/bbs-kitchen.jpg' },
+        { name: 'Kitchen & Bath', href: '/materials#kitchen-bath', d: 'Cabinetry, countertops, and fixtures for kitchens and baths.', img: '/New-img/Homepage/kitchen-and-bath.jpg' },
         { name: 'Decking & Railing', href: '/materials#decking-railing', d: 'Composite and wood decking with matching railing systems.', img: '/bbs-img/bbs-deck.jpg' },
-        { name: 'Windows', href: '/materials#windows', d: 'Energy-efficient replacement and new-construction windows.', img: '/bbs-img/bbs-windows.jpg' },
-        { name: 'Exterior Doors', href: '/materials#exterior-doors', d: 'Entry, patio, and storm doors built for Wisconsin winters.', img: '/bbs-img/bbs-exterior-doors.jpg' },
-        { name: 'Interior Doors & Trim', href: '/materials#interior-doors-trim', d: 'Doors, millwork, and trim packages for finished interiors.', img: '/bbs-img/bbs-garage-door.jpg' },
-        { name: 'Siding', href: '/materials#siding', d: 'Engineered, fiber cement, and vinyl siding with accessories.', img: '/bbs-img/bbs-siding.jpg' },
-        { name: 'Roofing', href: '/materials#roofing', d: 'Shingles, underlayment, and ventilation from trusted brands.', img: '/bbs-img/bbs-roofing.jpg' }
+        { name: 'Windows', href: '/materials#windows', d: 'Energy-efficient replacement and new-construction windows.', img: '/New-img/Homepage/windows.jpg' },
+        { name: 'Exterior Doors', href: '/materials#exterior-doors', d: 'Entry, patio, and storm doors built for Wisconsin winters.', img: '/New-img/Homepage/exterior-doors.jpg' },
+        { name: 'Interior Doors & Trim', href: '/materials#interior-doors-trim', d: 'Doors, millwork, and trim packages for finished interiors.', img: '/New-img/Homepage/Interior-doors-and-trim.jpg' },
+        { name: 'Siding', href: '/materials#siding', d: 'Engineered, fiber cement, and vinyl siding with accessories.', img: '/New-img/Homepage/siding.jpg' },
+        { name: 'Roofing', href: '/materials#roofing', d: 'Shingles, underlayment, and ventilation from trusted brands.', img: '/New-img/Homepage/roofing.jpg' }
       ],
       yard: ['Framing Lumber', 'Manufactured Trusses', 'Engineered Products', 'Building Science', 'Cabinets & Tops'],
     };
@@ -780,7 +780,7 @@ export default class HomePage extends React.Component {
                 }}
               >
                 <img
-                  src="/bbs-img/bbs-truss-delivery.jpg"
+                  src="/New-img/Homepage/drafting-contract.jpg"
                   alt=""
                   style={{ width: '100%', aspectRatio: '16/8', objectFit: 'cover', display: 'block' }}
                 />
@@ -1043,12 +1043,12 @@ export default class HomePage extends React.Component {
           >
             <div style={{ position: 'relative', padding: '0 0 56px 0' }}>
               <img
-                src="/bbs-img/bbs-parade-team.jpg"
+                src="/New-img/Homepage/about-us-img-1.jpg"
                 alt=""
                 style={{ width: '86%', aspectRatio: '4/5', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
               />
               <img
-                src="/bbs-img/bbs-parade-truck.jpg"
+                src="/New-img/Homepage/about-us-img-2.jpg"
                 alt=""
                 style={{
                   position: 'absolute',
@@ -1316,7 +1316,7 @@ export default class HomePage extends React.Component {
           id="contact"
           style={{
             position: 'relative',
-            background: "#14183A url('/bbs-img/bbs-crane-truck.jpg') center/cover no-repeat",
+            background: "#14183A url('/New-img/Homepage/cta-banner.jpg') center/cover no-repeat",
             color: '#fff',
           }}
         >
@@ -1332,7 +1332,7 @@ export default class HomePage extends React.Component {
               position: 'relative',
               maxWidth: '1280px',
               margin: '0 auto',
-              padding: '128px 32px',
+              padding: '52px 32px',
               textAlign: 'left',
               display: 'flex',
               flexDirection: 'column',

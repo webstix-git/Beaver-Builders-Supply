@@ -49,12 +49,13 @@ export default class DesignPage extends React.Component {
         <div style={{ position: 'relative' }}>
           <SiteHeader active="design" vals={vals} />
           <section
+            className="bbs-hero-banner"
             style={{
               position: 'relative',
-              background: "#14183A url('/bbs-img/design-hero.jpg') center 50%/cover no-repeat",
+              background: "#14183A url('/New-img/Design/hero-section-banner.jpg') center 50%/cover no-repeat",
               minHeight: '480px',
               display: 'flex',
-              alignItems: 'flex-end',
+              alignItems: 'center',
             }}
           >
             <div
@@ -73,7 +74,7 @@ export default class DesignPage extends React.Component {
                   margin: '0',
                   fontFamily: "'Barlow Condensed',sans-serif",
                   fontWeight: '700',
-                  fontSize: 'clamp(52px,6.4vw,88px)',
+                  fontSize: 'clamp(52px,6.4vw,60px)',
                   lineHeight: '.95',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -84,7 +85,7 @@ export default class DesignPage extends React.Component {
               <p
                 style={{
                   margin: '18px 0 0',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: '1.55',
                   color: '#fff',
                   maxWidth: '600px',
@@ -133,47 +134,10 @@ export default class DesignPage extends React.Component {
           >
             <div style={{ position: 'relative' }}>
               <img
-                src="/bbs-img/gallery-hero.jpg"
+                src="/New-img/Design/drafting-contract.jpg"
                 alt="New homes built with Beaver Builders Supply"
                 style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
               />
-              <div
-                style={{
-                  position: 'absolute',
-                  left: '-12px',
-                  bottom: '-24px',
-                  background: '#E31E26',
-                  color: '#fff',
-                  padding: '22px 28px',
-                  borderRadius: '3px',
-                  boxShadow: '0 18px 40px rgba(227,30,38,.28)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '2px',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '48px',
-                    fontWeight: '700',
-                    lineHeight: '.9',
-                  }}
-                >
-                  Free
-                </span>
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    letterSpacing: '.14em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Design services when you build with Beaver
-                </span>
-              </div>
             </div>
             <div>
               <div
@@ -391,30 +355,10 @@ export default class DesignPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/gallery-cta.jpg"
+                    src="/New-img/Design/request-the-contract.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <span
-                    style={{
-                      position: 'absolute',
-                      left: '0',
-                      top: '0',
-                      width: '60px',
-                      height: '60px',
-                      background: '#E31E26',
-                      color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
-                      fontWeight: '700',
-                      lineHeight: '1',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    1
-                  </span>
                   <div
                     style={{
                       position: 'absolute',
@@ -429,6 +373,23 @@ export default class DesignPage extends React.Component {
                 <div
                   style={{ padding: '24px 24px 28px', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}
                 >
+                  <span
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      background: '#E31E26',
+                      color: '#fff',
+                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontSize: '34px',
+                      fontWeight: '700',
+                      lineHeight: '1',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    1
+                  </span>
                   <div
                     style={{
                       fontFamily: "'Barlow Condensed',sans-serif",
@@ -462,30 +423,10 @@ export default class DesignPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/about-hero.jpg"
+                    src="/New-img/Design/design-staff.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <span
-                    style={{
-                      position: 'absolute',
-                      left: '0',
-                      top: '0',
-                      width: '60px',
-                      height: '60px',
-                      background: '#E31E26',
-                      color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
-                      fontWeight: '700',
-                      lineHeight: '1',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    2
-                  </span>
                   <div
                     style={{
                       position: 'absolute',
@@ -500,6 +441,23 @@ export default class DesignPage extends React.Component {
                 <div
                   style={{ padding: '24px 24px 28px', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}
                 >
+                  <span
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      background: '#E31E26',
+                      color: '#fff',
+                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontSize: '34px',
+                      fontWeight: '700',
+                      lineHeight: '1',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    2
+                  </span>
                   <div
                     style={{
                       fontFamily: "'Barlow Condensed',sans-serif",
@@ -533,30 +491,10 @@ export default class DesignPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/sec-04.jpg"
+                    src="/New-img/Design/review.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <span
-                    style={{
-                      position: 'absolute',
-                      left: '0',
-                      top: '0',
-                      width: '60px',
-                      height: '60px',
-                      background: '#E31E26',
-                      color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
-                      fontWeight: '700',
-                      lineHeight: '1',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    3
-                  </span>
                   <div
                     style={{
                       position: 'absolute',
@@ -571,6 +509,23 @@ export default class DesignPage extends React.Component {
                 <div
                   style={{ padding: '24px 24px 28px', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}
                 >
+                  <span
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      background: '#E31E26',
+                      color: '#fff',
+                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontSize: '34px',
+                      fontWeight: '700',
+                      lineHeight: '1',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    3
+                  </span>
                   <div
                     style={{
                       fontFamily: "'Barlow Condensed',sans-serif",
@@ -604,30 +559,10 @@ export default class DesignPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/sec-05.jpg"
+                    src="/New-img/Design/build.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <span
-                    style={{
-                      position: 'absolute',
-                      left: '0',
-                      top: '0',
-                      width: '60px',
-                      height: '60px',
-                      background: '#E31E26',
-                      color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
-                      fontWeight: '700',
-                      lineHeight: '1',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    4
-                  </span>
                   <div
                     style={{
                       position: 'absolute',
@@ -642,6 +577,23 @@ export default class DesignPage extends React.Component {
                 <div
                   style={{ padding: '24px 24px 28px', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}
                 >
+                  <span
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      background: '#E31E26',
+                      color: '#fff',
+                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontSize: '34px',
+                      fontWeight: '700',
+                      lineHeight: '1',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    4
+                  </span>
                   <div
                     style={{
                       fontFamily: "'Barlow Condensed',sans-serif",
@@ -1761,7 +1713,7 @@ export default class DesignPage extends React.Component {
         <section
           style={{
             position: 'relative',
-            background: "#14183A url('/bbs-img/design-cta.jpg') center/cover no-repeat",
+            background: "#14183A url('/New-img/Design/cta-banner.jpg') center/cover no-repeat",
             color: '#fff',
           }}
         >
@@ -1777,7 +1729,7 @@ export default class DesignPage extends React.Component {
               position: 'relative',
               maxWidth: '1280px',
               margin: '0 auto',
-              padding: '88px 32px',
+              padding: '52px 32px',
               display: 'flex',
               flexDirection: 'column',
               gap: '32px',

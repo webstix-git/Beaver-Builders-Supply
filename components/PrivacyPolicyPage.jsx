@@ -50,12 +50,13 @@ export default class PrivacyPolicyPage extends React.Component {
         <div style={{ position: 'relative' }}>
           <SiteHeader vals={vals} />
           <section
+            className="bbs-hero-banner"
             style={{
               position: 'relative',
               background: "#14183A url('/bbs-img/bbs-building.jpg') 43% 62%/cover no-repeat",
               minHeight: '420px',
               display: 'flex',
-              alignItems: 'flex-end',
+              alignItems: 'center',
             }}
           >
             <div
@@ -74,7 +75,7 @@ export default class PrivacyPolicyPage extends React.Component {
                   margin: '0',
                   fontFamily: "'Barlow Condensed',sans-serif",
                   fontWeight: '700',
-                  fontSize: 'clamp(52px,6.4vw,88px)',
+                  fontSize: 'clamp(52px,6.4vw,60px)',
                   lineHeight: '.95',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -85,7 +86,7 @@ export default class PrivacyPolicyPage extends React.Component {
               <p
                 style={{
                   margin: '18px 0 0',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: '1.55',
                   color: '#fff',
                   maxWidth: '600px',

@@ -49,12 +49,13 @@ export default class AboutPage extends React.Component {
         <div style={{ position: 'relative' }}>
           <SiteHeader active="about" vals={vals} />
           <section
+            className="bbs-hero-banner"
             style={{
               position: 'relative',
-              background: "#14183A url('/bbs-img/about-hero.jpg') center 45%/cover no-repeat",
+              background: "#14183A url('/New-img/About/hero-banner.jpg') center 45%/cover no-repeat",
               minHeight: '480px',
               display: 'flex',
-              alignItems: 'flex-end',
+              alignItems: 'center',
             }}
           >
             <div
@@ -73,7 +74,7 @@ export default class AboutPage extends React.Component {
                   margin: '0',
                   fontFamily: "'Barlow Condensed',sans-serif",
                   fontWeight: '700',
-                  fontSize: 'clamp(52px,6.4vw,88px)',
+                  fontSize: 'clamp(52px,6.4vw,60px)',
                   lineHeight: '.95',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -84,7 +85,7 @@ export default class AboutPage extends React.Component {
               <p
                 style={{
                   margin: '18px 0 0',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: '1.55',
                   color: '#fff',
                   maxWidth: '600px',
@@ -222,7 +223,7 @@ export default class AboutPage extends React.Component {
               </div>
               <div style={{ position: 'relative' }}>
                 <img
-                  src="/bbs-img/sec-04.jpg"
+                  src="/New-img/About/our-story.jpg"
                   alt="Stone fireplace with built-in cabinets and shelving"
                   style={{ width: '100%', aspectRatio: '5/4', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
                 />
@@ -244,164 +245,19 @@ export default class AboutPage extends React.Component {
           <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
             <div
               style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '24px',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
+                color: '#E31E26',
+                fontFamily: "'Barlow Condensed',sans-serif",
+                fontSize: '17px',
+                fontWeight: '700',
+                letterSpacing: '.16em',
+                textTransform: 'uppercase',
               }}
             >
-              <div style={{ maxWidth: '640px' }}>
-                <div
-                  style={{
-                    color: '#E31E26',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '17px',
-                    fontWeight: '700',
-                    letterSpacing: '.16em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Experience
-                </div>
-                <h2
-                  style={{
-                    margin: '12px 0 0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: 'clamp(38px,4vw,54px)',
-                    lineHeight: '1',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    color: '#14183A',
-                  }}
-                >
-                  Three generations of <span style={{ whiteSpace: 'nowrap' }}>know-how</span>
-                </h2>
-              </div>
-              <p style={{ margin: '0', maxWidth: '420px', fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A' }}>
-                Experience shows up in the products we recommend, the plans we draw, and the materials we build and deliver.
-              </p>
+              Experience
             </div>
             <div
               style={{
-                marginTop: '48px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,260px),1fr))',
-                gap: '20px',
-              }}
-            >
-              <div
-                style={{
-                  background: '#fff',
-                  boxShadow: '0 24px 60px rgba(20,24,58,.14)',
-                  borderTop: '4px solid #E31E26',
-                  padding: '34px 30px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '10px',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '72px',
-                    fontWeight: '700',
-                    lineHeight: '.85',
-                    color: '#E31E26',
-                  }}
-                >
-                  75+
-                </span>
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '22px',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1.1',
-                    color: '#14183A',
-                  }}
-                >
-                  Years serving our community
-                </span>
-              </div>
-              <div
-                style={{
-                  background: '#fff',
-                  boxShadow: '0 24px 60px rgba(20,24,58,.14)',
-                  borderTop: '4px solid #E31E26',
-                  padding: '34px 30px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '10px',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '72px',
-                    fontWeight: '700',
-                    lineHeight: '.85',
-                    color: '#E31E26',
-                  }}
-                >
-                  3
-                </span>
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '22px',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1.1',
-                    color: '#14183A',
-                  }}
-                >
-                  Generations of family ownership
-                </span>
-              </div>
-              <div
-                style={{
-                  background: '#fff',
-                  boxShadow: '0 24px 60px rgba(20,24,58,.14)',
-                  borderTop: '4px solid #E31E26',
-                  padding: '34px 30px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '10px',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '72px',
-                    fontWeight: '700',
-                    lineHeight: '.85',
-                    color: '#E31E26',
-                  }}
-                >
-                  100+
-                </span>
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '22px',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1.1',
-                    color: '#14183A',
-                  }}
-                >
-                  Years of combined experience on our truss crew
-                </span>
-              </div>
-            </div>
-            <div
-              style={{
-                marginTop: '72px',
+                marginTop: '12px',
                 fontFamily: "'Barlow Condensed',sans-serif",
                 fontSize: '26px',
                 fontWeight: '700',
@@ -436,7 +292,7 @@ export default class AboutPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/sec-05.jpg"
+                    src="/New-img/About/product-guidance.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -517,7 +373,7 @@ export default class AboutPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/sec-06.jpg"
+                    src="/New-img/About/kitchen-and-bath.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -597,7 +453,7 @@ export default class AboutPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/sec-07.jpg"
+                    src="/New-img/About/drafting-and-layout.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -677,7 +533,7 @@ export default class AboutPage extends React.Component {
               >
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
-                    src="/bbs-img/sec-08.jpg"
+                    src="/New-img/About/custom-truss.jpg"
                     alt=""
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -752,7 +608,7 @@ export default class AboutPage extends React.Component {
               gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,480px),1fr))',
             }}
           >
-            <div style={{ minHeight: '520px', background: "url('/bbs-img/sec-09.jpg') center/cover no-repeat" }} />
+            <div style={{ minHeight: '520px', background: "url('/New-img/About/why-us.jpg') center/cover no-repeat" }} />
             <div style={{ padding: '96px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div
                 style={{
@@ -1084,7 +940,7 @@ export default class AboutPage extends React.Component {
               position: 'relative',
               maxWidth: '1280px',
               margin: '0 auto',
-              padding: '88px 32px',
+              padding: '52px 32px',
               display: 'flex',
               flexDirection: 'column',
               gap: '32px',

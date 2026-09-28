@@ -1,17 +1,18 @@
 'use client';
 
 import React from 'react';
+import HeaderHeightSync from './HeaderHeightSync';
 import '../styles/materials.css';
 
 const U = id => (window.__resources || {})[id] || `https://images.unsplash.com/${id}?w=1200&q=80`;
 const CATS = [
-  { slug: 'kitchen-bath', name: 'Kitchen & Bath', img: '/bbs-img/mat-kitchen-bath.jpg', intro: 'Cabinetry, countertops, and fixtures for new kitchens, remodels, and bathrooms. Our team helps you compare door styles, finishes, and layouts, then coordinates measurements and delivery.', items: ['Cabinetry', 'Countertops & Tops', 'Vanities', 'Hardware'], n: 4 },
-  { slug: 'decking-railing', name: 'Decking & Railing', img: '/bbs-img/mat-decking-railing.jpg', intro: 'Composite and wood decking with matching railing systems, built to hold up to Wisconsin seasons. See full-size deck and rail displays in our showroom before you choose.', items: ['Composite Decking', 'Wood Decking', 'Railing Systems', 'Fasteners & Lighting'], n: 4 },
-  { slug: 'windows', name: 'Windows', img: '/bbs-img/mat-windows.jpg', intro: 'Energy-efficient windows for new construction and replacement projects. We help you balance performance, style, and budget for every opening in the house.', items: ['Double-Hung', 'Casement', 'Picture & Specialty', 'Replacement'], n: 4 },
-  { slug: 'exterior-doors', name: 'Exterior Doors', img: '/bbs-img/mat-exterior-doors.jpg', intro: 'Entry, patio, and storm doors that seal tight and look right. Choose from fiberglass, steel, and wood options with the hardware and glass to match.', items: ['Entry Doors', 'Patio Doors', 'Storm Doors', 'Hardware'], n: 4 },
-  { slug: 'interior-doors-trim', name: 'Interior Doors & Trim', img: '/bbs-img/mat-interior-doors-trim.jpg', intro: 'Interior doors, millwork, and trim packages for finished interiors. We can quote complete door and trim packages directly from your plans.', items: ['Interior Doors', 'Millwork', 'Base & Casing', 'Stair Parts'], n: 4 },
-  { slug: 'siding', name: 'Siding', img: '/bbs-img/mat-siding.jpg', intro: 'Engineered wood, fiber cement, and vinyl siding with trim and accessories. Our showroom features full-scale siding walls so you can see color and texture in real light.', items: ['Engineered Wood', 'Fiber Cement', 'Vinyl', 'Trim & Soffit'], n: 4 },
-  { slug: 'roofing', name: 'Roofing', img: '/bbs-img/mat-roofing.jpg', intro: 'Shingles, underlayment, and ventilation from brands we trust. We help builders and homeowners put together a complete roofing system for lasting performance.', items: ['Shingles', 'Underlayment', 'Ventilation', 'Flashing'], n: 4 }
+  { slug: 'kitchen-bath', name: 'Kitchen & Bath', img: '/New-img/Materials/kitchen-and-bath.jpg', intro: 'Cabinetry, countertops, and fixtures for new kitchens, remodels, and bathrooms. Our team helps you compare door styles, finishes, and layouts, then coordinates measurements and delivery.', items: ['Cabinetry', 'Countertops & Tops', 'Vanities', 'Hardware'], n: 4 },
+  { slug: 'decking-railing', name: 'Decking & Railing', img: '/New-img/Materials/decking-and-railing.jpg', intro: 'Composite and wood decking with matching railing systems, built to hold up to Wisconsin seasons. See full-size deck and rail displays in our showroom before you choose.', items: ['Composite Decking', 'Wood Decking', 'Railing Systems', 'Fasteners & Lighting'], n: 4 },
+  { slug: 'windows', name: 'Windows', img: '/New-img/Materials/windows.jpg', intro: 'Energy-efficient windows for new construction and replacement projects. We help you balance performance, style, and budget for every opening in the house.', items: ['Double-Hung', 'Casement', 'Picture & Specialty', 'Replacement'], n: 4 },
+  { slug: 'exterior-doors', name: 'Exterior Doors', img: '/New-img/Materials/exterior-door.jpg', intro: 'Entry, patio, and storm doors that seal tight and look right. Choose from fiberglass, steel, and wood options with the hardware and glass to match.', items: ['Entry Doors', 'Patio Doors', 'Storm Doors', 'Hardware'], n: 4 },
+  { slug: 'interior-doors-trim', name: 'Interior Doors & Trim', img: '/New-img/Materials/interioir-doors-and-trim.jpg', intro: 'Interior doors, millwork, and trim packages for finished interiors. We can quote complete door and trim packages directly from your plans.', items: ['Interior Doors', 'Millwork', 'Base & Casing', 'Stair Parts'], n: 4 },
+  { slug: 'siding', name: 'Siding', img: '/New-img/Materials/siding.jpg', intro: 'Engineered wood, fiber cement, and vinyl siding with trim and accessories. Our showroom features full-scale siding walls so you can see color and texture in real light.', items: ['Engineered Wood', 'Fiber Cement', 'Vinyl', 'Trim & Soffit'], n: 4 },
+  { slug: 'roofing', name: 'Roofing', img: '/New-img/Materials/roofing.jpg', intro: 'Shingles, underlayment, and ventilation from brands we trust. We help builders and homeowners put together a complete roofing system for lasting performance.', items: ['Shingles', 'Underlayment', 'Ventilation', 'Flashing'], n: 4 }
 ];
 // Brand logos by category; categories without an entry keep the placeholder boxes. dark: white logo shown on a dark tile.
 const BRAND_LOGOS = {
@@ -308,14 +309,16 @@ export default class MaterialsPage extends React.Component {
                 </a>
               </nav>
             </div>
+            <HeaderHeightSync />
           </header>
           <section
+            className="bbs-hero-banner"
             style={{
               position: 'relative',
               background: '#14183A url("/bbs-img/mat-hero.jpg") center 60%/cover no-repeat',
               minHeight: '480px',
               display: 'flex',
-              alignItems: 'flex-end',
+              alignItems: 'center',
             }}
           >
             <div
@@ -326,20 +329,15 @@ export default class MaterialsPage extends React.Component {
               }}
             />
             <div
-              style={{
-                position: 'relative',
-                maxWidth: '1280px',
-                width: '100%',
-                margin: '0 auto',
-                padding: '170px 32px 72px',
-              }}
+              className="bbs-hero-inner"
+              style={{ position: 'relative', maxWidth: '1280px', width: '100%', margin: '0 auto' }}
             >
               <h1
                 style={{
                   margin: '0',
                   fontFamily: "'Barlow Condensed',sans-serif",
                   fontWeight: '700',
-                  fontSize: 'clamp(52px,6.4vw,88px)',
+                  fontSize: 'clamp(52px,6.4vw,60px)',
                   lineHeight: '.95',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -350,7 +348,7 @@ export default class MaterialsPage extends React.Component {
               <p
                 style={{
                   margin: '18px 0 0',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: '1.55',
                   color: '#fff',
                   maxWidth: '600px',
@@ -1136,7 +1134,7 @@ export default class MaterialsPage extends React.Component {
         <section
           style={{
             position: 'relative',
-            background: '#14183A url("/bbs-img/mat-cta.jpg") center/cover no-repeat',
+            background: '#14183A url("/New-img/Materials/Cta-banner.jpg") center/cover no-repeat',
             color: '#fff',
           }}
         >
@@ -1152,7 +1150,7 @@ export default class MaterialsPage extends React.Component {
               position: 'relative',
               maxWidth: '1280px',
               margin: '0 auto',
-              padding: '88px 32px',
+              padding: '52px 32px',
               display: 'flex',
               flexDirection: 'column',
               gap: '32px',
