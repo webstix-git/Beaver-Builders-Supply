@@ -6,27 +6,28 @@ import SiteFooter from './SiteFooter';
 import '../styles/inside.css';
 import '../styles/gallery.css';
 
+// Every fifth photo, starting with the first, fills a block's large tile; keep 4:3 photos there so they are not trimmed.
 const PHOTOS = [
   { src: '/bbs-img/gal-481260257.jpg', tag: 'Showroom kitchen display' },
   { src: '/bbs-img/gal-772716807.jpg', tag: 'Cabinet and countertop display' },
+  { src: '/New-img/Gallery/481156425_1168577174970380_7119339270187395847_n.jpg', tag: 'Covered patio' },
+  { src: '/New-img/Gallery/763805530_1583236630171097_3760181239488667736_n.jpg', tag: 'Custom kitchen cabinets' },
   { src: '/bbs-img/gal-480770058.jpg', tag: 'Waterfall island display' },
-  { src: '/bbs-img/gal-481231765.jpg', tag: 'Showroom kitchen and bar' },
-  { src: '/bbs-img/gal-772510836.jpg', tag: 'Siding, stone, and decking display' },
   { src: '/bbs-img/gal-772664461.jpg', tag: 'Windows and doors showroom' },
-  { src: '/bbs-img/gal-741821004.jpg', tag: 'Siding and entry door project' },
-  { src: '/bbs-img/gal-481660189.jpg', tag: 'Finished home' },
-  { src: '/bbs-img/sec-09.jpg', tag: 'Covered patio' },
-  { src: '/bbs-img/sec-08.jpg', tag: 'Siding project' },
-  { src: '/bbs-img/gal-772696788.jpg', tag: 'Showroom siding, doors, and stone' },
-  { src: '/bbs-img/sec-15.jpg', tag: 'Custom kitchen' },
-  { src: '/bbs-img/gal-763249197.jpg', tag: 'Kitchen project' },
+  { src: '/New-img/Gallery/510221658_9917744215012039_4218192731286335768_n.jpg', tag: 'Truss delivery' },
+  { src: '/New-img/Gallery/763655490_1583238900170870_5720930948362635318_n.jpg', tag: 'Fireplace and built-ins' },
+  { src: '/bbs-img/gal-481231765.jpg', tag: 'Showroom kitchen and bar' },
   { src: '/New-img/Gallery/500103430_9727345597385236_2873127610018809278_n.jpg', tag: 'Finished home' },
-  { src: '/bbs-img/bbs-truss-delivery.jpg', tag: 'Truss delivery' },
-  { src: '/bbs-img/gal-500289586.jpg', tag: 'Finished home' },
-  { src: '/bbs-img/gal-481308960.jpg', tag: 'Kitchen project' },
-  { src: '/bbs-img/gal-730473848.jpg', tag: 'Deck and exterior project' },
-  { src: '/bbs-img/gal-482030819.jpg', tag: 'Patio door and siding project' },
-  { src: '/bbs-img/sec-04.jpg', tag: 'Fireplace and built-ins' }
+  { src: '/New-img/Gallery/814761710_1621274093034017_989278391605795611_n.jpg', tag: 'Detached garage' },
+  { src: '/bbs-img/gal-772510836.jpg', tag: 'Siding, stone, and decking display' },
+  { src: '/New-img/Gallery/481253203_1168705518290879_3201260945447998079_n.jpg', tag: 'Kitchen project' },
+  { src: '/New-img/Gallery/753281987_1572552801239480_7179308573101564413_n.jpg', tag: 'New construction framing' },
+  { src: '/bbs-img/gal-741821004.jpg', tag: 'Siding and entry door project' },
+  { src: '/New-img/Gallery/814740749_1621274299700663_420377519032775124_n.jpg', tag: 'New home under construction' },
+  { src: '/New-img/Gallery/512392257_9922877911165336_4796148681306932767_n.jpg', tag: 'Garage and shop building' },
+  { src: '/New-img/Gallery/500811121_9735649009888228_3014671618398086198_n.jpg', tag: 'Kitchen with island' },
+  { src: '/bbs-img/gal-772696788.jpg', tag: 'Showroom siding, doors, and stone' },
+  { src: '/New-img/Gallery/816393815_1627307832430643_3345575578012989027_n.jpg', tag: 'Deck with lighted steps' }
 ];
 const BLOCK_SIZE = 5;
 export default class GalleryPage extends React.Component {
@@ -39,6 +40,13 @@ export default class GalleryPage extends React.Component {
     };
     window.addEventListener('scroll', this.handleScroll, { passive: true });
     this.handleScroll();
+    this.handleKey = (e) => {
+      if (this.state.lightbox === null) return;
+      if (e.key === 'Escape') this.closeLightbox();
+      else if (e.key === 'ArrowLeft') this.stepLightbox(-1);
+      else if (e.key === 'ArrowRight') this.stepLightbox(1);
+    };
+    window.addEventListener('keydown', this.handleKey);
     // The hash is dropped after the jump so a refresh opens the page at the top.
     history.scrollRestoration = 'manual';
     const target = location.hash && document.getElementById(location.hash.slice(1));
@@ -50,6 +58,7 @@ export default class GalleryPage extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('keydown', this.handleKey);
     document.body.style.overflow = '';
   }
 
@@ -130,10 +139,11 @@ export default class GalleryPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -181,10 +191,10 @@ export default class GalleryPage extends React.Component {
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -193,10 +203,11 @@ export default class GalleryPage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                 }}
@@ -204,7 +215,7 @@ export default class GalleryPage extends React.Component {
                 Job sites, showroom, and the yard
               </h2>
             </div>
-            <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="bbs-gal-43" style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {vals.galleryBlocks.map((b, i) => (
                 <div key={i} className={`bbs-gal ${b.cls}`}>
                   {b.items.map((g, j) => (
@@ -222,7 +233,7 @@ export default class GalleryPage extends React.Component {
           </div>
           {vals.lightboxOpen && (
             <div className="bbs-lightbox" onClick={vals.closeLightbox}>
-              <img className="bbs-lightbox-img" src={vals.lightboxSrc} alt={vals.lightboxAlt} onClick={vals.stopClick} />
+              <img className="bbs-lightbox-img is-natural" src={vals.lightboxSrc} alt={vals.lightboxAlt} onClick={vals.stopClick} />
               <button className="bbs-lb-btn bbs-lb-prev" type="button" aria-label="Previous image" onClick={vals.prevImage}>
                 <svg className="bbs-ico" width="26" height="26" viewBox="0 0 24 24">
                   <polyline points="15 18 9 12 15 6" />
@@ -272,10 +283,11 @@ export default class GalleryPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(36px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -296,22 +308,22 @@ export default class GalleryPage extends React.Component {
                   color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Call 608-526-3232
               </a>
               <a
-                className="hv-9099e0"
+                className="hv-770bf8"
                 href="/contact"
                 style={{
                   whiteSpace: 'nowrap',
-                  padding: '17px 29px',
-                  background: '#fff',
-                  color: '#14183A',
+                  padding: '16px 28px',
+                  border: '1.5px solid #fff',
+                  color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Contact Us

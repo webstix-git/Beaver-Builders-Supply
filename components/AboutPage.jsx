@@ -72,10 +72,11 @@ export default class AboutPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -131,10 +132,10 @@ export default class AboutPage extends React.Component {
                 <div
                   style={{
                     color: '#E31E26',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '17px',
                     fontWeight: '700',
-                    letterSpacing: '.16em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -143,10 +144,11 @@ export default class AboutPage extends React.Component {
                 <h2
                   style={{
                     margin: '12px 0 0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: 'clamp(42px,4.6vw,64px)',
-                    lineHeight: '.98',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: 'clamp(38px,4.6vw,58px)',
+                    lineHeight: '1.05',
                     fontWeight: '700',
+                    letterSpacing: '-.015em',
                     textTransform: 'uppercase',
                     color: '#14183A',
                   }}
@@ -154,13 +156,13 @@ export default class AboutPage extends React.Component {
                   Built on a family tradition
                 </h2>
                 <p
-                  style={{ margin: '22px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}
+                  style={{ margin: '22px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}
                 >
-                  Beaver Builders Supply is built on a family tradition spanning three generations. We were created to serve
+                  Beaver Builders' Supply is built on a family tradition spanning three generations. We were created to serve
                   local homeowners and builders with dependable products, expert guidance, and a neighbor-first approach.
                 </p>
                 <p
-                  style={{ margin: '16px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}
+                  style={{ margin: '16px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}
                 >
                   That purpose has not changed. We are locally owned, we employ local neighbors, and our business stays
                   rooted in the community we have served for more than 75 years. When you do business with us, you are doing
@@ -234,7 +236,7 @@ export default class AboutPage extends React.Component {
                     bottom: '0',
                     width: '96px',
                     height: '6px',
-                    background: '#E31E26',
+                    background: '#313893',
                   }}
                 />
               </div>
@@ -246,27 +248,29 @@ export default class AboutPage extends React.Component {
             <div
               style={{
                 color: '#E31E26',
-                fontFamily: "'Barlow Condensed',sans-serif",
+                fontFamily: "'Roboto Condensed',sans-serif",
                 fontSize: '17px',
                 fontWeight: '700',
-                letterSpacing: '.16em',
+                letterSpacing: '.08em',
                 textTransform: 'uppercase',
               }}
             >
               Experience
             </div>
-            <div
+            <h2
               style={{
-                marginTop: '12px',
-                fontFamily: "'Barlow Condensed',sans-serif",
-                fontSize: '26px',
+                margin: '12px 0 0',
+                fontFamily: "'Roboto Condensed',sans-serif",
+                fontSize: 'clamp(38px,4.6vw,58px)',
+                lineHeight: '1.1',
                 fontWeight: '700',
+                letterSpacing: '-.015em',
                 textTransform: 'uppercase',
                 color: '#14183A',
               }}
             >
               What we handle in-house
-            </div>
+            </h2>
             <div
               style={{
                 marginTop: '24px',
@@ -303,24 +307,24 @@ export default class AboutPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Product Guidance
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     A sales team that knows how each product performs and helps you choose what fits your quality, value,
                     and budget.
                   </div>
@@ -384,24 +388,24 @@ export default class AboutPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Kitchen & Bath Design
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     In-house cabinet design for kitchens, baths, storage rooms, garages, and more.
                   </div>
                 </div>
@@ -464,24 +468,24 @@ export default class AboutPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Drafting & Layout
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Our staff helps you lay out your new home or project, at no extra cost when you build with Beaver.
                   </div>
                 </div>
@@ -544,24 +548,24 @@ export default class AboutPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Custom Trusses
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     We are the only local lumber yard that builds trusses in-house, and every truss is custom built.
                   </div>
                 </div>
@@ -609,16 +613,23 @@ export default class AboutPage extends React.Component {
             }}
           >
             <div style={{ minHeight: '520px', background: "url('/New-img/About/why-us.jpg') center/cover no-repeat" }} />
-            <div style={{ padding: '96px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div
+              style={{
+                padding: '96px clamp(24px,5vw,56px)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}
+            >
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
-                  color: '#FF6B70',
+                  color: '#fff',
                 }}
               >
                 Why Us
@@ -626,10 +637,11 @@ export default class AboutPage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(32px,4.05vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -637,7 +649,7 @@ export default class AboutPage extends React.Component {
                 <br />
                 to us
               </h2>
-              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#D9DBEA', textWrap: 'pretty' }}>
+              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#fff', textWrap: 'pretty' }}>
                 Quality, honesty, personal service, and community. We believe customers should feel like they’re working
                 with a trusted neighbor, not just another supplier.
               </p>
@@ -654,51 +666,51 @@ export default class AboutPage extends React.Component {
                 <div>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Quality
                   </div>
-                  <div style={{ marginTop: '8px', color: '#D9DBEA', fontSize: '16px', lineHeight: '1.5' }}>
+                  <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     Dependable products from brands we stand behind, recommended by people who know how they perform.
                   </div>
                 </div>
                 <div>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Honesty
                   </div>
-                  <div style={{ marginTop: '8px', color: '#D9DBEA', fontSize: '16px', lineHeight: '1.5' }}>
+                  <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     Straight answers and honest recommendations, so you can make the right call for your project and budget.
                   </div>
                 </div>
                 <div>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Personal Service
                   </div>
-                  <div style={{ marginTop: '8px', color: '#D9DBEA', fontSize: '16px', lineHeight: '1.5' }}>
+                  <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     You work with people who take the time to understand your project, from the first conversation to
                     delivery on site.
                   </div>
@@ -706,17 +718,17 @@ export default class AboutPage extends React.Component {
                 <div>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Community
                   </div>
-                  <div style={{ marginTop: '8px', color: '#D9DBEA', fontSize: '16px', lineHeight: '1.5' }}>
+                  <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     Locally owned, staffed by local neighbors, and rooted in the community we have served for more than 75
                     years.
                   </div>
@@ -740,10 +752,10 @@ export default class AboutPage extends React.Component {
                 <div
                   style={{
                     color: '#E31E26',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '17px',
                     fontWeight: '700',
-                    letterSpacing: '.16em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -752,10 +764,11 @@ export default class AboutPage extends React.Component {
                 <h2
                   style={{
                     margin: '12px 0 0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: 'clamp(38px,4vw,54px)',
-                    lineHeight: '1',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: 'clamp(38px,4.6vw,58px)',
+                    lineHeight: '1.1',
                     fontWeight: '700',
+                    letterSpacing: '-.015em',
                     textTransform: 'uppercase',
                     color: '#14183A',
                   }}
@@ -781,7 +794,7 @@ export default class AboutPage extends React.Component {
               }}
             >
               <iframe
-                title="Map to Beaver Builders Supply"
+                title="Map to Beaver Builders' Supply"
                 src="https://maps.google.com/maps?q=N6838+Builders+Ct+Holmen+WI+54636&output=embed"
                 loading="lazy"
                 style={{
@@ -801,10 +814,10 @@ export default class AboutPage extends React.Component {
                     background: '#E31E26',
                     color: '#fff',
                     borderRadius: '2px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '14px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -813,11 +826,11 @@ export default class AboutPage extends React.Component {
                 <div
                   style={{
                     marginTop: '14px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '30px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '28px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    lineHeight: '1',
+                    lineHeight: '1.1',
                     color: '#14183A',
                   }}
                 >
@@ -827,18 +840,26 @@ export default class AboutPage extends React.Component {
                   <div style={{ padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
                     >
                       Showroom & Yard
                     </span>
-                    <span style={{ fontSize: '17px', fontWeight: '600', lineHeight: '1.45', color: '#14183A' }}>
-                      N6838 Builders Ct., Holmen, WI 54636
+                    <span style={{ fontSize: '18px', fontWeight: '600', lineHeight: '1.45', color: '#14183A' }}>
+                      <a
+                        className="hv-b2d6c8"
+                        href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
+                        target="_blank"
+                        rel="noopener"
+                        style={{ color: '#14183A' }}
+                      >
+                        N6838 Builders Ct., Holmen, WI 54636
+                      </a>
                       <br />
                       <span style={{ fontWeight: '400', color: '#4A4F6A' }}>
                         Just off the MH/McHugh exit, near Holmen High School.
@@ -856,17 +877,17 @@ export default class AboutPage extends React.Component {
                   >
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
                     >
                       Hours
                     </span>
-                    <span style={{ fontSize: '17px', fontWeight: '600', lineHeight: '1.45', color: '#14183A' }}>
+                    <span style={{ fontSize: '18px', fontWeight: '600', lineHeight: '1.45', color: '#14183A' }}>
                       Monday to Friday, 7:30 AM to 4:30 PM
                     </span>
                   </div>
@@ -881,17 +902,17 @@ export default class AboutPage extends React.Component {
                   >
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
                     >
                       Phone
                     </span>
-                    <span style={{ fontSize: '17px', fontWeight: '600', lineHeight: '1.45', color: '#14183A' }}>
+                    <span style={{ fontSize: '18px', fontWeight: '600', lineHeight: '1.45', color: '#14183A' }}>
                       <a className="hv-b2d6c8" href="tel:6085263232" style={{ color: '#14183A' }}>
                         608-526-3232
                       </a>
@@ -901,7 +922,7 @@ export default class AboutPage extends React.Component {
                 <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
                   <a
                     className="hv-66db52"
-                    href="https://maps.google.com/?q=N6838+Builders+Ct+Holmen+WI+54636"
+                    href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
                     target="_blank"
                     rel="noopener"
                     style={{
@@ -911,7 +932,7 @@ export default class AboutPage extends React.Component {
                       color: '#313893',
                       fontWeight: '700',
                       fontSize: '17px',
-                      borderRadius: '2px',
+                      borderRadius: '3px',
                     }}
                   >
                     Get Directions
@@ -951,10 +972,11 @@ export default class AboutPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(36px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -975,22 +997,22 @@ export default class AboutPage extends React.Component {
                   color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Call 608-526-3232
               </a>
               <a
-                className="hv-9099e0"
+                className="hv-770bf8"
                 href="/contact"
                 style={{
                   whiteSpace: 'nowrap',
-                  padding: '17px 29px',
-                  background: '#fff',
-                  color: '#14183A',
+                  padding: '16px 28px',
+                  border: '1.5px solid #fff',
+                  color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Contact Us

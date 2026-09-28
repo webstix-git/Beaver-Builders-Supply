@@ -1,19 +1,83 @@
 html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
 /* The header overlays the hero, so the hero reserves the height of the visible header content (measured by
-   HeaderHeightSync; the fallbacks match the header's wrap points) and centers the text below it. The h1 and p
+   HeaderHeightSync; the fallbacks match the header's resting height) and centers the text below it. The h1 and p
    margins trim the line-box space above the capitals and below the last baseline, so the space above and below
    the text is equal to the eye. */
 .bbs-hero-banner{padding-top:var(--bbs-header-h,78px)}
 .bbs-hero-inner{padding:20px 32px}
-.bbs-hero-inner h1{margin-top:-.175em !important}
+.bbs-hero-inner h1{margin-top:-.225em !important}
 .bbs-hero-inner p{margin-bottom:-.47em !important}
-@media (max-width:1170px){.bbs-hero-banner{padding-top:var(--bbs-header-h,141px)}}
-@media (max-width:851px){.bbs-hero-banner{padding-top:var(--bbs-header-h,190px)}}
 @media (max-width:640px){.bbs-hero-inner{padding:20px 24px}}
-@media (max-width:485px){.bbs-hero-banner{padding-top:var(--bbs-header-h,237px)}}
-@media (max-width:374px){.bbs-hero-banner{padding-top:var(--bbs-header-h,284px)}}
-/* Below ~1170px the header wraps and needs more room than a 400px banner leaves, so the cap is desktop-only. */
+@media (max-width:480px){.bbs-hero-banner{padding-top:var(--bbs-header-h,62px)}}
+/* The 400px banner height is desktop-only; narrower screens let the banner grow with its content. */
 @media (min-width:1200px){.bbs-hero-banner{min-height:400px !important;max-height:400px}}
+/* Below 1230px the logo, menu, and quote button no longer fit on one row, so the menu and quote button move into
+   the hamburger panel. The breakpoint matches MOBILE_QUERY in MobileNav.jsx. */
+/* In the transparent (resting) header the logo and quote button keep their own width, so the row's space-between
+   puts equal gaps on both sides of the menu. */
+@media (min-width:1230px){.bbs-header:not(.is-sticky) .bbs-header-inner>div{flex:0 0 auto !important}}
+.bbs-burger{display:none;width:46px;height:46px;align-items:center;justify-content:center;padding:0;border:1.5px solid rgba(255,255,255,.4);border-radius:3px;background:transparent;color:#fff;cursor:pointer}
+.bbs-burger:hover{background:rgba(255,255,255,.12)}
+/* The menu is a drawer that slides in from the right edge over a dimmed backdrop. Visibility is delayed on close
+   so the panel stays visible while it slides out. */
+.bbs-mnav,.bbs-mnav-backdrop{display:none}
+@media (max-width:1229px){
+  .bbs-header-inner>nav,.bbs-header-quote{display:none !important}
+  .bbs-header-inner>div:last-child{flex:0 0 auto !important}
+  .bbs-burger{display:flex}
+  .bbs-mnav-backdrop{display:block;position:fixed;inset:0;z-index:1;background:rgba(10,12,30,.6);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
+  .bbs-mnav-backdrop.is-open{opacity:1;visibility:visible;transition:opacity .3s ease}
+  .bbs-mnav{display:block;position:fixed;top:0;right:0;bottom:0;z-index:2;width:min(360px,86vw);box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain;background:#14183A;box-shadow:-18px 0 40px rgba(0,0,0,.35);padding:0 24px 32px;transform:translateX(100%);visibility:hidden;transition:transform .3s ease,visibility 0s linear .3s}
+  .bbs-mnav.is-open{transform:none;visibility:visible;transition:transform .3s ease}
+}
+@media (prefers-reduced-motion:reduce){.bbs-mnav,.bbs-mnav.is-open,.bbs-mnav-backdrop,.bbs-mnav-backdrop.is-open{transition:none}}
+.bbs-mnav-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:78px;border-bottom:1px solid rgba(255,255,255,.12)}
+.bbs-mnav-head .bbs-burger{display:flex}
+.bbs-mnav-row{display:flex;align-items:center}
+.bbs-mnav>.bbs-mnav-link,.bbs-mnav-row,.bbs-mnav-sub{border-bottom:1px solid rgba(255,255,255,.12)}
+.bbs-mnav-link{display:block;flex:1;padding:14px 0;color:#fff;font-family:'Roboto Condensed',sans-serif;font-size:18px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.bbs-mnav-link:hover{color:#FFD0D2}
+.bbs-mnav-link.is-active{box-shadow:inset 3px 0 #E31E26;padding-left:14px}
+.bbs-mnav-toggle{width:46px;height:46px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:3px;background:transparent;color:#fff;cursor:pointer}
+.bbs-mnav-toggle:hover{background:rgba(255,255,255,.1)}
+.bbs-mnav-sub{padding:4px 0 10px 16px}
+.bbs-mnav-sub a{display:block;padding:10px 0;color:#fff;font-size:16px;font-weight:500}
+.bbs-mnav-sub a:hover{color:#FFD0D2}
+.bbs-mnav-quote{display:block;margin-top:20px;padding:14px 22px;background:#E31E26;color:#fff;text-align:center;border-radius:3px;font-family:'Roboto Condensed',sans-serif;font-size:19px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+@media (max-width:480px){
+  html .bbs-header .bbs-header-inner{padding:16px 20px;column-gap:16px !important}
+  html .bbs-header.is-sticky .bbs-header-inner{padding:10px 20px}
+  html .bbs-logo{height:44px}
+  .bbs-mnav{padding:0 20px 24px}
+}
+@media (max-width:360px){html .bbs-logo{height:40px}}
+@media (max-width:767px){html .bbs-header.is-sticky .bbs-logo{height:23px}}
+/* The homepage hero photo is shown at its native 1920x844 size (only scaled up if the hero grows taller than 844px),
+   so narrower screens see a slice of it; below 1024px the slice is shifted left to keep the house gables in view. */
+/* Those screens only see a slice of the photo anyway, so the hero fits its content instead of the photo's height. */
+@media (max-width:1023px){.bbs-home-hero{background-position:70% center !important;min-height:0 !important}}
+/* Scroll-to-top button. Its z-index keeps it above the page but under the header (20), so the open menu drawer
+   and the lightbox cover it. */
+.bbs-totop{position:fixed;right:24px;bottom:24px;z-index:19;width:48px;height:48px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:3px;background:#14183A;color:#fff;box-shadow:0 8px 24px rgba(20,24,58,.3);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s,background-color .2s ease}
+.bbs-totop.is-visible{opacity:1;visibility:visible;transform:none;transition:opacity .25s ease,transform .25s ease,background-color .2s ease}
+.bbs-totop:hover{background:#E31E26}
+.bbs-totop:focus-visible{outline:2px solid #fff;outline-offset:-5px}
+@media (max-width:767px){.bbs-totop{right:16px;bottom:16px;width:44px;height:44px}}
+@media (prefers-reduced-motion:reduce){.bbs-totop,.bbs-totop.is-visible{transition:none}}
+/* Image-and-text sections. Below 1064px the two 460px-minimum columns stack; the text then comes first, followed
+   by the image and then the buttons. */
+@media (max-width:1063px){
+  .bbs-split{display:flex !important;flex-direction:column;align-items:stretch !important;gap:0 !important}
+  .bbs-split-text{display:contents}
+  .bbs-split-media{order:1;margin-top:40px}
+  .bbs-split-cta{order:2}
+  .bbs-about-cta{text-align:center}
+}
+/* The homepage "75 years" badge scales with the photo column; the maximums are its desktop size. */
+.bbs-about-media{container-type:inline-size}
+.bbs-about-badge{bottom:clamp(64px,17cqw,96px);padding:clamp(12px,3.9cqw,22px) clamp(14px,4.9cqw,28px)}
+.bbs-about-badge-num{font-size:clamp(40px,12.7cqw,72px)}
+.bbs-about-badge-label{font-size:clamp(11px,2.8cqw,16px)}
 @media print {
   @page { margin: 0.5cm; }
   figure, table { break-inside: avoid; }

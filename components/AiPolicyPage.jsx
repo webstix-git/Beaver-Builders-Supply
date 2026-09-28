@@ -73,10 +73,11 @@ export default class AiPolicyPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -124,7 +125,7 @@ export default class AiPolicyPage extends React.Component {
               <section id="our-approach">
                 <h2>Our Approach</h2>
                 <p>
-                  At Beaver Builders Supply, our business is built on personal service and honest advice. We may use
+                  At Beaver Builders' Supply, our business is built on personal service and honest advice. We may use
                   artificial intelligence (AI) tools to help our team work more efficiently, but people remain responsible
                   for the advice, pricing, and service you receive.
                 </p>
@@ -180,7 +181,7 @@ export default class AiPolicyPage extends React.Component {
                 <h2>Questions</h2>
                 <p>If you have questions about how we use AI, contact us:</p>
                 <p>
-                  <strong>Beaver Builders Supply</strong>
+                  <strong>Beaver Builders' Supply</strong>
                   <br />
                   N6838 Builders Ct., Holmen, WI 54636
                   <br />
@@ -200,7 +201,7 @@ export default class AiPolicyPage extends React.Component {
                   border: '1.5px solid #313893',
                   color: '#313893',
                   fontWeight: '700',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Back to Home

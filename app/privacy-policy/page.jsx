@@ -1,7 +1,7 @@
 import PrivacyPolicyPage from '../../components/PrivacyPolicyPage';
 
 export const metadata = {
-  title: 'Privacy Policy | Beaver Builders Supply'
+  title: "Privacy Policy | Beaver Builders' Supply"
 };
 
 export default function Page() {

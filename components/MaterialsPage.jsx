@@ -2,6 +2,7 @@
 
 import React from 'react';
 import HeaderHeightSync from './HeaderHeightSync';
+import MobileNav from './MobileNav';
 import '../styles/materials.css';
 
 const U = id => (window.__resources || {})[id] || `https://images.unsplash.com/${id}?w=1200&q=80`;
@@ -112,15 +113,54 @@ export default class MaterialsPage extends React.Component {
       for (const c of CATS) { const el = document.getElementById(c.slug); if (el && el.getBoundingClientRect().top <= this.offset() + 20) cur = c.slug; }
       if (cur !== this.state.sel) this.setState({ sel: cur });
     };
-    this.onResize = () => this.measureHeader();
+    this.onResize = () => { this.measureHeader(); this.syncSlider(); };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onResize);
+    this.tabsRow = document.querySelector('.bbs-tabs-row');
+    this.tabsRow?.addEventListener('scroll', this.syncSlider, { passive: true });
+    document.fonts?.ready.then(this.syncSlider);
     this.measureHeader();
+    this.syncSlider();
     this.onScroll();
     const h = (location.hash || '').slice(1);
     if (CATS.some(c => c.slug === h)) setTimeout(() => this.go(h, 'auto'), 300);
   }
-  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    this.tabsRow?.removeEventListener('scroll', this.syncSlider);
+  }
+  // When the tabs row is wider than the screen it swipes sideways, and the slide bar under it shows the visible
+  // part of the row. Dragging the thumb scrolls the row; tapping the track centers the thumb there.
+  syncSlider = () => {
+    const row = this.tabsRow;
+    const bar = document.querySelector('.bbs-tabs-slider');
+    if (!row || !bar) return;
+    bar.hidden = row.scrollWidth <= row.clientWidth + 1;
+    if (bar.hidden) return;
+    const thumb = bar.firstElementChild;
+    thumb.style.width = `${(row.clientWidth / row.scrollWidth) * 100}%`;
+    thumb.style.left = `${(row.scrollLeft / row.scrollWidth) * 100}%`;
+  };
+  dragSlider = (e) => {
+    const row = this.tabsRow;
+    const bar = e.currentTarget;
+    if (!row) return;
+    const ratio = row.scrollWidth / bar.clientWidth;
+    if (e.target === bar) row.scrollLeft = (e.clientX - bar.getBoundingClientRect().left) * ratio - row.clientWidth / 2;
+    const startX = e.clientX;
+    const start = row.scrollLeft;
+    const move = (ev) => { row.scrollLeft = start + (ev.clientX - startX) * ratio; };
+    const end = () => {
+      bar.removeEventListener('pointermove', move);
+      bar.removeEventListener('pointerup', end);
+      bar.removeEventListener('pointercancel', end);
+    };
+    bar.setPointerCapture(e.pointerId);
+    bar.addEventListener('pointermove', move);
+    bar.addEventListener('pointerup', end);
+    bar.addEventListener('pointercancel', end);
+  };
   // The tabs bar sits under the compact (sticky) header, so its height is measured with the sticky styles applied.
   measureHeader() {
     const hd = document.querySelector('.bbs-header');
@@ -150,6 +190,7 @@ export default class MaterialsPage extends React.Component {
       cats,
       headerClass: this.state.scrolled ? 'is-sticky' : '',
       navTop: this.state.navTop,
+      dragSlider: this.dragSlider,
       materialsOpen: this.state.menu === 'm',
       designOpen: this.state.menu === 'd',
       openMaterials: () => this.setState({ menu: 'm' }),
@@ -176,31 +217,35 @@ export default class MaterialsPage extends React.Component {
                 justifyContent: 'space-between',
               }}
             >
-              <a href="/" style={{ display: 'block', flex: '0 0 auto' }}>
-                <img className="bbs-logo" src="/assets/logo-white.png" alt="Beaver Builders' Supply" />
-              </a>
+              <div style={{ flex: '1 1 0', display: 'flex' }}>
+                <a href="/" style={{ display: 'block', flex: '0 0 auto' }}>
+                  <img className="bbs-logo" src="/assets/logo-white.png" alt="Beaver Builders' Supply" />
+                </a>
+              </div>
               <nav
                 style={{
                   display: 'flex',
                   flexWrap: 'wrap',
                   gap: '4px',
                   alignItems: 'center',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: '19px',
+                  justifyContent: 'center',
+                  flex: '0 1 auto',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: '18px',
                   fontWeight: '600',
-                  letterSpacing: '.04em',
+                  letterSpacing: '.02em',
                   textTransform: 'uppercase',
                 }}
               >
-                <a className="hv-6d2547" href="/" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/" style={{ padding: '10px 9px', color: '#fff' }}>
                   Home
                 </a>
                 <div style={{ position: 'relative' }} onMouseEnter={vals.openMaterials} onMouseLeave={vals.closeMenu}>
                   <a
                     className="hv-6d2547"
-                    href="#"
+                    href="/materials"
                     style={{
-                      padding: '10px 14px',
+                      padding: '10px 9px',
                       color: '#fff',
                       display: 'flex',
                       gap: '6px',
@@ -221,7 +266,7 @@ export default class MaterialsPage extends React.Component {
                         boxShadow: '0 18px 40px rgba(20,24,58,.16)',
                         borderTop: '3px solid #E31E26',
                         padding: '8px 0',
-                        fontFamily: "'Source Sans 3',sans-serif",
+                        fontFamily: "'Roboto',sans-serif",
                         textTransform: 'none',
                         letterSpacing: '0',
                         fontSize: '16px',
@@ -246,7 +291,7 @@ export default class MaterialsPage extends React.Component {
                   <a
                     className="hv-6d2547"
                     href="/design"
-                    style={{ padding: '10px 14px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
+                    style={{ padding: '10px 9px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
                   >
                     Design <span style={{ fontSize: '11px' }}>▾</span>
                   </a>
@@ -261,7 +306,7 @@ export default class MaterialsPage extends React.Component {
                         boxShadow: '0 18px 40px rgba(20,24,58,.16)',
                         borderTop: '3px solid #E31E26',
                         padding: '8px 0',
-                        fontFamily: "'Source Sans 3',sans-serif",
+                        fontFamily: "'Roboto',sans-serif",
                         textTransform: 'none',
                         letterSpacing: '0',
                         fontSize: '16px',
@@ -285,29 +330,37 @@ export default class MaterialsPage extends React.Component {
                     </div>
                   )}
                 </div>
-                <a className="hv-6d2547" href="/gallery" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/gallery" style={{ padding: '10px 9px', color: '#fff' }}>
                   Gallery
                 </a>
-                <a className="hv-6d2547" href="/about" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/about" style={{ padding: '10px 9px', color: '#fff' }}>
                   About
                 </a>
-                <a className="hv-6d2547" href="/contact" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/contact" style={{ padding: '10px 9px', color: '#fff' }}>
                   Contact
                 </a>
+              </nav>
+              <div style={{ flex: '1 1 0', display: 'flex', justifyContent: 'flex-end' }}>
                 <a
-                  className="hv-6a96a5"
+                  className="bbs-header-quote hv-6a96a5"
                   href="/contact"
                   style={{
-                    marginLeft: '10px',
+                    flex: '0 0 auto',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '19px',
+                    fontWeight: '600',
+                    letterSpacing: '.02em',
+                    textTransform: 'uppercase',
                     padding: '12px 22px',
                     background: '#E31E26',
                     color: '#fff',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Request a Quote
                 </a>
-              </nav>
+                <MobileNav active="materials" onMaterial={(slug, e) => this.pick(slug)(e)} />
+              </div>
             </div>
             <HeaderHeightSync />
           </header>
@@ -335,10 +388,11 @@ export default class MaterialsPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -373,13 +427,13 @@ export default class MaterialsPage extends React.Component {
           }}
         >
           <div
+            className="bbs-tabs-row"
             style={{
               maxWidth: '1280px',
               margin: '0 auto',
               padding: '0 32px',
               display: 'flex',
-              flexWrap: 'wrap',
-              gap: '0 4px',
+              gap: '0 31px',
             }}
           >
             {vals.cats.map((c, i) => (
@@ -389,11 +443,14 @@ export default class MaterialsPage extends React.Component {
                 href={`#${c.slug}`}
                 onClick={c.pick}
                 style={{
-                  padding: '20px 16px 17px',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: '18px',
+                  flex: '1 1 auto',
+                  textAlign: 'center',
+                  whiteSpace: 'nowrap',
+                  padding: '20px 0 17px',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: '16px',
                   fontWeight: '700',
-                  letterSpacing: '.04em',
+                  letterSpacing: '.02em',
                   textTransform: 'uppercase',
                   color: c.color,
                   borderBottom: `3px solid ${c.bar}`,
@@ -402,6 +459,9 @@ export default class MaterialsPage extends React.Component {
                 {c.name}
               </a>
             ))}
+          </div>
+          <div className="bbs-tabs-slider" hidden onPointerDown={vals.dragSlider}>
+            <span />
           </div>
         </nav>
         {vals.cats.map((cur, i) => (
@@ -447,10 +507,11 @@ export default class MaterialsPage extends React.Component {
                   <h2
                     style={{
                       margin: '0',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: 'clamp(42px,4.6vw,64px)',
-                      lineHeight: '.98',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: 'clamp(38px,4.6vw,58px)',
+                      lineHeight: '1.05',
                       fontWeight: '700',
+                      letterSpacing: '-.015em',
                       textTransform: 'uppercase',
                       color: '#14183A',
                     }}
@@ -461,7 +522,7 @@ export default class MaterialsPage extends React.Component {
                     style={{
                       margin: '22px 0 0',
                       fontSize: '18px',
-                      lineHeight: '1.65',
+                      lineHeight: '1.6',
                       color: '#4A4F6A',
                       textWrap: 'pretty',
                     }}
@@ -497,14 +558,16 @@ export default class MaterialsPage extends React.Component {
                         color: '#fff',
                         fontWeight: '700',
                         fontSize: '17px',
-                        borderRadius: '2px',
+                        borderRadius: '3px',
                       }}
                     >
                       Get a Quote
                     </a>
                     <a
                       className="hv-66db52"
-                      href="/contact"
+                      href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
+                      target="_blank"
+                      rel="noopener"
                       style={{
                         whiteSpace: 'nowrap',
                         padding: '15px 27px',
@@ -512,7 +575,7 @@ export default class MaterialsPage extends React.Component {
                         color: '#313893',
                         fontWeight: '700',
                         fontSize: '17px',
-                        borderRadius: '2px',
+                        borderRadius: '3px',
                       }}
                     >
                       See It in the Showroom
@@ -532,7 +595,7 @@ export default class MaterialsPage extends React.Component {
                       bottom: '0',
                       width: '96px',
                       height: '6px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
@@ -549,8 +612,8 @@ export default class MaterialsPage extends React.Component {
               >
                 <div
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '26px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
                     color: '#14183A',
@@ -558,7 +621,7 @@ export default class MaterialsPage extends React.Component {
                 >
                   {cur.name} brands{cur.suffix1}
                 </div>
-                <div style={{ fontSize: '15px', color: '#4A4F6A' }}>
+                <div style={{ fontSize: '18px', color: '#4A4F6A' }}>
                   Select a brand to visit the manufacturer's website.
                 </div>
               </div>
@@ -669,10 +732,10 @@ export default class MaterialsPage extends React.Component {
                       background: '#E31E26',
                       color: '#fff',
                       borderRadius: '2px',
-                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '14px',
                       fontWeight: '700',
-                      letterSpacing: '.14em',
+                      letterSpacing: '.08em',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -680,16 +743,16 @@ export default class MaterialsPage extends React.Component {
                   </span>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '30px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '28px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                     }}
                   >
                     Our primary {cur.lower} line
                   </div>
-                  <p style={{ margin: '0', fontSize: '16px', lineHeight: '1.6', color: '#4A4F6A' }}>
+                  <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                     The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.
                   </p>
                   <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
@@ -803,10 +866,10 @@ export default class MaterialsPage extends React.Component {
                         background: '#E31E26',
                         color: '#fff',
                         borderRadius: '2px',
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '14px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                       }}
                     >
@@ -814,16 +877,16 @@ export default class MaterialsPage extends React.Component {
                     </span>
                     <div
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
-                        fontSize: '30px',
+                        fontFamily: "'Roboto Condensed',sans-serif",
+                        fontSize: '28px',
                         fontWeight: '700',
                         textTransform: 'uppercase',
-                        lineHeight: '1',
+                        lineHeight: '1.1',
                       }}
                     >
                       Our primary {cur.lower} line
                     </div>
-                    <p style={{ margin: '0', fontSize: '16px', lineHeight: '1.6', color: '#4A4F6A' }}>
+                    <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                       The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.
                     </p>
                     <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
@@ -912,8 +975,8 @@ export default class MaterialsPage extends React.Component {
                   >
                     <div
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
-                        fontSize: '26px',
+                        fontFamily: "'Roboto Condensed',sans-serif",
+                        fontSize: '24px',
                         fontWeight: '700',
                         textTransform: 'uppercase',
                         color: '#14183A',
@@ -921,7 +984,7 @@ export default class MaterialsPage extends React.Component {
                     >
                       {cur.name} brands{cur.suffix2}
                     </div>
-                    <div style={{ fontSize: '15px', color: '#4A4F6A' }}>
+                    <div style={{ fontSize: '18px', color: '#4A4F6A' }}>
                       Select a brand to visit the manufacturer's website.
                     </div>
                   </div>
@@ -1032,10 +1095,10 @@ export default class MaterialsPage extends React.Component {
                           background: '#E31E26',
                           color: '#fff',
                           borderRadius: '2px',
-                          fontFamily: "'Barlow Condensed',sans-serif",
+                          fontFamily: "'Roboto Condensed',sans-serif",
                           fontSize: '14px',
                           fontWeight: '700',
-                          letterSpacing: '.14em',
+                          letterSpacing: '.08em',
                           textTransform: 'uppercase',
                         }}
                       >
@@ -1043,16 +1106,16 @@ export default class MaterialsPage extends React.Component {
                       </span>
                       <div
                         style={{
-                          fontFamily: "'Barlow Condensed',sans-serif",
-                          fontSize: '30px',
+                          fontFamily: "'Roboto Condensed',sans-serif",
+                          fontSize: '28px',
                           fontWeight: '700',
                           textTransform: 'uppercase',
-                          lineHeight: '1',
+                          lineHeight: '1.1',
                         }}
                       >
                         Our primary {cur.lower} line
                       </div>
-                      <p style={{ margin: '0', fontSize: '16px', lineHeight: '1.6', color: '#4A4F6A' }}>
+                      <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                         The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.
                       </p>
                       <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
@@ -1161,10 +1224,11 @@ export default class MaterialsPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(36px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -1185,22 +1249,22 @@ export default class MaterialsPage extends React.Component {
                   color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Call 608-526-3232
               </a>
               <a
-                className="hv-9099e0"
+                className="hv-770bf8"
                 href="mailto:sales@beaverbuilderssupply.com"
                 style={{
                   whiteSpace: 'nowrap',
-                  padding: '17px 29px',
-                  background: '#fff',
-                  color: '#14183A',
+                  padding: '16px 28px',
+                  border: '1.5px solid #fff',
+                  color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Email Sales
@@ -1226,7 +1290,7 @@ export default class MaterialsPage extends React.Component {
                   alignSelf: 'flex-start',
                 }}
               />
-              <div style={{ fontSize: '15px', lineHeight: '1.6' }}>
+              <div style={{ fontSize: '18px', lineHeight: '1.6' }}>
                 Locally owned since 1951.
                 <br />
                 Serving La Crosse and the Coulee Region.
@@ -1274,15 +1338,37 @@ export default class MaterialsPage extends React.Component {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                   </svg>
                 </a>
+                <a
+                  className="bbs-ficon hv-1ff11b"
+                  href="https://www.pinterest.com/beaverbuilderssupply/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Pinterest"
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    border: '1px solid rgba(255,255,255,.25)',
+                    borderRadius: '4px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <svg className="bbs-ico" width="18" height="18" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12.2 10.5 10.2 21.5" />
+                    <path d="M9.1 12.6C8.5 9.6 10.5 7 13.2 7c2.4 0 3.8 1.6 3.8 3.6 0 2.7-1.5 4.6-3.5 4.6-.9 0-1.7-.6-1.6-1.4" />
+                  </svg>
+                </a>
               </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px' }}>
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.12em',
+                  letterSpacing: '.06em',
                   textTransform: 'uppercase',
                   color: '#fff',
                 }}
@@ -1308,13 +1394,13 @@ export default class MaterialsPage extends React.Component {
                 Contact
               </a>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px' }}>
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.12em',
+                  letterSpacing: '.06em',
                   textTransform: 'uppercase',
                   color: '#fff',
                 }}
@@ -1327,13 +1413,13 @@ export default class MaterialsPage extends React.Component {
                 </a>
               ))}
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px', lineHeight: '1.5' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px', lineHeight: '1.5' }}>
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.12em',
+                  letterSpacing: '.06em',
                   textTransform: 'uppercase',
                   color: '#fff',
                 }}
@@ -1354,7 +1440,7 @@ export default class MaterialsPage extends React.Component {
               </a>
               <a
                 className="hv-b2d6c8"
-                href="https://maps.google.com/?q=N6838+Builders+Ct+Holmen+WI+54636"
+                href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
                 target="_blank"
                 rel="noopener"
                 style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#fff' }}
@@ -1402,24 +1488,24 @@ export default class MaterialsPage extends React.Component {
               textAlign: 'center',
             }}
           >
-            <span>© 2026 Beaver Builders Supply. All rights reserved.</span>
+            <span>© 2026 Beaver Builders' Supply. All rights reserved.</span>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-            <a className="hv-b2d6c8" href="/site-map" style={{ color: '#fff', textDecoration: 'underline' }}>
+            <a className="hv-b2d6c8" href="/site-map" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
               Site Map
             </a>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-            <a className="hv-b2d6c8" href="/privacy-policy" style={{ color: '#fff', textDecoration: 'underline' }}>
+            <a className="hv-b2d6c8" href="/privacy-policy" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
               Privacy Policy
             </a>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-            <a className="hv-b2d6c8" href="/ai-policy" style={{ color: '#fff', textDecoration: 'underline' }}>
+            <a className="hv-b2d6c8" href="/ai-policy" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
               AI Policy
             </a>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
             <a
               className="hv-b2d6c8"
               href="/ai-readiness-service-index"
-              style={{ color: '#fff', textDecoration: 'underline' }}
+              style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}
             >
               AI Readiness Service Index
             </a>

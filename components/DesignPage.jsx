@@ -72,10 +72,11 @@ export default class DesignPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -122,6 +123,7 @@ export default class DesignPage extends React.Component {
             </div>
           </div>
           <div
+            className="bbs-split"
             style={{
               maxWidth: '1280px',
               margin: '0 auto',
@@ -132,21 +134,21 @@ export default class DesignPage extends React.Component {
               alignItems: 'center',
             }}
           >
-            <div style={{ position: 'relative' }}>
+            <div className="bbs-split-media" style={{ position: 'relative' }}>
               <img
                 src="/New-img/Design/drafting-contract.jpg"
-                alt="New homes built with Beaver Builders Supply"
+                alt="New homes built with Beaver Builders' Supply"
                 style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
               />
             </div>
-            <div>
+            <div className="bbs-split-text">
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -155,22 +157,23 @@ export default class DesignPage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                 }}
               >
                 Plans drawn by people who know the materials
               </h2>
-              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}>
+              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
                 Our in-house drafting team works with builders and homeowners on plans for new homes, additions, and
                 remodels. When you build with Beaver, our staff will help you lay out your new home or project, so your
                 plans and your materials come from the same team.
               </p>
-              <p style={{ margin: '16px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}>
+              <p style={{ margin: '16px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
                 Getting started is simple. Request our drafting contract, tell us about your project, and we'll set up a
                 time to sit down with you.
               </p>
@@ -180,7 +183,7 @@ export default class DesignPage extends React.Component {
                     display: 'flex',
                     gap: '14px',
                     alignItems: 'flex-start',
-                    fontSize: '17px',
+                    fontSize: '18px',
                     lineHeight: '1.5',
                     color: '#14183A',
                     fontWeight: '600',
@@ -203,7 +206,7 @@ export default class DesignPage extends React.Component {
                     display: 'flex',
                     gap: '14px',
                     alignItems: 'flex-start',
-                    fontSize: '17px',
+                    fontSize: '18px',
                     lineHeight: '1.5',
                     color: '#14183A',
                     fontWeight: '600',
@@ -226,7 +229,7 @@ export default class DesignPage extends React.Component {
                     display: 'flex',
                     gap: '14px',
                     alignItems: 'flex-start',
-                    fontSize: '17px',
+                    fontSize: '18px',
                     lineHeight: '1.5',
                     color: '#14183A',
                     fontWeight: '600',
@@ -249,7 +252,7 @@ export default class DesignPage extends React.Component {
                     display: 'flex',
                     gap: '14px',
                     alignItems: 'flex-start',
-                    fontSize: '17px',
+                    fontSize: '18px',
                     lineHeight: '1.5',
                     color: '#14183A',
                     fontWeight: '600',
@@ -268,7 +271,7 @@ export default class DesignPage extends React.Component {
                   A materials list and pricing from our sales team
                 </li>
               </ul>
-              <div style={{ marginTop: '36px', display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
+              <div className="bbs-split-cta" style={{ marginTop: '36px', display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
                 <a
                   className="hv-6a96a5"
                   href="mailto:sales@beaverbuilderssupply.com?subject=Drafting%20Contract%20Request"
@@ -279,7 +282,7 @@ export default class DesignPage extends React.Component {
                     color: '#fff',
                     fontWeight: '700',
                     fontSize: '17px',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Request the drafting contract
@@ -293,7 +296,7 @@ export default class DesignPage extends React.Component {
                     border: '1.5px solid #313893',
                     color: '#313893',
                     fontWeight: '700',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Call 608-526-3232
@@ -308,10 +311,10 @@ export default class DesignPage extends React.Component {
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -320,10 +323,11 @@ export default class DesignPage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                 }}
@@ -366,7 +370,7 @@ export default class DesignPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
@@ -379,10 +383,10 @@ export default class DesignPage extends React.Component {
                       height: '48px',
                       background: '#E31E26',
                       color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
                       fontWeight: '700',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -392,17 +396,17 @@ export default class DesignPage extends React.Component {
                   </span>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Request the Contract
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Ask for our drafting contract and tell us about your new home, addition, or remodel.
                   </div>
                 </div>
@@ -434,7 +438,7 @@ export default class DesignPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
@@ -447,10 +451,10 @@ export default class DesignPage extends React.Component {
                       height: '48px',
                       background: '#E31E26',
                       color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
                       fontWeight: '700',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -460,17 +464,17 @@ export default class DesignPage extends React.Component {
                   </span>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Meet Our Design Staff
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Sit down with our team to lay out rooms, sizes, and the must-haves for your project.
                   </div>
                 </div>
@@ -502,7 +506,7 @@ export default class DesignPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
@@ -515,10 +519,10 @@ export default class DesignPage extends React.Component {
                       height: '48px',
                       background: '#E31E26',
                       color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
                       fontWeight: '700',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -528,17 +532,17 @@ export default class DesignPage extends React.Component {
                   </span>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Review Your Plans
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     We draft your plans in-house and walk through revisions with you until they are right.
                   </div>
                 </div>
@@ -570,7 +574,7 @@ export default class DesignPage extends React.Component {
                       bottom: '0',
                       width: '56px',
                       height: '4px',
-                      background: '#E31E26',
+                      background: '#313893',
                     }}
                   />
                 </div>
@@ -583,10 +587,10 @@ export default class DesignPage extends React.Component {
                       height: '48px',
                       background: '#E31E26',
                       color: '#fff',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
                       fontWeight: '700',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -596,17 +600,17 @@ export default class DesignPage extends React.Component {
                   </span>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '28px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '26px',
                       fontWeight: '700',
                       textTransform: 'uppercase',
-                      letterSpacing: '.02em',
-                      lineHeight: '1',
+                      letterSpacing: '0',
+                      lineHeight: '1.1',
                     }}
                   >
                     Build with Beaver
                   </div>
-                  <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
+                  <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Your plans become a materials list, and we deliver everything to your job site.
                   </div>
                 </div>
@@ -620,10 +624,10 @@ export default class DesignPage extends React.Component {
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -632,17 +636,18 @@ export default class DesignPage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                 }}
               >
                 Try it before you build it
               </h2>
-              <p style={{ margin: '20px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}>
+              <p style={{ margin: '20px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
                 Our brands offer free online tools to plan decks, try siding and roofing colors, and see windows, doors, and
                 countertops before you buy. Bring your design to our showroom or send it to our sales team and we will help
                 you price it out.
@@ -694,10 +699,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -706,17 +711,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Cambria Room Visualizer
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Upload a photo of your kitchen or bath, or use a sample room, and preview Cambria quartz countertops and
                   backsplashes.
                 </span>
@@ -790,10 +795,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -802,17 +807,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Trex Deck Designer
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Plan your deck in 3D with Trex decking and railing, then get a list of the materials you need.
                 </span>
                 <span
@@ -885,10 +890,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -897,17 +902,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   TimberTech 3D Deck Designer
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Start from a template, a photo, or from scratch. Try decking, railing, and lighting, and download a
                   materials list.
                 </span>
@@ -981,10 +986,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -993,17 +998,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Deckorators Deck Visualizer
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Mix and match Deckorators decking, railing, and privacy screen colors on realistic home settings.
                 </span>
                 <span
@@ -1076,10 +1081,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1088,17 +1093,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Andersen Design Tool
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   See what an Andersen window or door could look like with different colors and options.
                 </span>
                 <span
@@ -1171,10 +1176,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1183,17 +1188,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Therma-Tru Design Your Door
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Choose a door style, glass, finish, and hardware, then save your project to share with our sales team.
                 </span>
                 <span
@@ -1266,10 +1271,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1278,17 +1283,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   James Hardie Hardie Designer
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Upload a photo of your home and try James Hardie siding styles and colors, then save the images to share.
                 </span>
                 <span
@@ -1361,10 +1366,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1373,17 +1378,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   CertainTeed ColorView
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Coordinate CertainTeed siding, roofing, and trim colors on a sample home or a photo of your own.
                 </span>
                 <span
@@ -1456,10 +1461,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1468,17 +1473,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Westlake Royal Design Canvas
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Upload a photo of your home or pick a sample home and try Westlake Royal siding, trim, stone, and roofing.
                 </span>
                 <span
@@ -1551,10 +1556,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1563,17 +1568,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Owens Corning Design EyeQ
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Try Owens Corning shingle colors on a sample home or upload a photo of your own house.
                 </span>
                 <span
@@ -1646,10 +1651,10 @@ export default class DesignPage extends React.Component {
                 <span
                   style={{
                     marginTop: '6px',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '15px',
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                     color: '#E31E26',
                   }}
@@ -1658,17 +1663,17 @@ export default class DesignPage extends React.Component {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
-                    lineHeight: '1',
+                    letterSpacing: '0',
+                    lineHeight: '1.1',
                   }}
                 >
                   Malarkey Roof Designer
                 </span>
-                <span style={{ fontSize: '16px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
+                <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Pick a home that looks like yours or upload a photo and explore Malarkey shingle colors.
                 </span>
                 <span
@@ -1704,7 +1709,7 @@ export default class DesignPage extends React.Component {
                 </span>
               </a>
             </div>
-            <p style={{ margin: '28px 0 0', fontSize: '15px', lineHeight: '1.6', color: '#4A4F6A' }}>
+            <p style={{ margin: '28px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
               Design tools open on each manufacturer's website. Colors on screen can vary, so ask us for samples or visit
               our showroom before you choose.
             </p>
@@ -1713,7 +1718,7 @@ export default class DesignPage extends React.Component {
         <section
           style={{
             position: 'relative',
-            background: "#14183A url('/New-img/Design/cta-banner.jpg') center/cover no-repeat",
+            background: "#14183A url('/New-img/Design/CTA-banner%20(2).jpg') 75% 72%/cover no-repeat",
             color: '#fff',
           }}
         >
@@ -1740,10 +1745,11 @@ export default class DesignPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(36px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -1764,22 +1770,22 @@ export default class DesignPage extends React.Component {
                   color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Call 608-526-3232
               </a>
               <a
-                className="hv-9099e0"
+                className="hv-770bf8"
                 href="/contact"
                 style={{
                   whiteSpace: 'nowrap',
-                  padding: '17px 29px',
-                  background: '#fff',
-                  color: '#14183A',
+                  padding: '16px 28px',
+                  border: '1.5px solid #fff',
+                  color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Contact Us

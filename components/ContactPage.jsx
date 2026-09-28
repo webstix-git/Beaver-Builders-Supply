@@ -90,6 +90,8 @@ export default class ContactPage extends React.Component {
         ].join('\n');
         window.location.href = 'mailto:sales@beaverbuilderssupply.com?subject=' +
           encodeURIComponent('Quote request: ' + values.type) + '&body=' + encodeURIComponent(body);
+        // The delay lets the browser hand the mailto link to the email app before leaving the page.
+        setTimeout(() => window.location.assign('/thank-you'), 500);
       }
     };
   }
@@ -124,10 +126,11 @@ export default class ContactPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -183,7 +186,7 @@ export default class ContactPage extends React.Component {
             <div
               style={{
                 background: '#fff',
-                borderTop: '4px solid #E31E26',
+                borderTop: '4px solid #313893',
                 borderRadius: '4px',
                 boxShadow: '0 24px 60px rgba(20,24,58,.12)',
                 padding: '40px',
@@ -191,20 +194,20 @@ export default class ContactPage extends React.Component {
             >
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '32px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
                   color: '#14183A',
-                  lineHeight: '1',
+                  lineHeight: '1.1',
                 }}
               >
                 Request a Quote
               </div>
-              <p style={{ margin: '12px 0 0', fontSize: '16px', lineHeight: '1.6', color: '#4A4F6A' }}>
+              <p style={{ margin: '12px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                 Share a few details and we'll get back to you with options and pricing.
               </p>
-              <p style={{ margin: '8px 0 0', fontSize: '15px', lineHeight: '1.6', color: '#4A4F6A' }}>
+              <p style={{ margin: '8px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                 Fields marked with an asterisk (<span style={{ color: '#E31E26' }}>*</span>) are required.
               </p>
               <form
@@ -320,7 +323,7 @@ export default class ContactPage extends React.Component {
                       color: '#fff',
                       fontWeight: '700',
                       fontSize: '17px',
-                      borderRadius: '2px',
+                      borderRadius: '3px',
                       border: '0',
                       cursor: 'pointer',
                       fontFamily: 'inherit',
@@ -335,10 +338,10 @@ export default class ContactPage extends React.Component {
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -347,17 +350,18 @@ export default class ContactPage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                 }}
               >
                 Let's talk about your project.
               </h2>
-              <p style={{ margin: '20px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}>
+              <p style={{ margin: '20px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
                 Call, email, or stop by the showroom. Our sales team will help you find the brand and product that fits your
                 quality, value, and budget.
               </p>
@@ -375,10 +379,10 @@ export default class ContactPage extends React.Component {
                   <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '0' }}>
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
@@ -411,10 +415,10 @@ export default class ContactPage extends React.Component {
                   <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '0' }}>
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
@@ -428,7 +432,7 @@ export default class ContactPage extends React.Component {
                 </a>
                 <a
                   className="hv-2cfab4"
-                  href="https://maps.google.com/?q=N6838+Builders+Ct+Holmen+WI+54636"
+                  href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
                   target="_blank"
                   rel="noopener"
                   style={{
@@ -449,10 +453,10 @@ export default class ContactPage extends React.Component {
                   <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '0' }}>
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
@@ -487,10 +491,10 @@ export default class ContactPage extends React.Component {
                   <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '0' }}>
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
+                        fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '15px',
                         fontWeight: '700',
-                        letterSpacing: '.14em',
+                        letterSpacing: '.08em',
                         textTransform: 'uppercase',
                         color: '#E31E26',
                       }}
@@ -504,7 +508,7 @@ export default class ContactPage extends React.Component {
                 </a>
               </div>
               <iframe
-                title="Map to Beaver Builders Supply"
+                title="Map to Beaver Builders' Supply"
                 src="https://maps.google.com/maps?q=N6838+Builders+Ct+Holmen+WI+54636&output=embed"
                 loading="lazy"
                 style={{

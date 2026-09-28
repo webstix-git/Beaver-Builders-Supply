@@ -73,10 +73,11 @@ export default class AiReadinessServiceIndexPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -133,7 +134,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -144,12 +145,12 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
                       >
-                        Beaver Builders Supply
+                        Beaver Builders' Supply
                       </td>
                     </tr>
                     <tr>
@@ -159,7 +160,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -170,7 +171,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -185,7 +186,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -196,7 +197,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -211,7 +212,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -222,7 +223,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -237,7 +238,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -248,7 +249,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -263,7 +264,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -274,7 +275,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -289,7 +290,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -300,7 +301,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -315,7 +316,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -326,7 +327,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -341,7 +342,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -352,7 +353,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -367,7 +368,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -378,7 +379,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -400,7 +401,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -411,7 +412,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -427,7 +428,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -438,7 +439,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -454,7 +455,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -465,7 +466,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -481,7 +482,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -492,7 +493,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -507,7 +508,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -518,7 +519,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -533,7 +534,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -544,7 +545,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -560,7 +561,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -571,7 +572,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -593,7 +594,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -604,7 +605,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -620,7 +621,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -631,7 +632,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -646,7 +647,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -657,7 +658,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -672,7 +673,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -683,7 +684,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -699,7 +700,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -710,7 +711,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -725,7 +726,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -736,7 +737,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -751,7 +752,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -762,7 +763,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -778,7 +779,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -789,7 +790,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -811,7 +812,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -822,12 +823,12 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
                       >
-                        <a href="/">Beaver Builders Supply home page</a>
+                        <a href="/">Beaver Builders' Supply home page</a>
                       </td>
                     </tr>
                     <tr>
@@ -837,7 +838,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -848,7 +849,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -863,7 +864,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -874,7 +875,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -889,7 +890,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -900,7 +901,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -915,7 +916,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -926,7 +927,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -941,7 +942,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           verticalAlign: 'top',
                           padding: '14px 20px 14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           color: '#14183A',
                           width: '34%',
                         }}
@@ -952,7 +953,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                         style={{
                           padding: '14px 0',
                           borderBottom: '1px solid #E4E5EE',
-                          fontSize: '16px',
+                          fontSize: '18px',
                           lineHeight: '1.6',
                           color: '#4A4F6A',
                         }}
@@ -966,7 +967,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
               <section id="common-questions">
                 <h2>Common Questions</h2>
                 <p>
-                  <strong>Where is Beaver Builders Supply located?</strong>
+                  <strong>Where is Beaver Builders' Supply located?</strong>
                   <br />
                   N6838 Builders Ct., Holmen, WI 54636, serving La Crosse and the Coulee Region.
                 </p>
@@ -1004,7 +1005,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                   border: '1.5px solid #313893',
                   color: '#313893',
                   fontWeight: '700',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Back to Home

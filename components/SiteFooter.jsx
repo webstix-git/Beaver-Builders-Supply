@@ -18,7 +18,7 @@ export default function SiteFooter() {
               alignSelf: 'flex-start',
             }}
           />
-          <div style={{ fontSize: '15px', lineHeight: '1.6' }}>
+          <div style={{ fontSize: '18px', lineHeight: '1.6' }}>
             Locally owned since 1951.
             <br />
             Serving La Crosse and the Coulee Region.
@@ -66,15 +66,37 @@ export default function SiteFooter() {
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </a>
+            <a
+              className="bbs-ficon hv-1ff11b"
+              href="https://www.pinterest.com/beaverbuilderssupply/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Pinterest"
+              style={{
+                width: '40px',
+                height: '40px',
+                border: '1px solid rgba(255,255,255,.25)',
+                borderRadius: '4px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <svg className="bbs-ico" width="18" height="18" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12.2 10.5 10.2 21.5" />
+                <path d="M9.1 12.6C8.5 9.6 10.5 7 13.2 7c2.4 0 3.8 1.6 3.8 3.6 0 2.7-1.5 4.6-3.5 4.6-.9 0-1.7-.6-1.6-1.4" />
+              </svg>
+            </a>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px' }}>
           <div
             style={{
-              fontFamily: "'Barlow Condensed',sans-serif",
+              fontFamily: "'Roboto Condensed',sans-serif",
               fontSize: '17px',
               fontWeight: '700',
-              letterSpacing: '.12em',
+              letterSpacing: '.06em',
               textTransform: 'uppercase',
               color: '#fff',
             }}
@@ -100,13 +122,13 @@ export default function SiteFooter() {
             Contact
           </a>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px' }}>
           <div
             style={{
-              fontFamily: "'Barlow Condensed',sans-serif",
+              fontFamily: "'Roboto Condensed',sans-serif",
               fontSize: '17px',
               fontWeight: '700',
-              letterSpacing: '.12em',
+              letterSpacing: '.06em',
               textTransform: 'uppercase',
               color: '#fff',
             }}
@@ -135,13 +157,13 @@ export default function SiteFooter() {
             Roofing
           </a>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px', lineHeight: '1.5' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px', lineHeight: '1.5' }}>
           <div
             style={{
-              fontFamily: "'Barlow Condensed',sans-serif",
+              fontFamily: "'Roboto Condensed',sans-serif",
               fontSize: '17px',
               fontWeight: '700',
-              letterSpacing: '.12em',
+              letterSpacing: '.06em',
               textTransform: 'uppercase',
               color: '#fff',
             }}
@@ -162,7 +184,7 @@ export default function SiteFooter() {
           </a>
           <a
             className="hv-b2d6c8"
-            href="https://maps.google.com/?q=N6838+Builders+Ct+Holmen+WI+54636"
+            href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
             target="_blank"
             rel="noopener"
             style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#fff' }}
@@ -210,24 +232,24 @@ export default function SiteFooter() {
           textAlign: 'center',
         }}
       >
-        <span>© 2026 Beaver Builders Supply. All rights reserved.</span>
+        <span>© 2026 Beaver Builders' Supply. All rights reserved.</span>
         <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-        <a className="hv-b2d6c8" href="/site-map" style={{ color: '#fff', textDecoration: 'underline' }}>
+        <a className="hv-b2d6c8" href="/site-map" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
           Site Map
         </a>
         <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-        <a className="hv-b2d6c8" href="/privacy-policy" style={{ color: '#fff', textDecoration: 'underline' }}>
+        <a className="hv-b2d6c8" href="/privacy-policy" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
           Privacy Policy
         </a>
         <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-        <a className="hv-b2d6c8" href="/ai-policy" style={{ color: '#fff', textDecoration: 'underline' }}>
+        <a className="hv-b2d6c8" href="/ai-policy" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
           AI Policy
         </a>
         <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
         <a
           className="hv-b2d6c8"
           href="/ai-readiness-service-index"
-          style={{ color: '#fff', textDecoration: 'underline' }}
+          style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}
         >
           AI Readiness Service Index
         </a>

@@ -73,10 +73,11 @@ export default class PrivacyPolicyPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -124,7 +125,7 @@ export default class PrivacyPolicyPage extends React.Component {
               <section id="overview">
                 <h2>Overview</h2>
                 <p>
-                  Beaver Builders Supply ("we," "us," or "our") respects your privacy. This policy explains what information
+                  Beaver Builders' Supply ("we," "us," or "our") respects your privacy. This policy explains what information
                   we collect when you visit our website, contact us, or do business with us, how we use it, and the choices
                   you have.
                 </p>
@@ -207,7 +208,7 @@ export default class PrivacyPolicyPage extends React.Component {
                 <h2>Contact Us</h2>
                 <p>If you have questions about this policy or your information, contact us:</p>
                 <p>
-                  <strong>Beaver Builders Supply</strong>
+                  <strong>Beaver Builders' Supply</strong>
                   <br />
                   N6838 Builders Ct., Holmen, WI 54636
                   <br />
@@ -227,7 +228,7 @@ export default class PrivacyPolicyPage extends React.Component {
                   border: '1.5px solid #313893',
                   color: '#313893',
                   fontWeight: '700',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Back to Home

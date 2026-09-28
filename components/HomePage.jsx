@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import HeaderHeightSync from './HeaderHeightSync';
+import MobileNav from './MobileNav';
 import '../styles/home.css';
 
 const VENDOR_LOGOS = [
@@ -54,6 +56,13 @@ export default class HomePage extends React.Component {
     };
     window.addEventListener('scroll', this.handleScroll, { passive: true });
     this.handleScroll();
+    this.handleKey = (e) => {
+      if (this.state.lightbox === null) return;
+      if (e.key === 'Escape') this.closeLightbox();
+      else if (e.key === 'ArrowLeft') this.stepLightbox(-1);
+      else if (e.key === 'ArrowRight') this.stepLightbox(1);
+    };
+    window.addEventListener('keydown', this.handleKey);
     this.vendorTimer = setInterval(() => this.advanceVendors(), VENDOR_INTERVAL_MS);
     // The page is rendered after load, so the browser's own jump to #section has nothing to land on.
     // The hash is dropped after the jump so a refresh opens the page at the top.
@@ -67,6 +76,7 @@ export default class HomePage extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('keydown', this.handleKey);
     clearInterval(this.vendorTimer);
     clearTimeout(this.vendorRewind);
     document.body.style.overflow = '';
@@ -100,9 +110,9 @@ export default class HomePage extends React.Component {
     const gallery = [
       { src: '/bbs-img/gal-772664461.jpg', tag: 'Windows and doors showroom', cls: 'is-big' },
       { src: '/bbs-img/gal-481260257.jpg', tag: 'Showroom kitchen display', cls: '' },
-      { src: '/bbs-img/gal-772716807.jpg', tag: 'Cabinet and countertop display', cls: '' },
-      { src: '/bbs-img/gal-480770058.jpg', tag: 'Waterfall island display', cls: '' },
-      { src: '/bbs-img/gal-772696788.jpg', tag: 'Showroom siding, doors, and stone', cls: '' }
+      { src: '/New-img/Gallery/481156425_1168577174970380_7119339270187395847_n.jpg', tag: 'Covered patio', cls: '' },
+      { src: '/New-img/Gallery/763655490_1583238900170870_5720930948362635318_n.jpg', tag: 'Fireplace and built-ins', cls: '' },
+      { src: '/New-img/Gallery/814761710_1621274093034017_989278391605795611_n.jpg', tag: 'Detached garage', cls: '' }
     ].map((g, i) => ({ ...g, open: () => this.openLightbox(i) }));
     this.galleryCount = gallery.length;
     const active = this.state.lightbox === null ? null : gallery[this.state.lightbox];
@@ -162,31 +172,34 @@ export default class HomePage extends React.Component {
                 justifyContent: 'space-between',
               }}
             >
-              <a href="#" style={{ display: 'block', flex: '0 0 auto' }}>
-                <img className="bbs-logo" src="/assets/logo-white.png" alt="Beaver Builders' Supply" />
-              </a>
+              <div style={{ flex: '1 1 0', display: 'flex' }}>
+                <a href="/" style={{ display: 'block', flex: '0 0 auto' }}>
+                  <img className="bbs-logo" src="/assets/logo-white.png" alt="Beaver Builders' Supply" />
+                </a>
+              </div>
               <nav
                 style={{
                   display: 'flex',
                   flexWrap: 'wrap',
                   gap: '4px',
                   alignItems: 'center',
-                  marginRight: '10px',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: '19px',
+                  justifyContent: 'center',
+                  flex: '0 1 auto',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: '18px',
                   fontWeight: '600',
-                  letterSpacing: '.04em',
+                  letterSpacing: '.02em',
                   textTransform: 'uppercase',
                 }}
               >
-                <a href="#" style={{ padding: '10px 14px', color: '#fff', borderBottom: '2px solid #E31E26' }}>
+                <a href="/" style={{ padding: '10px 9px', color: '#fff', borderBottom: '2px solid #E31E26' }}>
                   Home
                 </a>
                 <div style={{ position: 'relative' }} onMouseEnter={vals.openMaterials} onMouseLeave={vals.closeMenu}>
                   <a
                     className="hv-6d2547"
                     href="/materials"
-                    style={{ padding: '10px 14px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
+                    style={{ padding: '10px 9px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
                   >
                     Materials <span style={{ fontSize: '11px' }}>▾</span>
                   </a>
@@ -201,7 +214,7 @@ export default class HomePage extends React.Component {
                         boxShadow: '0 18px 40px rgba(20,24,58,.16)',
                         borderTop: '3px solid #E31E26',
                         padding: '8px 0',
-                        fontFamily: "'Source Sans 3',sans-serif",
+                        fontFamily: "'Roboto',sans-serif",
                         textTransform: 'none',
                         letterSpacing: '0',
                         fontSize: '16px',
@@ -225,7 +238,7 @@ export default class HomePage extends React.Component {
                   <a
                     className="hv-6d2547"
                     href="/design"
-                    style={{ padding: '10px 14px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
+                    style={{ padding: '10px 9px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
                   >
                     Design <span style={{ fontSize: '11px' }}>▾</span>
                   </a>
@@ -240,7 +253,7 @@ export default class HomePage extends React.Component {
                         boxShadow: '0 18px 40px rgba(20,24,58,.16)',
                         borderTop: '3px solid #E31E26',
                         padding: '8px 0',
-                        fontFamily: "'Source Sans 3',sans-serif",
+                        fontFamily: "'Roboto',sans-serif",
                         textTransform: 'none',
                         letterSpacing: '0',
                         fontSize: '16px',
@@ -264,38 +277,49 @@ export default class HomePage extends React.Component {
                     </div>
                   )}
                 </div>
-                <a className="hv-6d2547" href="/gallery" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/gallery" style={{ padding: '10px 9px', color: '#fff' }}>
                   Gallery
                 </a>
-                <a className="hv-6d2547" href="/about" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/about" style={{ padding: '10px 9px', color: '#fff' }}>
                   About
                 </a>
-                <a className="hv-6d2547" href="/contact" style={{ padding: '10px 14px', color: '#fff' }}>
+                <a className="hv-6d2547" href="/contact" style={{ padding: '10px 9px', color: '#fff' }}>
                   Contact
                 </a>
+              </nav>
+              <div style={{ flex: '1 1 0', display: 'flex', justifyContent: 'flex-end' }}>
                 <a
-                  className="hv-6a96a5"
+                  className="bbs-header-quote hv-6a96a5"
                   href="/contact"
                   style={{
-                    marginLeft: '10px',
+                    flex: '0 0 auto',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '19px',
+                    fontWeight: '600',
+                    letterSpacing: '.02em',
+                    textTransform: 'uppercase',
                     padding: '12px 22px',
                     background: '#E31E26',
                     color: '#fff',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Request a Quote
                 </a>
-              </nav>
+                <MobileNav active="home" />
+              </div>
             </div>
+            <HeaderHeightSync />
           </header>
           <section
+            className="bbs-home-hero"
             style={{
               position: 'relative',
-              background: "#14183A url('/assets/showroom.jpg') center 40%/cover no-repeat",
-              minHeight: '760px',
+              background:
+                "#242A4C url('/hero-images-building/building-under-construction.jpg') right center/auto max(844px,100%) no-repeat",
+              minHeight: '844px',
               display: 'flex',
-              alignItems: 'flex-end',
+              alignItems: 'center',
             }}
           >
             <div
@@ -311,7 +335,9 @@ export default class HomePage extends React.Component {
                 maxWidth: '1280px',
                 width: '100%',
                 margin: '0 auto',
-                padding: '190px 32px 152px',
+                // The extra top padding clears the header and the extra bottom padding clears the stats box that
+                // overlaps the hero by 64px, so the visible space above and below the text is equal.
+                padding: 'calc(var(--bbs-header-h, 78px) + 48px) 32px 112px',
               }}
             >
               <div style={{ maxWidth: '640px' }}>
@@ -321,26 +347,25 @@ export default class HomePage extends React.Component {
                     gap: '14px',
                     alignItems: 'center',
                     color: '#fff',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '18px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '14px',
                     fontWeight: '600',
-                    letterSpacing: '.16em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
-                  <span style={{ width: '40px', height: '3px', background: '#E31E26' }} />
                   Third-generation · Holmen, Wisconsin
                 </div>
                 <h1
                   style={{
                     margin: '22px 0 0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontWeight: '700',
-                    fontSize: 'clamp(48px,6.4vw,84px)',
-                    lineHeight: '.98',
+                    fontSize: 'clamp(48px,6.4vw,68px)',
+                    lineHeight: '1.05',
                     color: '#fff',
                     textTransform: 'uppercase',
-                    letterSpacing: '.005em',
+                    letterSpacing: '-.015em',
                     textWrap: 'balance',
                   }}
                 >
@@ -349,7 +374,7 @@ export default class HomePage extends React.Component {
                 <p
                   style={{
                     margin: '24px 0 0',
-                    fontSize: '20px',
+                    fontSize: '18px',
                     lineHeight: '1.55',
                     color: '#fff',
                     maxWidth: '540px',
@@ -361,24 +386,26 @@ export default class HomePage extends React.Component {
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginTop: '36px' }}>
                   <a
-                    className="hv-6a96a5"
-                    href="/contact"
+                    className="hv-4d7e21"
+                    href="/materials"
                     style={{
                       whiteSpace: 'nowrap',
                       flexShrink: '0',
                       padding: '17px 30px',
-                      background: '#E31E26',
-                      color: '#fff',
+                      background: '#fff',
+                      color: '#000',
                       fontWeight: '700',
                       fontSize: '17px',
-                      borderRadius: '2px',
+                      borderRadius: '3px',
                     }}
                   >
-                    Visit the Showroom
+                    Browse Materials
                   </a>
                   <a
                     className="hv-770bf8"
-                    href="/materials"
+                    href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
+                    target="_blank"
+                    rel="noopener"
                     style={{
                       whiteSpace: 'nowrap',
                       flexShrink: '0',
@@ -387,10 +414,10 @@ export default class HomePage extends React.Component {
                       color: '#fff',
                       fontWeight: '700',
                       fontSize: '17px',
-                      borderRadius: '2px',
+                      borderRadius: '3px',
                     }}
                   >
-                    Browse Materials
+                    Visit the Showroom
                   </a>
                 </div>
               </div>
@@ -404,7 +431,7 @@ export default class HomePage extends React.Component {
               margin: '-64px auto 0',
               background: '#fff',
               boxShadow: '0 24px 60px rgba(20,24,58,.14)',
-              borderTop: '4px solid #E31E26',
+              borderTop: '4px solid #313893',
               display: 'flex',
               flexWrap: 'wrap',
             }}
@@ -425,18 +452,18 @@ export default class HomePage extends React.Component {
               >
                 <div
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '25px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '.02em',
+                    letterSpacing: '0',
                     color: '#14183A',
-                    lineHeight: '1',
+                    lineHeight: '1.1',
                   }}
                 >
                   {p.t}
                 </div>
-                <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A' }}>{p.d}</div>
+                <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A' }}>{p.d}</div>
               </div>
             ))}
           </div>
@@ -456,10 +483,10 @@ export default class HomePage extends React.Component {
                 <div
                   style={{
                     color: '#E31E26',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '17px',
                     fontWeight: '700',
-                    letterSpacing: '.16em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -468,10 +495,11 @@ export default class HomePage extends React.Component {
                 <h2
                   style={{
                     margin: '12px 0 0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: 'clamp(38px,4vw,54px)',
-                    lineHeight: '1',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: 'clamp(38px,4.6vw,58px)',
+                    lineHeight: '1.1',
                     fontWeight: '700',
+                    letterSpacing: '-.015em',
                     textTransform: 'uppercase',
                     color: '#14183A',
                   }}
@@ -522,24 +550,24 @@ export default class HomePage extends React.Component {
                         bottom: '0',
                         width: '56px',
                         height: '4px',
-                        background: '#E31E26',
+                        background: '#313893',
                       }}
                     />
                   </div>
                   <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
                     <div
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
-                        fontSize: '28px',
+                        fontFamily: "'Roboto Condensed',sans-serif",
+                        fontSize: '26px',
                         fontWeight: '700',
                         textTransform: 'uppercase',
-                        letterSpacing: '.02em',
-                        lineHeight: '1',
+                        letterSpacing: '0',
+                        lineHeight: '1.1',
                       }}
                     >
                       {m.name}
                     </div>
-                    <div style={{ fontSize: '16px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>{m.d}</div>
+                    <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>{m.d}</div>
                   </div>
                   <div
                     style={{
@@ -588,12 +616,12 @@ export default class HomePage extends React.Component {
                 <div>
                   <div
                     style={{
-                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '15px',
                       fontWeight: '700',
-                      letterSpacing: '.16em',
+                      letterSpacing: '.08em',
                       textTransform: 'uppercase',
-                      color: '#FF6B70',
+                      color: '#fff',
                     }}
                   >
                     Also in the yard
@@ -614,11 +642,11 @@ export default class HomePage extends React.Component {
                         style={{
                           padding: '11px 0',
                           borderBottom: '1px solid rgba(255,255,255,.12)',
-                          fontFamily: "'Barlow Condensed',sans-serif",
-                          fontSize: '21px',
+                          fontFamily: "'Roboto Condensed',sans-serif",
+                          fontSize: '20px',
                           fontWeight: '600',
                           textTransform: 'uppercase',
-                          letterSpacing: '.02em',
+                          letterSpacing: '0',
                         }}
                       >
                         {y}
@@ -635,7 +663,7 @@ export default class HomePage extends React.Component {
                     background: '#E31E26',
                     color: '#fff',
                     fontWeight: '700',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Ask our sales team
@@ -657,11 +685,11 @@ export default class HomePage extends React.Component {
             <div style={{ padding: '96px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div
                 style={{
-                  color: '#FF6B70',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  color: '#fff',
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -670,16 +698,17 @@ export default class HomePage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                 }}
               >
                 See it, touch it, open it before you build with it.
               </h2>
-              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#D9DBEA', textWrap: 'pretty' }}>
+              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#fff', textWrap: 'pretty' }}>
                 Walk through full-scale displays of siding, decking, railing, windows, doors, and finished interiors.
                 Compare colors and textures side by side with a member of our team who knows the products.
               </p>
@@ -694,24 +723,44 @@ export default class HomePage extends React.Component {
                 }}
               >
                 <div>
+                  <div style={{ fontWeight: '700', fontSize: '20px' }}>Call ahead</div>
+                  <a
+                    className="hv-b2d6c8"
+                    href="tel:6085263232"
+                    style={{
+                      display: 'inline-block',
+                      marginTop: '4px',
+                      color: '#fff',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
+                      fontWeight: '700',
+                      lineHeight: '1.2',
+                    }}
+                  >
+                    608-526-3232
+                  </a>
+                </div>
+                <div>
                   <div style={{ fontWeight: '700', fontSize: '16px' }}>Visit us</div>
-                  <div style={{ marginTop: '4px', color: '#D9DBEA', fontSize: '16px', lineHeight: '1.5' }}>
+                  <a
+                    className="hv-b2d6c8"
+                    href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
+                    target="_blank"
+                    rel="noopener"
+                    style={{ display: 'block', marginTop: '4px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}
+                  >
                     N6838 Builders Ct.
                     <br />
                     Holmen, WI 54636
-                  </div>
-                </div>
-                <div>
-                  <div style={{ fontWeight: '700', fontSize: '16px' }}>Call ahead</div>
-                  <div style={{ marginTop: '4px', color: '#D9DBEA', fontSize: '16px', lineHeight: '1.5' }}>
-                    608-526-3232
-                  </div>
+                  </a>
                 </div>
               </div>
               <div style={{ marginTop: '36px' }}>
                 <a
                   className="hv-6a96a5"
-                  href="/contact"
+                  href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
+                  target="_blank"
+                  rel="noopener"
                   style={{
                     display: 'inline-block',
                     padding: '17px 30px',
@@ -719,7 +768,7 @@ export default class HomePage extends React.Component {
                     color: '#fff',
                     fontWeight: '700',
                     fontSize: '17px',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Plan a Showroom Visit
@@ -734,10 +783,10 @@ export default class HomePage extends React.Component {
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -746,10 +795,11 @@ export default class HomePage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4vw,54px)',
-                  lineHeight: '1',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                 }}
@@ -797,17 +847,18 @@ export default class HomePage extends React.Component {
                   <h3
                     style={{
                       margin: '0',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
                       fontWeight: '700',
+                      letterSpacing: '-.015em',
                       textTransform: 'uppercase',
                       color: '#14183A',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                     }}
                   >
                     Drafting Contract
                   </h3>
-                  <p style={{ margin: '0', fontSize: '17px', lineHeight: '1.6', color: '#4A4F6A' }}>
+                  <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                     Work with our in-house drafting team on plans for new homes, additions, and remodels. Start with the
                     drafting contract and we'll take it from there.
                   </p>
@@ -820,7 +871,7 @@ export default class HomePage extends React.Component {
                       background: '#313893',
                       color: '#fff',
                       fontWeight: '700',
-                      borderRadius: '2px',
+                      borderRadius: '3px',
                     }}
                   >
                     Open the drafting contract
@@ -853,23 +904,24 @@ export default class HomePage extends React.Component {
                     flexDirection: 'column',
                     gap: '18px',
                     flex: '1',
-                    borderTop: '4px solid #E31E26',
+                    borderTop: '4px solid #313893',
                   }}
                 >
                   <h3
                     style={{
                       margin: '0',
-                      fontFamily: "'Barlow Condensed',sans-serif",
-                      fontSize: '34px',
+                      fontFamily: "'Roboto Condensed',sans-serif",
+                      fontSize: '32px',
                       fontWeight: '700',
+                      letterSpacing: '-.015em',
                       textTransform: 'uppercase',
                       color: '#14183A',
-                      lineHeight: '1',
+                      lineHeight: '1.1',
                     }}
                   >
                     Brand Design Tools
                   </h3>
-                  <p style={{ margin: '0', fontSize: '17px', lineHeight: '1.6', color: '#4A4F6A' }}>
+                  <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
                     Visualize siding colors, deck layouts, windows, and cabinetry with interactive tools from the
                     manufacturers we carry. Bring your ideas in and we'll help price them out.
                   </p>
@@ -882,7 +934,7 @@ export default class HomePage extends React.Component {
                       background: '#E31E26',
                       color: '#fff',
                       fontWeight: '700',
-                      borderRadius: '2px',
+                      borderRadius: '3px',
                     }}
                   >
                     Explore design tools
@@ -897,10 +949,10 @@ export default class HomePage extends React.Component {
             <div
               style={{
                 color: '#E31E26',
-                fontFamily: "'Barlow Condensed',sans-serif",
+                fontFamily: "'Roboto Condensed',sans-serif",
                 fontSize: '17px',
                 fontWeight: '700',
-                letterSpacing: '.16em',
+                letterSpacing: '.08em',
                 textTransform: 'uppercase',
               }}
             >
@@ -909,10 +961,11 @@ export default class HomePage extends React.Component {
             <h2
               style={{
                 margin: '12px auto 0',
-                fontFamily: "'Barlow Condensed',sans-serif",
-                fontSize: 'clamp(32px,3.4vw,44px)',
-                lineHeight: '1',
+                fontFamily: "'Roboto Condensed',sans-serif",
+                fontSize: 'clamp(38px,4.6vw,58px)',
+                lineHeight: '1.1',
                 fontWeight: '700',
+                letterSpacing: '-.015em',
                 textTransform: 'uppercase',
                 color: '#14183A',
               }}
@@ -922,38 +975,73 @@ export default class HomePage extends React.Component {
             <div
               style={{
                 margin: '48px auto 0',
-                maxWidth: '480px',
+                maxWidth: '560px',
                 height: '136px',
+                display: 'grid',
+                gridTemplateColumns: 'clamp(116px,32%,180px) 1fr',
                 background: '#fff',
                 border: '1px solid #E4E5EE',
                 borderRadius: '4px',
-                boxShadow: '0 14px 36px rgba(20,24,58,.08)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#6A6F8C',
-                fontSize: '15px',
-                fontWeight: '600',
+                overflow: 'hidden',
+                boxShadow: '0 24px 60px rgba(20,24,58,.14)',
               }}
             >
-              <span
+              <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: '13px',
-                  letterSpacing: '.16em',
-                  textTransform: 'uppercase',
-                  color: '#E31E26',
+                  background: '#14183A',
+                  color: '#fff',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  padding: '0 12px',
+                  textAlign: 'center',
                 }}
               >
-                Main Supplier
-              </span>
-              <img
-                src="/Supplier%27s-logo/Main-supplier-logo/MC_Logo_Gray.png"
-                alt="Mid Continent Cabinetry"
-                style={{ height: '46px', width: 'auto', maxWidth: '80%', display: 'block' }}
-              />
+                <span
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: '#E31E26',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                    <path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7.3L12 17.8 5.8 21.5l1.6-7.3L2 9.5l7.1-.6z" />
+                  </svg>
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: 'clamp(14px,3.6vw,17px)',
+                    fontWeight: '700',
+                    letterSpacing: '.08em',
+                    lineHeight: '1.15',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Main Supplier
+                </span>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '0 24px',
+                  minWidth: '0',
+                }}
+              >
+                <img
+                  src="/Supplier%27s-logo/Main-supplier-logo/MC_Logo_Gray.png"
+                  alt="Mid Continent Cabinetry"
+                  style={{ height: '52px', width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block' }}
+                />
+              </div>
             </div>
             <div className="bbs-vendors" style={{ marginTop: '24px' }}>
               <div
@@ -1031,6 +1119,7 @@ export default class HomePage extends React.Component {
         </section>
         <section id="about" style={{ padding: '120px 0', background: '#F6F4EF', overflow: 'hidden' }}>
           <div
+            className="bbs-split"
             style={{
               maxWidth: '1280px',
               margin: '0 auto',
@@ -1041,7 +1130,7 @@ export default class HomePage extends React.Component {
               alignItems: 'center',
             }}
           >
-            <div style={{ position: 'relative', padding: '0 0 56px 0' }}>
+            <div className="bbs-split-media bbs-about-media" style={{ position: 'relative', padding: '0 0 56px 0' }}>
               <img
                 src="/New-img/Homepage/about-us-img-1.jpg"
                 alt=""
@@ -1063,13 +1152,12 @@ export default class HomePage extends React.Component {
                 }}
               />
               <div
+                className="bbs-about-badge"
                 style={{
                   position: 'absolute',
                   left: '-12px',
-                  bottom: '96px',
                   background: '#E31E26',
                   color: '#fff',
-                  padding: '22px 28px',
                   borderRadius: '3px',
                   boxShadow: '0 18px 40px rgba(227,30,38,.28)',
                   display: 'flex',
@@ -1078,9 +1166,9 @@ export default class HomePage extends React.Component {
                 }}
               >
                 <span
+                  className="bbs-about-badge-num"
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '72px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontWeight: '700',
                     lineHeight: '.85',
                   }}
@@ -1088,11 +1176,11 @@ export default class HomePage extends React.Component {
                   75
                 </span>
                 <span
+                  className="bbs-about-badge-label"
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '16px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontWeight: '700',
-                    letterSpacing: '.14em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -1100,14 +1188,14 @@ export default class HomePage extends React.Component {
                 </span>
               </div>
             </div>
-            <div>
+            <div className="bbs-split-text">
               <div
                 style={{
                   color: '#E31E26',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.16em',
+                  letterSpacing: '.08em',
                   textTransform: 'uppercase',
                 }}
               >
@@ -1116,10 +1204,11 @@ export default class HomePage extends React.Component {
               <h2
                 style={{
                   margin: '12px 0 0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: 'clamp(40px,4.4vw,60px)',
-                  lineHeight: '.98',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.05',
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                   textWrap: 'balance',
@@ -1127,8 +1216,8 @@ export default class HomePage extends React.Component {
               >
                 Three generations. One neighborhood.
               </h2>
-              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.65', color: '#4A4F6A', textWrap: 'pretty' }}>
-                Beaver Builders Supply is a locally owned, third-generation building supply company. We employ local
+              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
+                Beaver Builders' Supply is a locally owned, third-generation building supply company. We employ local
                 neighbors, and most of our customers find us through someone they trust. We've earned that by being honest,
                 knowing our products, and standing behind every order.
               </p>
@@ -1155,11 +1244,11 @@ export default class HomePage extends React.Component {
                   >
                     <span
                       style={{
-                        fontFamily: "'Barlow Condensed',sans-serif",
-                        fontSize: '21px',
+                        fontFamily: "'Roboto Condensed',sans-serif",
+                        fontSize: '20px',
                         fontWeight: '700',
                         textTransform: 'uppercase',
-                        letterSpacing: '.02em',
+                        letterSpacing: '0',
                         color: '#14183A',
                       }}
                     >
@@ -1171,7 +1260,7 @@ export default class HomePage extends React.Component {
               <div
                 style={{
                   marginTop: '28px',
-                  background: '#313893',
+                  background: '#14183A',
                   color: '#fff',
                   borderRadius: '4px',
                   padding: '30px 32px',
@@ -1182,10 +1271,10 @@ export default class HomePage extends React.Component {
               >
                 <span
                   style={{
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '64px',
                     lineHeight: '.5',
-                    color: '#E31E26',
+                    color: '#fff',
                     fontWeight: '700',
                     height: '28px',
                   }}
@@ -1195,8 +1284,8 @@ export default class HomePage extends React.Component {
                 <blockquote
                   style={{
                     margin: '0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: '26px',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
                     lineHeight: '1.2',
                     fontWeight: '600',
                   }}
@@ -1204,7 +1293,7 @@ export default class HomePage extends React.Component {
                   We believe customers should feel like they’re working with a trusted neighbor, not just another supplier.
                 </blockquote>
               </div>
-              <div style={{ marginTop: '32px' }}>
+              <div className="bbs-split-cta bbs-about-cta" style={{ marginTop: '32px' }}>
                 <a
                   className="hv-66db52"
                   href="/about"
@@ -1214,7 +1303,7 @@ export default class HomePage extends React.Component {
                     border: '1.5px solid #313893',
                     color: '#313893',
                     fontWeight: '700',
-                    borderRadius: '2px',
+                    borderRadius: '3px',
                   }}
                 >
                   Read our story
@@ -1238,10 +1327,10 @@ export default class HomePage extends React.Component {
                 <div
                   style={{
                     color: '#E31E26',
-                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '17px',
                     fontWeight: '700',
-                    letterSpacing: '.16em',
+                    letterSpacing: '.08em',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -1250,10 +1339,11 @@ export default class HomePage extends React.Component {
                 <h2
                   style={{
                     margin: '12px 0 0',
-                    fontFamily: "'Barlow Condensed',sans-serif",
-                    fontSize: 'clamp(34px,3.6vw,48px)',
-                    lineHeight: '1',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: 'clamp(38px,4.6vw,58px)',
+                    lineHeight: '1.1',
                     fontWeight: '700',
+                    letterSpacing: '-.015em',
                     textTransform: 'uppercase',
                     color: '#14183A',
                   }}
@@ -1283,7 +1373,7 @@ export default class HomePage extends React.Component {
                   border: '1.5px solid #313893',
                   color: '#313893',
                   fontWeight: '700',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 View full gallery
@@ -1342,17 +1432,18 @@ export default class HomePage extends React.Component {
             <h2
               style={{
                 margin: '0',
-                fontFamily: "'Barlow Condensed',sans-serif",
-                fontSize: 'clamp(44px,5.4vw,72px)',
-                lineHeight: '.98',
+                fontFamily: "'Roboto Condensed',sans-serif",
+                fontSize: 'clamp(38px,4.6vw,58px)',
+                lineHeight: '1.05',
                 fontWeight: '700',
+                letterSpacing: '-.015em',
                 textTransform: 'uppercase',
                 textWrap: 'balance',
               }}
             >
               Let's talk about your project.
             </h2>
-            <p style={{ margin: '22px 0 0', fontSize: '19px', lineHeight: '1.6', color: '#fff', maxWidth: '560px' }}>
+            <p style={{ margin: '22px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#fff', maxWidth: '560px' }}>
               Tell us what you're building. A member of our sales team will follow up with product options and pricing.
             </p>
             <div
@@ -1368,29 +1459,14 @@ export default class HomePage extends React.Component {
                   color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Call 608-526-3232
               </a>
               <a
-                className="hv-9099e0"
-                href="mailto:sales@beaverbuilderssupply.com"
-                style={{
-                  whiteSpace: 'nowrap',
-                  padding: '17px 31px',
-                  background: '#fff',
-                  color: '#14183A',
-                  fontWeight: '700',
-                  fontSize: '17px',
-                  borderRadius: '2px',
-                }}
-              >
-                Email Our Sales Team
-              </a>
-              <a
                 className="hv-770bf8"
-                href="https://maps.google.com/?q=N6838+Builders+Ct+Holmen+WI+54636"
+                href="mailto:sales@beaverbuilderssupply.com"
                 style={{
                   whiteSpace: 'nowrap',
                   padding: '16px 30px',
@@ -1398,10 +1474,10 @@ export default class HomePage extends React.Component {
                   color: '#fff',
                   fontWeight: '700',
                   fontSize: '17px',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
-                Get Directions
+                Email Our Sales Team
               </a>
             </div>
           </div>
@@ -1424,7 +1500,7 @@ export default class HomePage extends React.Component {
                   alignSelf: 'flex-start',
                 }}
               />
-              <div style={{ fontSize: '15px', lineHeight: '1.6' }}>
+              <div style={{ fontSize: '18px', lineHeight: '1.6' }}>
                 Locally owned since 1951.
                 <br />
                 Serving La Crosse and the Coulee Region.
@@ -1472,15 +1548,37 @@ export default class HomePage extends React.Component {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                   </svg>
                 </a>
+                <a
+                  className="bbs-ficon hv-1ff11b"
+                  href="https://www.pinterest.com/beaverbuilderssupply/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Pinterest"
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    border: '1px solid rgba(255,255,255,.25)',
+                    borderRadius: '4px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <svg className="bbs-ico" width="18" height="18" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12.2 10.5 10.2 21.5" />
+                    <path d="M9.1 12.6C8.5 9.6 10.5 7 13.2 7c2.4 0 3.8 1.6 3.8 3.6 0 2.7-1.5 4.6-3.5 4.6-.9 0-1.7-.6-1.6-1.4" />
+                  </svg>
+                </a>
               </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px' }}>
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.12em',
+                  letterSpacing: '.06em',
                   textTransform: 'uppercase',
                   color: '#fff',
                 }}
@@ -1506,13 +1604,13 @@ export default class HomePage extends React.Component {
                 Contact
               </a>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px' }}>
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.12em',
+                  letterSpacing: '.06em',
                   textTransform: 'uppercase',
                   color: '#fff',
                 }}
@@ -1525,13 +1623,13 @@ export default class HomePage extends React.Component {
                 </a>
               ))}
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '15px', lineHeight: '1.5' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px', lineHeight: '1.5' }}>
               <div
                 style={{
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
-                  letterSpacing: '.12em',
+                  letterSpacing: '.06em',
                   textTransform: 'uppercase',
                   color: '#fff',
                 }}
@@ -1552,7 +1650,7 @@ export default class HomePage extends React.Component {
               </a>
               <a
                 className="hv-b2d6c8"
-                href="https://maps.google.com/?q=N6838+Builders+Ct+Holmen+WI+54636"
+                href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
                 target="_blank"
                 rel="noopener"
                 style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#fff' }}
@@ -1600,24 +1698,24 @@ export default class HomePage extends React.Component {
               textAlign: 'center',
             }}
           >
-            <span>© 2026 Beaver Builders Supply. All rights reserved.</span>
+            <span>© 2026 Beaver Builders' Supply. All rights reserved.</span>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-            <a className="hv-b2d6c8" href="/site-map" style={{ color: '#fff', textDecoration: 'underline' }}>
+            <a className="hv-b2d6c8" href="/site-map" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
               Site Map
             </a>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-            <a className="hv-b2d6c8" href="/privacy-policy" style={{ color: '#fff', textDecoration: 'underline' }}>
+            <a className="hv-b2d6c8" href="/privacy-policy" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
               Privacy Policy
             </a>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
-            <a className="hv-b2d6c8" href="/ai-policy" style={{ color: '#fff', textDecoration: 'underline' }}>
+            <a className="hv-b2d6c8" href="/ai-policy" style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}>
               AI Policy
             </a>
             <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,.3)' }} />
             <a
               className="hv-b2d6c8"
               href="/ai-readiness-service-index"
-              style={{ color: '#fff', textDecoration: 'underline' }}
+              style={{ color: '#fff', fontSize: '16px', textDecoration: 'underline' }}
             >
               AI Readiness Service Index
             </a>

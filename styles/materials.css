@@ -1,4 +1,4 @@
-body{margin:0;font-family:'Source Sans 3',sans-serif;color:#14183A;background:#fff;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:'Roboto',sans-serif;color:#14183A;background:#fff;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:#313893;text-decoration:none}
 a:hover{color:#E31E26}
@@ -15,3 +15,12 @@ a:hover{color:#E31E26}
 .bbs-ico{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bbs-ficon{color:#fff;transition:color .2s}
 a:hover .bbs-ficon,a.bbs-ficon:hover{color:#E31E26}
+/* The category tabs stay on one line; when they don't fit, the row swipes sideways. */
+.bbs-tabs-row{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+.bbs-tabs-row::-webkit-scrollbar{display:none}
+/* The slide bar under the tabs; the ::before widens the touch target beyond the thin visible track. */
+.bbs-tabs-slider{position:relative;height:6px;margin:4px 32px 12px;border-radius:3px;background:#E4E5EE;cursor:pointer;touch-action:none}
+.bbs-tabs-slider[hidden]{display:none}
+.bbs-tabs-slider::before{content:'';position:absolute;inset:-10px 0}
+.bbs-tabs-slider>span{position:absolute;top:0;bottom:0;border-radius:3px;background:#313893;cursor:grab}
+.bbs-tabs-slider>span:hover{background:#14183A}

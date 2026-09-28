@@ -72,10 +72,11 @@ export default class SiteMapPage extends React.Component {
               <h1
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontWeight: '700',
+                  letterSpacing: '-.015em',
                   fontSize: 'clamp(52px,6.4vw,60px)',
-                  lineHeight: '.95',
+                  lineHeight: '1.05',
                   color: '#fff',
                   textTransform: 'uppercase',
                 }}
@@ -122,10 +123,10 @@ export default class SiteMapPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: 'clamp(30px,3vw,38px)',
                   fontWeight: '700',
-                  letterSpacing: '.02em',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                   lineHeight: '1.05',
@@ -212,10 +213,10 @@ export default class SiteMapPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: 'clamp(30px,3vw,38px)',
                   fontWeight: '700',
-                  letterSpacing: '.02em',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                   lineHeight: '1.05',
@@ -293,10 +294,10 @@ export default class SiteMapPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: 'clamp(30px,3vw,38px)',
                   fontWeight: '700',
-                  letterSpacing: '.02em',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                   lineHeight: '1.05',
@@ -365,10 +366,10 @@ export default class SiteMapPage extends React.Component {
               <h2
                 style={{
                   margin: '0',
-                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: 'clamp(30px,3vw,38px)',
                   fontWeight: '700',
-                  letterSpacing: '.02em',
+                  letterSpacing: '-.015em',
                   textTransform: 'uppercase',
                   color: '#14183A',
                   lineHeight: '1.05',
@@ -425,7 +426,7 @@ export default class SiteMapPage extends React.Component {
                   border: '1.5px solid #313893',
                   color: '#313893',
                   fontWeight: '700',
-                  borderRadius: '2px',
+                  borderRadius: '3px',
                 }}
               >
                 Back to Home

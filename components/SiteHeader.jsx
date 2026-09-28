@@ -1,12 +1,13 @@
 import HeaderHeightSync from './HeaderHeightSync';
+import MobileNav from './MobileNav';
 
 function NavLink({ href, active, children }) {
   return active ? (
-    <a href={href} style={{ padding: '10px 14px', color: '#fff', borderBottom: '2px solid #E31E26' }}>
+    <a href={href} style={{ padding: '10px 9px', color: '#fff', borderBottom: '2px solid #E31E26' }}>
       {children}
     </a>
   ) : (
-    <a href={href} className="hv-6d2547" style={{ padding: '10px 14px', color: '#fff' }}>
+    <a href={href} className="hv-6d2547" style={{ padding: '10px 9px', color: '#fff' }}>
       {children}
     </a>
   );
@@ -27,20 +28,23 @@ export default function SiteHeader({ active, vals }) {
           justifyContent: 'space-between',
         }}
       >
-        <a href="/" style={{ display: 'block', flex: '0 0 auto' }}>
-          <img className="bbs-logo" src="/assets/logo-white.png" alt="Beaver Builders' Supply" />
-        </a>
+        <div style={{ flex: '1 1 0', display: 'flex' }}>
+          <a href="/" style={{ display: 'block', flex: '0 0 auto' }}>
+            <img className="bbs-logo" src="/assets/logo-white.png" alt="Beaver Builders' Supply" />
+          </a>
+        </div>
         <nav
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             gap: '4px',
             alignItems: 'center',
-            marginRight: '10px',
-            fontFamily: "'Barlow Condensed',sans-serif",
-            fontSize: '19px',
+            justifyContent: 'center',
+            flex: '0 1 auto',
+            fontFamily: "'Roboto Condensed',sans-serif",
+            fontSize: '18px',
             fontWeight: '600',
-            letterSpacing: '.04em',
+            letterSpacing: '.02em',
             textTransform: 'uppercase',
           }}
         >
@@ -49,7 +53,7 @@ export default function SiteHeader({ active, vals }) {
             <a
               className="hv-6d2547"
               href="/materials"
-              style={{ padding: '10px 14px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
+              style={{ padding: '10px 9px', color: '#fff', display: 'flex', gap: '6px', alignItems: 'center' }}
             >
               Materials <span style={{ fontSize: '11px' }}>▾</span>
             </a>
@@ -64,7 +68,7 @@ export default function SiteHeader({ active, vals }) {
                   boxShadow: '0 18px 40px rgba(20,24,58,.16)',
                   borderTop: '3px solid #E31E26',
                   padding: '8px 0',
-                  fontFamily: "'Source Sans 3',sans-serif",
+                  fontFamily: "'Roboto',sans-serif",
                   textTransform: 'none',
                   letterSpacing: '0',
                   fontSize: '16px',
@@ -128,7 +132,7 @@ export default function SiteHeader({ active, vals }) {
               className="hv-6d2547"
               href="/design"
               style={{
-                padding: '10px 14px',
+                padding: '10px 9px',
                 color: '#fff',
                 display: 'flex',
                 gap: '6px',
@@ -149,7 +153,7 @@ export default function SiteHeader({ active, vals }) {
                   boxShadow: '0 18px 40px rgba(20,24,58,.16)',
                   borderTop: '3px solid #E31E26',
                   padding: '8px 0',
-                  fontFamily: "'Source Sans 3',sans-serif",
+                  fontFamily: "'Roboto',sans-serif",
                   textTransform: 'none',
                   letterSpacing: '0',
                   fontSize: '16px',
@@ -182,20 +186,28 @@ export default function SiteHeader({ active, vals }) {
           <NavLink href="/contact" active={active === 'contact'}>
             Contact
           </NavLink>
+        </nav>
+        <div style={{ flex: '1 1 0', display: 'flex', justifyContent: 'flex-end' }}>
           <a
-            className="hv-6a96a5"
+            className="bbs-header-quote hv-6a96a5"
             href="/contact"
             style={{
-              marginLeft: '10px',
+              flex: '0 0 auto',
+              fontFamily: "'Roboto Condensed',sans-serif",
+              fontSize: '19px',
+              fontWeight: '600',
+              letterSpacing: '.02em',
+              textTransform: 'uppercase',
               padding: '12px 22px',
               background: '#E31E26',
               color: '#fff',
-              borderRadius: '2px',
+              borderRadius: '3px',
             }}
           >
             Request a Quote
           </a>
-        </nav>
+          <MobileNav active={active} />
+        </div>
       </div>
       <HeaderHeightSync />
     </header>
