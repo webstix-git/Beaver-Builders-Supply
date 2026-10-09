@@ -15,9 +15,12 @@ const CATS = [
   { slug: 'siding', name: 'Siding', img: '/New-img/Materials/siding.jpg', intro: 'Engineered wood, fiber cement, and vinyl siding with trim and accessories. Our showroom features full-scale siding walls so you can see color and texture in real light.', items: ['Engineered Wood', 'Fiber Cement', 'Vinyl', 'Trim & Soffit'], n: 4 },
   { slug: 'roofing', name: 'Roofing', img: '/New-img/Materials/roofing.jpg', intro: 'Shingles, underlayment, and ventilation from brands we trust. We help builders and homeowners put together a complete roofing system for lasting performance.', items: ['Shingles', 'Underlayment', 'Ventilation', 'Flashing'], n: 4 }
 ];
+const MAIN_NOTE_STOCK = 'The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.';
+const MAIN_NOTE = 'Recommended most often by our team, with full displays in our Holmen showroom.';
 // Brand logos by category; categories without an entry keep the placeholder boxes. dark: white logo shown on a dark tile.
 const BRAND_LOGOS = {
   'kitchen-bath': {
+    mainNote: MAIN_NOTE,
     suffix1: ' - Cabinetry',
     main1: { alt: 'Wood Harbor Custom Cabinetry', href: 'https://www.woodharbor.com/', src: '/Supplier%27s-logo/Kitchen-and-Bath/Cabinetry/wood-harbor-.svg' },
     vendors1: [
@@ -45,6 +48,7 @@ const BRAND_LOGOS = {
     ]
   },
   windows: {
+    mainNote: MAIN_NOTE,
     main1: { alt: 'Andersen Windows & Doors', href: 'https://www.andersenwindows.com/', src: '/Supplier%27s-logo/Windows/andersen_logo_tm_rectangle_rgb.svg' },
     vendors1: [
       { alt: 'PARCO Windows & Patio Doors', href: 'https://www.parcowindows.com/', src: '/Supplier%27s-logo/Windows/home.jpg' },
@@ -53,14 +57,16 @@ const BRAND_LOGOS = {
     ]
   },
   'exterior-doors': {
+    mainNote: MAIN_NOTE,
     main1: { alt: 'Bayer Built Woodworks', href: 'https://www.bayerbuilt.com/', src: '/Supplier%27s-logo/Exterior-Doors/68f66b6dafda001caff2b649_6a94dac957beeb6aff6e34ab99e36254_Bayer%20Built%20Logo.png' },
     vendors1: [
       { alt: 'Metropolitan Door Industries', href: 'https://www.metropolitandoor.com/', src: '/Supplier%27s-logo/Exterior-Doors/mdi-logo-r-dkbl-trans.png' },
       { alt: 'Therma-Tru Doors', href: 'https://www.thermatru.com/', src: '/Supplier%27s-logo/Exterior-Doors/therma-tru-whb-logo.png' },
-      null
+      { alt: 'Waudena', href: 'https://www.waudena.com/', src: '/Supplier%27s-logo/Exterior-Doors/waudena_logo_color_500x218.png' }
     ]
   },
   'interior-doors-trim': {
+    mainNote: MAIN_NOTE,
     main1: { alt: 'Bayer Built Woodworks', href: 'https://www.bayerbuilt.com/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/68f66b6dafda001caff2b649_6a94dac957beeb6aff6e34ab99e36254_Bayer%20Built%20Logo%20%281%29.png' },
     vendors1: [
       { alt: 'Koch Doors', href: 'https://kochandco.com/doors/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/Koch-Doors-Logo-New-1024x717.webp' },
@@ -70,6 +76,8 @@ const BRAND_LOGOS = {
     ]
   },
   siding: {
+    main1: { alt: 'Diamond Kote Siding', href: 'https://diamondkotesiding.com/', src: '/Supplier%27s-logo/Siding/diamond-kote-logo-white.svg', dark: true },
+    main2: { alt: 'LP Building Solutions', href: 'https://www.lpcorp.com/', src: '/Supplier%27s-logo/Siding/lp-building-solutions-logo.svg' },
     vendors1: [
       { alt: 'CertainTeed', href: 'https://www.certainteed.com/', src: '/Supplier%27s-logo/Siding/logo.svg' },
       { alt: 'TruExterior', href: 'https://www.truexterior.com/', src: '/Supplier%27s-logo/Siding/Brand%3Dtruexterior%2C%20Color%3Dcolor.svg' },
@@ -97,6 +105,7 @@ function brandVals(x) {
   return {
     suffix1: b.suffix1 || '',
     suffix2: b.suffix2 || '',
+    mainNote: b.mainNote || MAIN_NOTE_STOCK,
     ...main('m1', b.main1),
     ...main('m2', b.main2),
     vendors: (b.vendors1 || Array(x.n).fill(null)).map(logoVals),
@@ -753,7 +762,7 @@ export default class MaterialsPage extends React.Component {
                     Our primary {cur.lower} line
                   </div>
                   <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                    The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.
+                    {cur.mainNote}
                   </p>
                   <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
                 </div>
@@ -1116,7 +1125,7 @@ export default class MaterialsPage extends React.Component {
                         Our primary {cur.lower} line
                       </div>
                       <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                        The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.
+                        {cur.mainNote}
                       </p>
                       <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
                     </div>

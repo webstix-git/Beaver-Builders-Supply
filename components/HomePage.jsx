@@ -150,7 +150,6 @@ export default class HomePage extends React.Component {
         { name: 'Siding', href: '/materials#siding', d: 'Engineered, fiber cement, and vinyl siding with accessories.', img: '/New-img/Homepage/siding.jpg' },
         { name: 'Roofing', href: '/materials#roofing', d: 'Shingles, underlayment, and ventilation from trusted brands.', img: '/New-img/Homepage/roofing.jpg' }
       ],
-      yard: ['Framing Lumber', 'Manufactured Trusses', 'Engineered Products', 'Building Science', 'Cabinets & Tops'],
     };
   }
 
@@ -424,12 +423,12 @@ export default class HomePage extends React.Component {
             </div>
           </section>
         </div>
-        <section style={{ position: 'relative', zIndex: '2', padding: '0 32px' }}>
+        <section style={{ position: 'relative', zIndex: '2', padding: '0 32px 80px' }}>
           <div
             style={{
               maxWidth: '1216px',
               margin: '-64px auto 0',
-              background: '#fff',
+              background: '#F6F4EF',
               boxShadow: '0 24px 60px rgba(20,24,58,.14)',
               borderTop: '4px solid #313893',
               display: 'flex',
@@ -443,8 +442,8 @@ export default class HomePage extends React.Component {
                   flex: '1 1 calc((820px - 100%) * 999)',
                   minWidth: '0',
                   padding: '34px 30px',
-                  borderRight: '1px solid #ECEDF3',
-                  borderBottom: '1px solid #ECEDF3',
+                  borderRight: '1px solid #DAD5C8',
+                  borderBottom: '1px solid #DAD5C8',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '10px',
@@ -468,211 +467,7 @@ export default class HomePage extends React.Component {
             ))}
           </div>
         </section>
-        <section id="materials" style={{ padding: '104px 0 112px', background: '#fff' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '24px',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
-              }}
-            >
-              <div style={{ maxWidth: '640px' }}>
-                <div
-                  style={{
-                    color: '#E31E26',
-                    fontFamily: "'Roboto Condensed',sans-serif",
-                    fontSize: '17px',
-                    fontWeight: '700',
-                    letterSpacing: '.08em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Materials
-                </div>
-                <h2
-                  style={{
-                    margin: '12px 0 0',
-                    fontFamily: "'Roboto Condensed',sans-serif",
-                    fontSize: 'clamp(38px,4.6vw,58px)',
-                    lineHeight: '1.1',
-                    fontWeight: '700',
-                    letterSpacing: '-.015em',
-                    textTransform: 'uppercase',
-                    color: '#14183A',
-                  }}
-                >
-                  The right product for the job, from brands we stand behind.
-                </h2>
-              </div>
-              <p style={{ margin: '0', maxWidth: '420px', fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A' }}>
-                With so many options on the market, our sales team helps you find the brand and product that fits your
-                quality, value, and budget.
-              </p>
-            </div>
-            <div
-              style={{
-                marginTop: '56px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill,minmax(min(100%,280px),1fr))',
-                gap: '28px',
-              }}
-            >
-              {vals.materials.map((m, i) => (
-                <a
-                  key={i}
-                  className="hv-935324"
-                  href={m.href}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    background: '#fff',
-                    border: '1px solid #E4E5EE',
-                    borderRadius: '4px',
-                    overflow: 'hidden',
-                    color: '#14183A',
-                    boxShadow: '0 1px 2px rgba(20,24,58,.04)',
-                    transition: 'transform .25s ease,box-shadow .25s ease,border-color .25s ease',
-                  }}
-                >
-                  <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
-                    <img
-                      src={m.img}
-                      alt=""
-                      style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: '0',
-                        bottom: '0',
-                        width: '56px',
-                        height: '4px',
-                        background: '#313893',
-                      }}
-                    />
-                  </div>
-                  <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
-                    <div
-                      style={{
-                        fontFamily: "'Roboto Condensed',sans-serif",
-                        fontSize: '26px',
-                        fontWeight: '700',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0',
-                        lineHeight: '1.1',
-                      }}
-                    >
-                      {m.name}
-                    </div>
-                    <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>{m.d}</div>
-                  </div>
-                  <div
-                    style={{
-                      margin: '22px 24px 0',
-                      padding: '16px 0 20px',
-                      borderTop: '1px solid #ECEDF3',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      fontWeight: '700',
-                      fontSize: '15px',
-                      color: '#313893',
-                    }}
-                  >
-                    <span>View vendors</span>
-                    <span
-                      style={{
-                        width: '34px',
-                        height: '34px',
-                        borderRadius: '50%',
-                        background: '#F3F4F9',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#E31E26',
-                        fontSize: '17px',
-                      }}
-                    >
-                      →
-                    </span>
-                  </div>
-                </a>
-              ))}
-              <div
-                style={{
-                  background: '#14183A',
-                  borderRadius: '4px',
-                  padding: '32px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  gap: '28px',
-                  color: '#fff',
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "'Roboto Condensed',sans-serif",
-                      fontSize: '15px',
-                      fontWeight: '700',
-                      letterSpacing: '.08em',
-                      textTransform: 'uppercase',
-                      color: '#fff',
-                    }}
-                  >
-                    Also in the yard
-                  </div>
-                  <ul
-                    style={{
-                      margin: '18px 0 0',
-                      padding: '0',
-                      listStyle: 'none',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0',
-                    }}
-                  >
-                    {vals.yard.map((y, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          padding: '11px 0',
-                          borderBottom: '1px solid rgba(255,255,255,.12)',
-                          fontFamily: "'Roboto Condensed',sans-serif",
-                          fontSize: '20px',
-                          fontWeight: '600',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0',
-                        }}
-                      >
-                        {y}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <a
-                  className="hv-6a96a5"
-                  href="/contact"
-                  style={{
-                    alignSelf: 'flex-start',
-                    padding: '14px 22px',
-                    background: '#E31E26',
-                    color: '#fff',
-                    fontWeight: '700',
-                    borderRadius: '3px',
-                  }}
-                >
-                  Ask our sales team
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="showroom" style={{ background: '#14183A', color: '#fff' }}>
+        <section id="showroom" style={{ background: '#fff', color: '#000' }}>
           <div
             style={{
               maxWidth: '1280px',
@@ -685,7 +480,7 @@ export default class HomePage extends React.Component {
             <div style={{ padding: '96px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div
                 style={{
-                  color: '#fff',
+                  color: '#E31E26',
                   fontFamily: "'Roboto Condensed',sans-serif",
                   fontSize: '17px',
                   fontWeight: '700',
@@ -708,7 +503,7 @@ export default class HomePage extends React.Component {
               >
                 See it, touch it, open it before you build with it.
               </h2>
-              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#fff', textWrap: 'pretty' }}>
+              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#000', textWrap: 'pretty' }}>
                 Walk through full-scale displays of siding, decking, railing, windows, doors, and finished interiors.
                 Compare colors and textures side by side with a member of our team who knows the products.
               </p>
@@ -718,7 +513,7 @@ export default class HomePage extends React.Component {
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))',
                   gap: '20px',
-                  borderTop: '1px solid rgba(255,255,255,.18)',
+                  borderTop: '1px solid #E4E5EE',
                   paddingTop: '28px',
                 }}
               >
@@ -730,7 +525,7 @@ export default class HomePage extends React.Component {
                     style={{
                       display: 'inline-block',
                       marginTop: '4px',
-                      color: '#fff',
+                      color: '#000',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '32px',
                       fontWeight: '700',
@@ -747,7 +542,7 @@ export default class HomePage extends React.Component {
                     href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
                     target="_blank"
                     rel="noopener"
-                    style={{ display: 'block', marginTop: '4px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}
+                    style={{ display: 'block', marginTop: '4px', color: '#000', fontSize: '18px', lineHeight: '1.5' }}
                   >
                     N6838 Builders Ct.
                     <br />
@@ -874,7 +669,7 @@ export default class HomePage extends React.Component {
                       borderRadius: '3px',
                     }}
                   >
-                    Open the drafting contract
+                    Explore drafting contract
                   </span>
                 </div>
               </a>

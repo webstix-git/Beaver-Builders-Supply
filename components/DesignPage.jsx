@@ -174,7 +174,7 @@ export default class DesignPage extends React.Component {
                 plans and your materials come from the same team.
               </p>
               <p style={{ margin: '16px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
-                Getting started is simple. Request our drafting contract, tell us about your project, and we'll set up a
+                Getting started is simple. Review our drafting contract, tell us about your project, and we'll set up a
                 time to sit down with you.
               </p>
               <ul style={{ margin: '28px 0 0', padding: '0', listStyle: 'none', display: 'grid', gap: '12px' }}>
@@ -274,7 +274,9 @@ export default class DesignPage extends React.Component {
               <div className="bbs-split-cta" style={{ marginTop: '36px', display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
                 <a
                   className="hv-6a96a5"
-                  href="mailto:sales@beaverbuilderssupply.com?subject=Drafting%20Contract%20Request"
+                  href="/documents/BBS_Drafting_Contract_2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     whiteSpace: 'nowrap',
                     padding: '17px 30px',
@@ -285,7 +287,7 @@ export default class DesignPage extends React.Component {
                     borderRadius: '3px',
                   }}
                 >
-                  Request the drafting contract
+                  View the drafting contract
                 </a>
                 <a
                   className="hv-66db52"
@@ -404,10 +406,11 @@ export default class DesignPage extends React.Component {
                       lineHeight: '1.1',
                     }}
                   >
-                    Request the Contract
+                    Review the Contract
                   </div>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
-                    Ask for our drafting contract and tell us about your new home, addition, or remodel.
+                    Open our drafting contract to review the fees and terms, then tell us about your new home, addition, or
+                    remodel.
                   </div>
                 </div>
               </div>
