@@ -112,32 +112,44 @@ function brandVals(x) {
     vendors2: (b.vendors2 || []).map(logoVals)
   };
 }
+function initialCategory() {
+  if (typeof window === 'undefined') return 'kitchen-bath';
+  const h = (location.hash || '').slice(1);
+  return CATS.some(c => c.slug === h) ? h : 'kitchen-bath';
+}
 export default class MaterialsPage extends React.Component {
   state = { menu: null, sel: 'kitchen-bath', scrolled: false, navTop: 67 };
   componentDidMount() {
+    const sel = initialCategory();
+    if (sel !== this.state.sel) this.setState({ sel });
     this.onScroll = () => {
       const scrolled = window.scrollY > 80;
       if (scrolled !== this.state.scrolled) this.setState({ scrolled });
-      let cur = CATS[0].slug;
-      for (const c of CATS) { const el = document.getElementById(c.slug); if (el && el.getBoundingClientRect().top <= this.offset() + 20) cur = c.slug; }
-      if (cur !== this.state.sel) this.setState({ sel: cur });
     };
     this.onResize = () => { this.measureHeader(); this.syncSlider(); };
+    this.onHash = () => {
+      const h = (location.hash || '').slice(1);
+      if (CATS.some(c => c.slug === h) && h !== this.state.sel) this.setState({ sel: h }, () => this.revealTab(h));
+    };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onResize);
+    window.addEventListener('hashchange', this.onHash);
     this.tabsRow = document.querySelector('.bbs-tabs-row');
     this.tabsRow?.addEventListener('scroll', this.syncSlider, { passive: true });
     document.fonts?.ready.then(this.syncSlider);
     this.measureHeader();
     this.syncSlider();
     this.onScroll();
-    const h = (location.hash || '').slice(1);
-    if (CATS.some(c => c.slug === h)) setTimeout(() => this.go(h, 'auto'), 300);
+    if (sel !== 'kitchen-bath') this.revealTab(sel);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('hashchange', this.onHash);
     this.tabsRow?.removeEventListener('scroll', this.syncSlider);
+  }
+  componentDidUpdate() {
+    this.syncSlider();
   }
   // When the tabs row is wider than the screen it swipes sideways, and the slide bar under it shows the visible
   // part of the row. Dragging the thumb scrolls the row; tapping the track centers the thumb there.
@@ -181,24 +193,42 @@ export default class MaterialsPage extends React.Component {
     hd.classList.remove('bbs-measure');
     if (h && h !== this.state.navTop) this.setState({ navTop: h });
   }
-  offset() {
+  revealTab(slug) {
+    const tab = document.getElementById('tab-' + slug);
+    tab?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
     const tabs = document.querySelector('.bbs-tabs');
-    return this.state.navTop + (tabs ? tabs.offsetHeight : 0);
-  }
-  go(slug, behavior) {
-    const el = document.getElementById(slug);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - this.offset(), behavior: behavior || 'smooth' });
-    try { history.replaceState(null, '', '#' + slug); } catch (_) {}
+    if (!tabs) return;
+    const top = tabs.getBoundingClientRect().top + window.scrollY - this.state.navTop;
+    if (window.scrollY > top + 8) window.scrollTo({ top, behavior: 'smooth' });
   }
   pick(slug) {
-    return e => { if (e) e.preventDefault(); this.setState({ sel: slug, menu: null }); this.go(slug); };
+    return e => {
+      if (e) e.preventDefault();
+      this.setState({ sel: slug, menu: null }, () => this.revealTab(slug));
+      try { history.replaceState(null, '', '#' + slug); } catch (_) {}
+    };
   }
+  onTabKey = (e) => {
+    const order = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
+    if (!order.includes(e.key)) return;
+    e.preventDefault();
+    const i = CATS.findIndex(c => c.slug === this.state.sel);
+    let next = i;
+    if (e.key === 'ArrowRight') next = (i + 1) % CATS.length;
+    if (e.key === 'ArrowLeft') next = (i - 1 + CATS.length) % CATS.length;
+    if (e.key === 'Home') next = 0;
+    if (e.key === 'End') next = CATS.length - 1;
+    const slug = CATS[next].slug;
+    this.pick(slug)();
+    requestAnimationFrame(() => document.getElementById('tab-' + slug)?.focus());
+  };
   renderVals() {
-    const cats = CATS.map((x, i) => ({ ...x, pick: this.pick(x.slug), num: String(i + 1).padStart(2, '0'), lower: x.name.toLowerCase(), first: i === 0, padTop: i === 0 ? '25px' : '96px', extraMain: x.slug === 'decking-railing' || x.slug === 'siding', extraGroup: x.slug === 'kitchen-bath', vendorCols: x.slug === 'siding' ? 'repeat(auto-fit,minmax(min(100%,max(220px,calc((100% - 60px) / 4))),1fr))' : 'repeat(auto-fit,minmax(min(100%,220px),1fr))', bg: i % 2 ? '#F6F4EF' : '#fff', ...brandVals(x), color: x.slug === this.state.sel ? '#313893' : '#4A4F6A', bar: x.slug === this.state.sel ? '#E31E26' : 'transparent' }));
+    const cats = CATS.map((x, i) => ({ ...x, pick: this.pick(x.slug), num: String(i + 1).padStart(2, '0'), lower: x.name.toLowerCase(), first: i === 0, padTop: i === 0 ? '25px' : '96px', extraMain: x.slug === 'decking-railing' || x.slug === 'siding', extraGroup: x.slug === 'kitchen-bath', vendorCols: x.slug === 'siding' ? 'repeat(auto-fit,minmax(min(100%,max(220px,calc((100% - 60px) / 4))),1fr))' : 'repeat(auto-fit,minmax(min(100%,220px),1fr))', bg: i % 2 ? '#F6F4EF' : '#fff', ...brandVals(x), active: x.slug === this.state.sel, color: x.slug === this.state.sel ? '#313893' : '#4A4F6A', bar: x.slug === this.state.sel ? '#E31E26' : 'transparent' }));
     return {
       cats,
       headerClass: this.state.scrolled ? 'is-sticky' : '',
       navTop: this.state.navTop,
+      onTabKey: this.onTabKey,
       dragSlider: this.dragSlider,
       materialsOpen: this.state.menu === 'm',
       designOpen: this.state.menu === 'd',
@@ -437,6 +467,9 @@ export default class MaterialsPage extends React.Component {
         >
           <div
             className="bbs-tabs-row"
+            role="tablist"
+            aria-label="Material categories"
+            onKeyDown={vals.onTabKey}
             style={{
               maxWidth: '1280px',
               margin: '0 auto',
@@ -446,10 +479,15 @@ export default class MaterialsPage extends React.Component {
             }}
           >
             {vals.cats.map((c, i) => (
-              <a
+              <button
                 key={i}
-                className="hv-720251"
-                href={`#${c.slug}`}
+                id={`tab-${c.slug}`}
+                className="bbs-tab hv-720251"
+                type="button"
+                role="tab"
+                aria-selected={c.active}
+                aria-controls={`panel-${c.slug}`}
+                tabIndex={c.active ? 0 : -1}
                 onClick={c.pick}
                 style={{
                   flex: '1 1 auto',
@@ -466,44 +504,48 @@ export default class MaterialsPage extends React.Component {
                 }}
               >
                 {c.name}
-              </a>
+              </button>
             ))}
           </div>
           <div className="bbs-tabs-slider" hidden onPointerDown={vals.dragSlider}>
             <span />
           </div>
         </nav>
+        <div style={{ background: (vals.cats.find(c => c.active) || vals.cats[0]).bg }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '25px 32px 0' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px',
+              alignItems: 'center',
+              fontSize: '15px',
+              color: '#4A4F6A',
+            }}
+          >
+            <a className="hv-b2d6c8" href="/" style={{ color: '#313893' }}>
+              Home
+            </a>
+            <span style={{ color: '#9CA0BE' }}>/</span>
+            <span style={{ color: '#14183A', fontWeight: '600' }}>Materials</span>
+          </div>
+          </div>
+        </div>
         {vals.cats.map((cur, i) => (
           <section
             key={i}
             id={cur.slug}
+            className="bbs-cat-panel"
+            role="tabpanel"
+            aria-labelledby={`tab-${cur.slug}`}
+            hidden={!cur.active}
             style={{
               scrollMarginTop: '64px',
-              padding: `${cur.padTop} 0 104px`,
+              padding: '56px 0 104px',
               background: cur.bg,
-              borderTop: '1px solid #E4E5EE',
             }}
           >
             <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-              {cur.first && (
-                <div
-                  style={{
-                    marginBottom: '56px',
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '10px',
-                    alignItems: 'center',
-                    fontSize: '15px',
-                    color: '#4A4F6A',
-                  }}
-                >
-                  <a className="hv-b2d6c8" href="/" style={{ color: '#313893' }}>
-                    Home
-                  </a>
-                  <span style={{ color: '#9CA0BE' }}>/</span>
-                  <span style={{ color: '#14183A', fontWeight: '600' }}>Materials</span>
-                </div>
-              )}
               <div
                 style={{
                   display: 'grid',
@@ -677,7 +719,7 @@ export default class MaterialsPage extends React.Component {
                         fontWeight: '600',
                       }}
                     >
-                      Main supplier logo
+                      Brand logo
                     </div>
                   )}
                   {cur.m1Light && (
@@ -734,22 +776,6 @@ export default class MaterialsPage extends React.Component {
                     gap: '14px',
                   }}
                 >
-                  <span
-                    style={{
-                      alignSelf: 'flex-start',
-                      padding: '6px 12px',
-                      background: '#E31E26',
-                      color: '#fff',
-                      borderRadius: '2px',
-                      fontFamily: "'Roboto Condensed',sans-serif",
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      letterSpacing: '.08em',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    Main Supplier
-                  </span>
                   <div
                     style={{
                       fontFamily: "'Roboto Condensed',sans-serif",
@@ -811,7 +837,7 @@ export default class MaterialsPage extends React.Component {
                           fontWeight: '600',
                         }}
                       >
-                        Main supplier logo
+                        Brand logo
                       </div>
                     )}
                     {cur.m2Light && (
@@ -868,22 +894,6 @@ export default class MaterialsPage extends React.Component {
                       gap: '14px',
                     }}
                   >
-                    <span
-                      style={{
-                        alignSelf: 'flex-start',
-                        padding: '6px 12px',
-                        background: '#E31E26',
-                        color: '#fff',
-                        borderRadius: '2px',
-                        fontFamily: "'Roboto Condensed',sans-serif",
-                        fontSize: '14px',
-                        fontWeight: '700',
-                        letterSpacing: '.08em',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      Main Supplier
-                    </span>
                     <div
                       style={{
                         fontFamily: "'Roboto Condensed',sans-serif",
@@ -1040,7 +1050,7 @@ export default class MaterialsPage extends React.Component {
                             fontWeight: '600',
                           }}
                         >
-                          Main supplier logo
+                          Brand logo
                         </div>
                       )}
                       {cur.m2Light && (
@@ -1097,22 +1107,6 @@ export default class MaterialsPage extends React.Component {
                         gap: '14px',
                       }}
                     >
-                      <span
-                        style={{
-                          alignSelf: 'flex-start',
-                          padding: '6px 12px',
-                          background: '#E31E26',
-                          color: '#fff',
-                          borderRadius: '2px',
-                          fontFamily: "'Roboto Condensed',sans-serif",
-                          fontSize: '14px',
-                          fontWeight: '700',
-                          letterSpacing: '.08em',
-                          textTransform: 'uppercase',
-                        }}
-                      >
-                        Main Supplier
-                      </span>
                       <div
                         style={{
                           fontFamily: "'Roboto Condensed',sans-serif",

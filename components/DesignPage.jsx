@@ -743,20 +743,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -838,20 +829,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -934,20 +916,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1029,20 +1002,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1124,20 +1088,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1219,20 +1174,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1314,20 +1260,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1409,20 +1346,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1504,20 +1432,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1599,20 +1518,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>
@@ -1694,20 +1604,11 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   <span>Open design tool</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </span>
               </a>

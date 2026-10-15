@@ -38,7 +38,8 @@ export default class AboutPage extends React.Component {
       designOpen: this.state.menu === 'd',
       openMaterials: () => this.setState({ menu: 'm' }),
       openDesign: () => this.setState({ menu: 'd' }),
-      closeMenu: () => this.setState({ menu: null })
+      closeMenu: () => this.setState({ menu: null }),
+      values: [{ n: '01', t: 'Quality' }, { n: '02', t: 'Honesty' }, { n: '03', t: 'Personal Service' }, { n: '04', t: 'Community' }]
     };
   }
 
@@ -99,11 +100,11 @@ export default class AboutPage extends React.Component {
             </div>
           </section>
         </div>
-        <section style={{ padding: '25px 0 112px', background: '#fff' }}>
+        <section style={{ padding: '25px 0 0', background: '#F6F4EF' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
             <div
               style={{
-                marginBottom: '56px',
+                marginBottom: '0',
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '10px',
@@ -119,6 +120,187 @@ export default class AboutPage extends React.Component {
               <span style={{ color: '#14183A', fontWeight: '600' }}>About Us</span>
             </div>
           </div>
+        </section>
+        <section id="about" style={{ padding: '120px 0', background: '#F6F4EF', overflow: 'hidden' }}>
+          <div
+            className="bbs-split"
+            style={{
+              maxWidth: '1280px',
+              margin: '0 auto',
+              padding: '0 32px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,460px),1fr))',
+              gap: '80px',
+              alignItems: 'center',
+            }}
+          >
+            <div className="bbs-split-media bbs-about-media" style={{ position: 'relative', padding: '0 0 56px 0' }}>
+              <img
+                src="/New-img/Homepage/about-us-img-1.jpg"
+                alt=""
+                style={{ width: '86%', aspectRatio: '4/5', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
+              />
+              <img
+                src="/New-img/Homepage/about-us-img-2.jpg"
+                alt=""
+                style={{
+                  position: 'absolute',
+                  right: '0',
+                  bottom: '0',
+                  width: '48%',
+                  aspectRatio: '1/1',
+                  objectFit: 'cover',
+                  display: 'block',
+                  borderRadius: '4px',
+                  border: '8px solid #F6F4EF',
+                }}
+              />
+              <div
+                className="bbs-about-badge"
+                style={{
+                  position: 'absolute',
+                  left: '-12px',
+                  background: '#E31E26',
+                  color: '#fff',
+                  borderRadius: '3px',
+                  boxShadow: '0 18px 40px rgba(227,30,38,.28)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '2px',
+                }}
+              >
+                <span
+                  className="bbs-about-badge-num"
+                  style={{
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontWeight: '700',
+                    lineHeight: '.85',
+                  }}
+                >
+                  75
+                </span>
+                <span
+                  className="bbs-about-badge-label"
+                  style={{
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontWeight: '700',
+                    letterSpacing: '.08em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Years in Holmen
+                </span>
+              </div>
+            </div>
+            <div className="bbs-split-text">
+              <div
+                style={{
+                  color: '#E31E26',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: '17px',
+                  fontWeight: '700',
+                  letterSpacing: '.08em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                About Us
+              </div>
+              <h2
+                style={{
+                  margin: '12px 0 0',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.05',
+                  fontWeight: '700',
+                  letterSpacing: '-.015em',
+                  textTransform: 'uppercase',
+                  color: '#14183A',
+                  textWrap: 'balance',
+                }}
+              >
+                Three generations. One neighborhood.
+              </h2>
+              <p style={{ margin: '24px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A', textWrap: 'pretty' }}>
+                Beaver Builders' Supply is a locally owned, third-generation building supply company. We employ local
+                neighbors, and most of our customers find us through someone they trust. We've earned that by being honest,
+                knowing our products, and standing behind every order.
+              </p>
+              <div
+                style={{
+                  marginTop: '36px',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,200px),1fr))',
+                  gap: '12px',
+                }}
+              >
+                {vals.values.map((v, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      background: '#fff',
+                      borderRadius: '4px',
+                      padding: '18px 20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '14px',
+                      boxShadow: '0 1px 2px rgba(20,24,58,.05)',
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "'Roboto Condensed',sans-serif",
+                        fontSize: '20px',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0',
+                        color: '#14183A',
+                      }}
+                    >
+                      {v.t}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div
+                style={{
+                  marginTop: '28px',
+                  background: '#14183A',
+                  color: '#fff',
+                  borderRadius: '4px',
+                  padding: '30px 32px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '10px',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '64px',
+                    lineHeight: '.5',
+                    color: '#fff',
+                    fontWeight: '700',
+                    height: '28px',
+                  }}
+                >
+                  “
+                </span>
+                <blockquote
+                  style={{
+                    margin: '0',
+                    fontFamily: "'Roboto Condensed',sans-serif",
+                    fontSize: '24px',
+                    lineHeight: '1.2',
+                    fontWeight: '600',
+                  }}
+                >
+                  We believe customers should feel like they’re working with a trusted neighbor, not just another supplier.
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="our-story" style={{ padding: '96px 0 112px', background: '#fff', scrollMarginTop: '88px' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
             <div
               style={{
@@ -343,20 +525,11 @@ export default class AboutPage extends React.Component {
                   }}
                 >
                   <span>Talk to our sales team</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </div>
               </a>
@@ -423,20 +596,11 @@ export default class AboutPage extends React.Component {
                   }}
                 >
                   <span>Kitchen & bath</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </div>
               </a>
@@ -503,20 +667,11 @@ export default class AboutPage extends React.Component {
                   }}
                 >
                   <span>Drafting contract</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </div>
               </a>
@@ -583,20 +738,11 @@ export default class AboutPage extends React.Component {
                   }}
                 >
                   <span>Ask about trusses</span>
-                  <span
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      background: '#F3F4F9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#E31E26',
-                      fontSize: '17px',
-                    }}
-                  >
-                    →
+                  <span aria-hidden="true" style={{ display: 'flex', flex: '0 0 auto', color: '#E31E26' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <polyline points="14 5 21 12 14 19" />
+                    </svg>
                   </span>
                 </div>
               </a>
@@ -612,7 +758,7 @@ export default class AboutPage extends React.Component {
               gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,480px),1fr))',
             }}
           >
-            <div style={{ minHeight: '520px', background: "url('/New-img/About/why-us.jpg') center/cover no-repeat" }} />
+            <div style={{ minHeight: '520px', background: "url('/New-img/Gallery/500103430_9727345597385236_2873127610018809278_n.jpg') center/cover no-repeat" }} role="img" aria-label="Finished home with siding, windows, and entry door" />
             <div
               style={{
                 padding: '96px clamp(24px,5vw,56px)',
@@ -739,44 +885,34 @@ export default class AboutPage extends React.Component {
         </section>
         <section style={{ padding: '104px 0 112px', background: '#fff' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '24px',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
-              }}
-            >
-              <div style={{ maxWidth: '640px' }}>
-                <div
-                  style={{
-                    color: '#E31E26',
-                    fontFamily: "'Roboto Condensed',sans-serif",
-                    fontSize: '17px',
-                    fontWeight: '700',
-                    letterSpacing: '.08em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Service Area
-                </div>
-                <h2
-                  style={{
-                    margin: '12px 0 0',
-                    fontFamily: "'Roboto Condensed',sans-serif",
-                    fontSize: 'clamp(38px,4.6vw,58px)',
-                    lineHeight: '1.1',
-                    fontWeight: '700',
-                    letterSpacing: '-.015em',
-                    textTransform: 'uppercase',
-                    color: '#14183A',
-                  }}
-                >
-                  Serving La Crosse and the Coulee Region
-                </h2>
+            <div style={{ maxWidth: '760px' }}>
+              <div
+                style={{
+                  color: '#E31E26',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: '17px',
+                  fontWeight: '700',
+                  letterSpacing: '.08em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Service Area
               </div>
-              <p style={{ margin: '0', maxWidth: '420px', fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A' }}>
+              <h2
+                style={{
+                  margin: '12px 0 0',
+                  fontFamily: "'Roboto Condensed',sans-serif",
+                  fontSize: 'clamp(38px,4.6vw,58px)',
+                  lineHeight: '1.1',
+                  fontWeight: '700',
+                  letterSpacing: '-.015em',
+                  textTransform: 'uppercase',
+                  color: '#14183A',
+                }}
+              >
+                Serving La Crosse and the Coulee Region
+              </h2>
+              <p style={{ margin: '22px 0 0', maxWidth: '640px', fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A' }}>
                 From our showroom and lumber yard in Holmen, we serve builders and homeowners across La Crosse and the
                 Coulee Region, with materials delivered right to your job site.
               </p>

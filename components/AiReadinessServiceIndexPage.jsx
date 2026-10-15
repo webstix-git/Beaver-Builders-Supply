@@ -610,7 +610,7 @@ export default class AiReadinessServiceIndexPage extends React.Component {
                           color: '#4A4F6A',
                         }}
                       >
-                        Mid Continent Cabinetry (main supplier), Holiday Kitchens, JSI Cabinetry, Cabnova, Wood Harbor
+                        Mid Continent Cabinetry, Holiday Kitchens, JSI Cabinetry, Cabnova, Wood Harbor
                         Custom Cabinetry
                       </td>
                     </tr>
