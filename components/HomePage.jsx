@@ -474,177 +474,11 @@ export default class HomePage extends React.Component {
             </div>
           </div>
         </section>
-        <section id="design" style={{ padding: '112px 0', background: '#F6F4EF' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-            <div style={{ maxWidth: '720px' }}>
-              <div
-                style={{
-                  color: '#E31E26',
-                  fontFamily: "'Roboto Condensed',sans-serif",
-                  fontSize: '17px',
-                  fontWeight: '700',
-                  letterSpacing: '.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Drafting & Design
-              </div>
-              <h2
-                style={{
-                  margin: '12px 0 0',
-                  fontFamily: "'Roboto Condensed',sans-serif",
-                  fontSize: 'clamp(38px,4.6vw,58px)',
-                  lineHeight: '1.1',
-                  fontWeight: '700',
-                  letterSpacing: '-.015em',
-                  textTransform: 'uppercase',
-                  color: '#14183A',
-                }}
-              >
-                Plan it right before the first board is cut.
-              </h2>
-            </div>
-            <div
-              style={{
-                marginTop: '48px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,420px),1fr))',
-                gap: '28px',
-              }}
-            >
-              <a
-                className="hv-5e9b76"
-                href="/design#drafting-contract"
-                style={{
-                  background: '#fff',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  color: '#14183A',
-                  boxShadow: '0 1px 2px rgba(20,24,58,.05)',
-                  transition: 'transform .25s ease,box-shadow .25s ease',
-                }}
-              >
-                <img
-                  src="/New-img/Homepage/drafting-contract.jpg"
-                  alt=""
-                  style={{ width: '100%', aspectRatio: '16/8', objectFit: 'cover', display: 'block' }}
-                />
-                <div
-                  style={{
-                    padding: '40px 44px 44px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '18px',
-                    flex: '1',
-                    borderTop: '4px solid #313893',
-                  }}
-                >
-                  <h3
-                    style={{
-                      margin: '0',
-                      fontFamily: "'Roboto Condensed',sans-serif",
-                      fontSize: '32px',
-                      fontWeight: '700',
-                      letterSpacing: '-.015em',
-                      textTransform: 'uppercase',
-                      color: '#14183A',
-                      lineHeight: '1.1',
-                    }}
-                  >
-                    Drafting Contract
-                  </h3>
-                  <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                    Work with our in-house drafting team on plans for new homes, additions, and remodels. Start with the
-                    drafting contract and we'll take it from there.
-                  </p>
-                  <span
-                    className="hv-bd5fa7"
-                    style={{
-                      marginTop: 'auto',
-                      alignSelf: 'flex-start',
-                      padding: '14px 22px',
-                      background: '#313893',
-                      color: '#fff',
-                      fontWeight: '700',
-                      borderRadius: '3px',
-                    }}
-                  >
-                    Explore drafting contract
-                  </span>
-                </div>
-              </a>
-              <a
-                className="hv-5e9b76"
-                href="/design#design-tools"
-                style={{
-                  background: '#fff',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  color: '#14183A',
-                  boxShadow: '0 1px 2px rgba(20,24,58,.05)',
-                  transition: 'transform .25s ease,box-shadow .25s ease',
-                }}
-              >
-                <img
-                  src="/bbs-img/gal-741821004.jpg"
-                  alt=""
-                  style={{ width: '100%', aspectRatio: '16/8', objectFit: 'cover', display: 'block' }}
-                />
-                <div
-                  style={{
-                    padding: '40px 44px 44px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '18px',
-                    flex: '1',
-                    borderTop: '4px solid #313893',
-                  }}
-                >
-                  <h3
-                    style={{
-                      margin: '0',
-                      fontFamily: "'Roboto Condensed',sans-serif",
-                      fontSize: '32px',
-                      fontWeight: '700',
-                      letterSpacing: '-.015em',
-                      textTransform: 'uppercase',
-                      color: '#14183A',
-                      lineHeight: '1.1',
-                    }}
-                  >
-                    Brand Design Tools
-                  </h3>
-                  <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                    Visualize siding colors, deck layouts, windows, and cabinetry with interactive tools from the
-                    manufacturers we carry. Bring your ideas in and we'll help price them out.
-                  </p>
-                  <span
-                    className="hv-6a96a5"
-                    style={{
-                      marginTop: 'auto',
-                      alignSelf: 'flex-start',
-                      padding: '14px 22px',
-                      background: '#E31E26',
-                      color: '#fff',
-                      fontWeight: '700',
-                      borderRadius: '3px',
-                    }}
-                  >
-                    Explore design tools
-                  </span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
         <section
           id="contact"
           style={{
             position: 'relative',
+            marginTop: '80px',
             background: "#14183A url('/New-img/Homepage/cta-banner.jpg') center/cover no-repeat",
             color: '#fff',
           }}
@@ -908,7 +742,7 @@ export default class HomePage extends React.Component {
               </a>
               <a
                 className="hv-b2d6c8"
-                href="mailto:info@beaverbuilderssupply.com"
+                href="mailto:sales@beaverbuilderssupply.com"
                 style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#fff', overflowWrap: 'anywhere' }}
               >
                 <span className="bbs-ficon" style={{ paddingTop: '2px' }}>
@@ -917,7 +751,7 @@ export default class HomePage extends React.Component {
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </span>
-                info@beaverbuilderssupply.com
+                sales@beaverbuilderssupply.com
               </a>
             </div>
           </div>

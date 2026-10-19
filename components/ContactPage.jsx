@@ -472,7 +472,7 @@ export default class ContactPage extends React.Component {
                 </a>
                 <a
                   className="hv-2cfab4"
-                  href="mailto:info@beaverbuilderssupply.com"
+                  href="mailto:sales@beaverbuilderssupply.com"
                   style={{
                     display: 'flex',
                     gap: '18px',
@@ -502,7 +502,7 @@ export default class ContactPage extends React.Component {
                       General Questions
                     </span>
                     <span style={{ fontSize: '18px', fontWeight: '600', lineHeight: '1.4', overflowWrap: 'anywhere' }}>
-                      info@beaverbuilderssupply.com
+                      sales@beaverbuilderssupply.com
                     </span>
                   </span>
                 </a>

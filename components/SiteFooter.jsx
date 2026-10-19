@@ -203,7 +203,7 @@ export default function SiteFooter() {
           </a>
           <a
             className="hv-b2d6c8"
-            href="mailto:info@beaverbuilderssupply.com"
+            href="mailto:sales@beaverbuilderssupply.com"
             style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#fff', overflowWrap: 'anywhere' }}
           >
             <span className="bbs-ficon" style={{ paddingTop: '2px' }}>
@@ -212,7 +212,7 @@ export default function SiteFooter() {
                 <polyline points="22,6 12,13 2,6" />
               </svg>
             </span>
-            info@beaverbuilderssupply.com
+            sales@beaverbuilderssupply.com
           </a>
         </div>
       </div>

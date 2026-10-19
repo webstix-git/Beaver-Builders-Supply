@@ -785,11 +785,8 @@ export default class MaterialsPage extends React.Component {
                       lineHeight: '1.1',
                     }}
                   >
-                    Our primary {cur.lower} line
+                    {cur.m1Alt}
                   </div>
-                  <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                    {cur.mainNote}
-                  </p>
                   <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
                 </div>
               </a>
@@ -903,11 +900,8 @@ export default class MaterialsPage extends React.Component {
                         lineHeight: '1.1',
                       }}
                     >
-                      Our primary {cur.lower} line
+                      {cur.m2Alt}
                     </div>
-                    <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                      The brand we stock deepest and recommend most often, with full displays in our Holmen showroom.
-                    </p>
                     <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
                   </div>
                 </a>
@@ -1116,11 +1110,8 @@ export default class MaterialsPage extends React.Component {
                           lineHeight: '1.1',
                         }}
                       >
-                        Our primary {cur.lower} line
+                        {cur.m2Alt}
                       </div>
-                      <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: '#4A4F6A' }}>
-                        {cur.mainNote}
-                      </p>
                       <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
                     </div>
                   </a>
@@ -1462,7 +1453,7 @@ export default class MaterialsPage extends React.Component {
               </a>
               <a
                 className="hv-b2d6c8"
-                href="mailto:info@beaverbuilderssupply.com"
+                href="mailto:sales@beaverbuilderssupply.com"
                 style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#fff', overflowWrap: 'anywhere' }}
               >
                 <span className="bbs-ficon" style={{ paddingTop: '2px' }}>
@@ -1471,7 +1462,7 @@ export default class MaterialsPage extends React.Component {
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </span>
-                info@beaverbuilderssupply.com
+                sales@beaverbuilderssupply.com
               </a>
             </div>
           </div>
