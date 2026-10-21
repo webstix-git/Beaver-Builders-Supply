@@ -676,15 +676,28 @@ export default class MaterialsPage extends React.Component {
                   Select a brand to visit the manufacturer's website.
                 </div>
               </div>
+              <div
+                style={{
+                  marginTop: '20px',
+                  display: 'grid',
+                  gridTemplateColumns: cur.extraMain ? 'repeat(auto-fit,minmax(min(100%,280px),1fr))' : 'min(100%,640px)',
+                  justifyContent: 'center',
+                  gap: '20px',
+                }}
+              >
               <a
                 className="hv-b766f3"
                 href={cur.m1Href}
                 target={cur.m1Target}
                 rel="noopener noreferrer"
+                aria-label={cur.m1Alt}
                 style={{
-                  marginTop: '20px',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,320px),1fr))',
+                  margin: '0',
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: '200px',
                   background: '#fff',
                   borderRadius: '4px',
                   overflow: 'hidden',
@@ -700,14 +713,13 @@ export default class MaterialsPage extends React.Component {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    borderRight: '1px solid #ECEDF3',
                     padding: '32px',
                   }}
                 >
                   {cur.m1None && (
                     <div
                       style={{
-                        width: 'min(100%,320px)',
+                        width: '320px', maxWidth: '100%',
                         height: '116px',
                         border: '1.5px dashed #9CA0BE',
                         borderRadius: '4px',
@@ -723,7 +735,7 @@ export default class MaterialsPage extends React.Component {
                     </div>
                   )}
                   {cur.m1Light && (
-                    <div style={{ position: 'relative', width: 'min(100%,320px)', height: '116px' }}>
+                    <div style={{ position: 'relative', width: '320px', maxWidth: '100%', height: '116px' }}>
                       <img
                         src={cur.m1Src}
                         alt={cur.m1Alt}
@@ -744,7 +756,7 @@ export default class MaterialsPage extends React.Component {
                     <div
                       style={{
                         position: 'relative',
-                        width: 'min(100%,320px)',
+                        width: '320px', maxWidth: '100%',
                         height: '116px',
                         background: '#14183A',
                         borderRadius: '4px',
@@ -767,28 +779,6 @@ export default class MaterialsPage extends React.Component {
                     </div>
                   )}
                 </div>
-                <div
-                  style={{
-                    padding: '36px 40px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    gap: '14px',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontFamily: "'Roboto Condensed',sans-serif",
-                      fontSize: '28px',
-                      fontWeight: '700',
-                      textTransform: 'uppercase',
-                      lineHeight: '1.1',
-                    }}
-                  >
-                    {cur.m1Alt}
-                  </div>
-                  <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
-                </div>
               </a>
               {cur.extraMain && (
                 <a
@@ -796,10 +786,14 @@ export default class MaterialsPage extends React.Component {
                   href={cur.m2Href}
                   target={cur.m2Target}
                   rel="noopener noreferrer"
+                  aria-label={cur.m2Alt}
                   style={{
-                    marginTop: '20px',
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,320px),1fr))',
+                    margin: '0',
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: '200px',
                     background: '#fff',
                     borderRadius: '4px',
                     overflow: 'hidden',
@@ -815,14 +809,13 @@ export default class MaterialsPage extends React.Component {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      borderRight: '1px solid #ECEDF3',
                       padding: '32px',
                     }}
                   >
                     {cur.m2None && (
                       <div
                         style={{
-                          width: 'min(100%,320px)',
+                          width: '320px', maxWidth: '100%',
                           height: '116px',
                           border: '1.5px dashed #9CA0BE',
                           borderRadius: '4px',
@@ -838,7 +831,7 @@ export default class MaterialsPage extends React.Component {
                       </div>
                     )}
                     {cur.m2Light && (
-                      <div style={{ position: 'relative', width: 'min(100%,320px)', height: '116px' }}>
+                      <div style={{ position: 'relative', width: '320px', maxWidth: '100%', height: '116px' }}>
                         <img
                           src={cur.m2Src}
                           alt={cur.m2Alt}
@@ -859,7 +852,7 @@ export default class MaterialsPage extends React.Component {
                       <div
                         style={{
                           position: 'relative',
-                          width: 'min(100%,320px)',
+                          width: '320px', maxWidth: '100%',
                           height: '116px',
                           background: '#14183A',
                           borderRadius: '4px',
@@ -882,30 +875,9 @@ export default class MaterialsPage extends React.Component {
                       </div>
                     )}
                   </div>
-                  <div
-                    style={{
-                      padding: '36px 40px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      gap: '14px',
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "'Roboto Condensed',sans-serif",
-                        fontSize: '28px',
-                        fontWeight: '700',
-                        textTransform: 'uppercase',
-                        lineHeight: '1.1',
-                      }}
-                    >
-                      {cur.m2Alt}
-                    </div>
-                    <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
-                  </div>
                 </a>
               )}
+              </div>
               <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: cur.vendorCols, gap: '20px' }}>
                 {cur.vendors.map((v, j) => (
                   <a
@@ -914,6 +886,7 @@ export default class MaterialsPage extends React.Component {
                     href={v.href}
                     target={v.target}
                     rel="noopener noreferrer"
+                    aria-label={v.alt}
                     style={{
                       background: '#fff',
                       border: '1px solid #E4E5EE',
@@ -958,19 +931,6 @@ export default class MaterialsPage extends React.Component {
                         </div>
                       )}
                     </div>
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        fontSize: '15px',
-                        fontWeight: '700',
-                        color: '#313893',
-                      }}
-                    >
-                      <span>Visit website</span>
-                      <span style={{ color: '#E31E26' }}>↗</span>
-                    </div>
                   </a>
                 ))}
               </div>
@@ -1006,10 +966,14 @@ export default class MaterialsPage extends React.Component {
                     href={cur.m2Href}
                     target={cur.m2Target}
                     rel="noopener noreferrer"
+                    aria-label={cur.m2Alt}
                     style={{
-                      marginTop: '20px',
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,320px),1fr))',
+                      margin: '20px auto 0',
+                      width: 'min(100%, 640px)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      minHeight: '200px',
                       background: '#fff',
                       borderRadius: '4px',
                       overflow: 'hidden',
@@ -1025,14 +989,13 @@ export default class MaterialsPage extends React.Component {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        borderRight: '1px solid #ECEDF3',
                         padding: '32px',
                       }}
                     >
                       {cur.m2None && (
                         <div
                           style={{
-                            width: 'min(100%,320px)',
+                            width: '320px', maxWidth: '100%',
                             height: '116px',
                             border: '1.5px dashed #9CA0BE',
                             borderRadius: '4px',
@@ -1048,7 +1011,7 @@ export default class MaterialsPage extends React.Component {
                         </div>
                       )}
                       {cur.m2Light && (
-                        <div style={{ position: 'relative', width: 'min(100%,320px)', height: '116px' }}>
+                        <div style={{ position: 'relative', width: '320px', maxWidth: '100%', height: '116px' }}>
                           <img
                             src={cur.m2Src}
                             alt={cur.m2Alt}
@@ -1069,7 +1032,7 @@ export default class MaterialsPage extends React.Component {
                         <div
                           style={{
                             position: 'relative',
-                            width: 'min(100%,320px)',
+                            width: '320px', maxWidth: '100%',
                             height: '116px',
                             background: '#14183A',
                             borderRadius: '4px',
@@ -1092,28 +1055,6 @@ export default class MaterialsPage extends React.Component {
                         </div>
                       )}
                     </div>
-                    <div
-                      style={{
-                        padding: '36px 40px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        gap: '14px',
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontFamily: "'Roboto Condensed',sans-serif",
-                          fontSize: '28px',
-                          fontWeight: '700',
-                          textTransform: 'uppercase',
-                          lineHeight: '1.1',
-                        }}
-                      >
-                        {cur.m2Alt}
-                      </div>
-                      <span style={{ fontWeight: '700', color: '#313893' }}>Visit manufacturer website ↗</span>
-                    </div>
                   </a>
                   <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: cur.vendorCols, gap: '20px' }}>
                     {cur.vendors2.map((v, j) => (
@@ -1123,6 +1064,7 @@ export default class MaterialsPage extends React.Component {
                         href={v.href}
                         target={v.target}
                         rel="noopener noreferrer"
+                        aria-label={v.alt}
                         style={{
                           background: '#fff',
                           border: '1px solid #E4E5EE',
@@ -1166,19 +1108,6 @@ export default class MaterialsPage extends React.Component {
                               />
                             </div>
                           )}
-                        </div>
-                        <div
-                          style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            fontSize: '15px',
-                            fontWeight: '700',
-                            color: '#313893',
-                          }}
-                        >
-                          <span>Visit website</span>
-                          <span style={{ color: '#E31E26' }}>↗</span>
                         </div>
                       </a>
                     ))}
@@ -1229,7 +1158,9 @@ export default class MaterialsPage extends React.Component {
                 Not sure which brand fits your project?
               </h2>
               <p style={{ margin: '18px 0 0', fontSize: '18px', lineHeight: '1.6', color: '#fff' }}>
-                Talk with our sales team or stop by the showroom to compare products side by side.
+                Talk with our sales team or stop by the showroom to compare products
+                <br />
+                side by side.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
