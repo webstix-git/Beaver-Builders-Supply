@@ -3,12 +3,12 @@ html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
    HeaderHeightSync; the fallbacks match the header's resting height) and centers the text below it. The h1 and p
    margins trim the line-box space above the capitals and below the last baseline, so the space above and below
    the text is equal to the eye. */
-.bbs-hero-banner{padding-top:var(--bbs-header-h,78px)}
+.bbs-hero-banner{padding-top:var(--bbs-header-h,125px)}
 .bbs-hero-inner{padding:20px 32px}
 .bbs-hero-inner h1{margin-top:-.225em !important}
 .bbs-hero-inner p{margin-bottom:-.47em !important}
 @media (max-width:640px){.bbs-hero-inner{padding:20px 24px}}
-@media (max-width:480px){.bbs-hero-banner{padding-top:var(--bbs-header-h,62px)}}
+@media (max-width:480px){.bbs-hero-banner{padding-top:var(--bbs-header-h,109px)}}
 /* The 400px banner height is desktop-only; narrower screens let the banner grow with its content. */
 @media (min-width:1200px){.bbs-hero-banner{min-height:400px !important;max-height:400px}}
 /* Below 1230px the logo, menu, and quote button no longer fit on one row, so the menu and quote button move into
@@ -16,6 +16,24 @@ html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
 /* In the transparent (resting) header the logo and quote button keep their own width, so the row's space-between
    puts equal gaps on both sides of the menu. */
 @media (min-width:1230px){.bbs-header:not(.is-sticky) .bbs-header-inner>div{flex:0 0 auto !important}}
+/* The closed mobile menu wrapper sits in the quote cluster. Flatten it on desktop so it does not add a flex gap. */
+@media (min-width:1230px){.bbs-header .bbs-mnav-root{display:contents}}
+.bbs-topbar{background:#14183A;border-bottom:1px solid rgba(255,255,255,.22);color:#fff}
+.bbs-topbar-inner{max-width:1280px;margin:0 auto;padding:0 32px;min-height:46px;display:flex;align-items:center;justify-content:flex-end}
+.bbs-topbar-social{display:flex;align-items:center;gap:14px}
+.bbs-topbar-icons{display:flex;align-items:center;gap:6px}
+.bbs-topbar a{color:#fff;font-size:15px;line-height:1;white-space:nowrap;transition:color .2s}
+.bbs-topbar a:hover{color:#E31E26}
+.bbs-topbar a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.bbs-topbar-icons a{width:26px;height:26px;display:flex;align-items:center;justify-content:center}
+.bbs-topbar a.bbs-topbar-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:22px}
+@media (min-width:1230px){
+  .bbs-topbar a.bbs-topbar-phone{justify-content:center;width:194px}
+}
+.bbs-topbar-rule{width:1px;height:16px;background:rgba(255,255,255,.45);flex:0 0 auto}
+@media (max-width:720px){
+  .bbs-topbar-inner{padding:0 20px}
+}
 .bbs-burger{display:none;width:46px;height:46px;align-items:center;justify-content:center;padding:0;border:1.5px solid rgba(255,255,255,.4);border-radius:3px;background:transparent;color:#fff;cursor:pointer}
 .bbs-burger:hover{background:rgba(255,255,255,.12)}
 /* The menu is a drawer that slides in from the right edge over a dimmed backdrop. Visibility is delayed on close

@@ -1,4 +1,5 @@
 import HeaderHeightSync from './HeaderHeightSync';
+import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 
 function NavLink({ href, active, children }) {
@@ -16,6 +17,7 @@ function NavLink({ href, active, children }) {
 export default function SiteHeader({ active, vals }) {
   return (
     <header className={`bbs-header ${vals.headerClass}`}>
+      <TopBar />
       <div
         className="bbs-header-inner"
         style={{

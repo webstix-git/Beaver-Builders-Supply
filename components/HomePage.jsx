@@ -2,6 +2,7 @@
 
 import React from 'react';
 import HeaderHeightSync from './HeaderHeightSync';
+import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 import '../styles/home.css';
 
@@ -61,6 +62,7 @@ export default class HomePage extends React.Component {
       <div style={{ minWidth: '0' }}>
         <div style={{ position: 'relative' }}>
           <header className={`bbs-header ${vals.headerClass}`}>
+            <TopBar />
             <div
               className="bbs-header-inner"
               style={{
@@ -238,7 +240,7 @@ export default class HomePage extends React.Component {
                 margin: '0 auto',
                 // The extra top padding clears the header and the extra bottom padding clears the stats box that
                 // overlaps the hero by 64px, so the visible space above and below the text is equal.
-                padding: 'calc(var(--bbs-header-h, 78px) + 48px) 32px 112px',
+                padding: 'calc(var(--bbs-header-h, 125px) + 48px) 32px 112px',
               }}
             >
               <div style={{ maxWidth: '640px' }}>

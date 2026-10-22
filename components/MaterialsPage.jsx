@@ -2,6 +2,7 @@
 
 import React from 'react';
 import HeaderHeightSync from './HeaderHeightSync';
+import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 import '../styles/materials.css';
 
@@ -60,7 +61,7 @@ const BRAND_LOGOS = {
     mainNote: MAIN_NOTE,
     main1: { alt: 'Bayer Built Woodworks', href: 'https://www.bayerbuilt.com/', src: '/Supplier%27s-logo/Exterior-Doors/68f66b6dafda001caff2b649_6a94dac957beeb6aff6e34ab99e36254_Bayer%20Built%20Logo.png' },
     vendors1: [
-      { alt: 'Metropolitan Door Industries', href: 'https://www.metropolitandoor.com/', src: '/Supplier%27s-logo/Exterior-Doors/mdi-logo-r-dkbl-trans.png' },
+      { alt: 'Millwork Distributors, Inc.', href: 'https://mdi-oshkosh.com/', src: '/Supplier%27s-logo/Exterior-Doors/mdi-oshkosh-logo.png' },
       { alt: 'Therma-Tru Doors', href: 'https://www.thermatru.com/', src: '/Supplier%27s-logo/Exterior-Doors/therma-tru-whb-logo.png' },
       { alt: 'Waudena', href: 'https://www.waudena.com/', src: '/Supplier%27s-logo/Exterior-Doors/waudena_logo_color_500x218.png' }
     ]
@@ -70,7 +71,7 @@ const BRAND_LOGOS = {
     main1: { alt: 'Bayer Built Woodworks', href: 'https://www.bayerbuilt.com/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/68f66b6dafda001caff2b649_6a94dac957beeb6aff6e34ab99e36254_Bayer%20Built%20Logo%20%281%29.png' },
     vendors1: [
       { alt: 'Koch Doors', href: 'https://kochandco.com/doors/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/Koch-Doors-Logo-New-1024x717.webp' },
-      { alt: 'Metropolitan Door Industries', href: 'https://www.metropolitandoor.com/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/mdi-logo-r-dkbl-trans.png' },
+      { alt: 'Millwork Distributors, Inc.', href: 'https://mdi-oshkosh.com/', src: '/Supplier%27s-logo/Exterior-Doors/mdi-oshkosh-logo.png' },
       { alt: 'TruStile', href: 'https://www.trustile.com/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/trustile-logo-white.svg', dark: true },
       { alt: 'Western Building Products', href: 'https://western1.com/', src: '/Supplier%27s-logo/Interior-Doors-and-Trim/WBP_logo.svg' }
     ]
@@ -244,6 +245,7 @@ export default class MaterialsPage extends React.Component {
       <div style={{ minWidth: '0' }}>
         <div style={{ position: 'relative' }}>
           <header className={`bbs-header ${vals.headerClass}`}>
+            <TopBar />
             <div
               className="bbs-header-inner"
               style={{
