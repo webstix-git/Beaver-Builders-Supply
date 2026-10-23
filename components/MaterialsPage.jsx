@@ -53,8 +53,8 @@ const BRAND_LOGOS = {
     main1: { alt: 'Andersen Windows & Doors', href: 'https://www.andersenwindows.com/', src: '/Supplier%27s-logo/Windows/andersen_logo_tm_rectangle_rgb.svg' },
     vendors1: [
       { alt: 'Thermo-Tech Windows', href: 'https://ttwindows.com/', src: '/Supplier%27s-logo/Windows/thermo-tech_logo.svg' },
-      { alt: 'PARCO Windows & Patio Doors', href: 'https://www.parcowindows.com/', src: '/Supplier%27s-logo/Windows/home.jpg' },
-      { alt: 'North Star Windows & Doors', href: 'https://www.northstarwindows.com/', src: '/Supplier%27s-logo/Windows/logo.png' }
+      { alt: 'North Star Windows & Doors', href: 'https://www.northstarwindows.com/', src: '/Supplier%27s-logo/Windows/logo.png' },
+      { alt: 'PARCO Windows & Patio Doors', href: 'https://www.parcowindows.com/', src: '/Supplier%27s-logo/Windows/home.jpg' }
     ]
   },
   'exterior-doors': {
