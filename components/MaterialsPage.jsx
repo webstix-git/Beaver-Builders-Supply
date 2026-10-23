@@ -12,7 +12,7 @@ const CATS = [
   { slug: 'decking-railing', name: 'Decking & Railing', img: '/New-img/Materials/decking-and-railing.jpg', intro: 'Composite and wood decking with matching railing systems, built to hold up to Wisconsin seasons. See full-size deck and rail displays in our showroom before you choose.', items: ['Composite Decking', 'Wood Decking', 'Railing Systems', 'Fasteners & Lighting'], n: 4 },
   { slug: 'windows', name: 'Windows', img: '/New-img/Materials/windows.jpg', intro: 'Energy-efficient windows for new construction and replacement projects. We help you balance performance, style, and budget for every opening in the house.', items: ['Double-Hung', 'Casement', 'Picture & Specialty', 'Replacement'], n: 4 },
   { slug: 'exterior-doors', name: 'Exterior Doors', img: '/New-img/Materials/exterior-door.jpg', intro: 'Entry, patio, and storm doors that seal tight and look right. Choose from fiberglass, steel, and wood options with the hardware and glass to match.', items: ['Entry Doors', 'Patio Doors', 'Storm Doors', 'Hardware'], n: 4 },
-  { slug: 'interior-doors-trim', name: 'Interior Doors & Trim', img: '/New-img/Materials/interioir-doors-and-trim.jpg', intro: 'Interior doors, millwork, and trim packages for finished interiors. We can quote complete door and trim packages directly from your plans.', items: ['Interior Doors', 'Millwork', 'Base & Casing', 'Stair Parts'], n: 4 },
+  { slug: 'interior-doors-trim', name: 'Interior Doors & Trim', img: '/New-img/Materials/interior-doors-and-trim.jpg', intro: 'Interior doors, millwork, and trim packages for finished interiors. We can quote complete door and trim packages directly from your plans.', items: ['Interior Doors', 'Millwork', 'Base & Casing', 'Stair Parts'], n: 4 },
   { slug: 'siding', name: 'Siding', img: '/New-img/Materials/siding.jpg', intro: 'Engineered wood, fiber cement, and vinyl siding with trim and accessories. Our showroom features full-scale siding walls so you can see color and texture in real light.', items: ['Engineered Wood', 'Fiber Cement', 'Vinyl', 'Trim & Soffit'], n: 4 },
   { slug: 'roofing', name: 'Roofing', img: '/New-img/Materials/roofing.jpg', intro: 'Shingles, underlayment, and ventilation from brands we trust. We help builders and homeowners put together a complete roofing system for lasting performance.', items: ['Shingles', 'Underlayment', 'Ventilation', 'Flashing'], n: 4 }
 ];
@@ -52,9 +52,9 @@ const BRAND_LOGOS = {
     mainNote: MAIN_NOTE,
     main1: { alt: 'Andersen Windows & Doors', href: 'https://www.andersenwindows.com/', src: '/Supplier%27s-logo/Windows/andersen_logo_tm_rectangle_rgb.svg' },
     vendors1: [
+      { alt: 'Thermo-Tech Windows', href: 'https://ttwindows.com/', src: '/Supplier%27s-logo/Windows/thermo-tech_logo.svg' },
       { alt: 'PARCO Windows & Patio Doors', href: 'https://www.parcowindows.com/', src: '/Supplier%27s-logo/Windows/home.jpg' },
-      { alt: 'North Star Windows & Doors', href: 'https://www.northstarwindows.com/', src: '/Supplier%27s-logo/Windows/logo.png' },
-      { alt: 'Thermo-Tech Windows', href: 'https://ttwindows.com/', src: '/Supplier%27s-logo/Windows/thermo-tech_logo.svg' }
+      { alt: 'North Star Windows & Doors', href: 'https://www.northstarwindows.com/', src: '/Supplier%27s-logo/Windows/logo.png' }
     ]
   },
   'exterior-doors': {
