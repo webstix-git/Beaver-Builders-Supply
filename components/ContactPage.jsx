@@ -23,7 +23,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TURNSTILE_ENABLED = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.replace(/^0x/, '').trim());
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.beaverbuilderssupply.com').replace(/\/$/, '');
 const CONTACT_ENDPOINT = (
-  process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT || `${SITE_URL}/api/contact`
+  process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT ||
+  'https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/form-submit/80c762ed-f07f-4120-a5b6-8e97d8164ea8'
 ).trim();
 const fieldOk = (name, value) => value !== '' && (name !== 'email' || EMAIL_RE.test(value));
 export default class ContactPage extends React.Component {
@@ -165,15 +166,22 @@ export default class ContactPage extends React.Component {
       method: 'POST',
       headers: { 'content-type': 'application/json', accept: 'application/json' },
       body: JSON.stringify({
-        ...values,
-        turnstileToken
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        type: values.type,
+        message: values.message,
+        'Project type': values.type,
+        turnstileToken: turnstileToken || undefined
       })
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Unable to send your message. Please try again.');
+    // Portal returns 201 + { success: true, redirect_url: "/thank-you" }
+    if (!res.ok || data.success === false || data.success === 'false') {
+      throw new Error(data.error || data.message || 'Unable to send your message. Please try again.');
     }
-    window.location.assign(data.redirect || '/thank-you');
+    const next = data.redirect_url || data.redirect || '/thank-you';
+    window.location.assign(next.startsWith('http') ? next : next);
   }
 
   renderVals() {
