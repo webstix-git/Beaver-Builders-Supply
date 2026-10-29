@@ -1,6 +1,7 @@
 import HeaderHeightSync from './HeaderHeightSync';
 import TopBar from './TopBar';
 import MobileNav from './MobileNav';
+import MaterialsDropdown from './MaterialsDropdown';
 
 function NavLink({ href, active, children }) {
   return active ? (
@@ -59,75 +60,7 @@ export default function SiteHeader({ active, vals }) {
             >
               Materials <span style={{ fontSize: '11px' }}>▾</span>
             </a>
-            {vals.materialsOpen && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '100%',
-                  left: '0',
-                  background: '#fff',
-                  minWidth: '250px',
-                  boxShadow: '0 18px 40px rgba(20,24,58,.16)',
-                  borderTop: '3px solid #E31E26',
-                  padding: '8px 0',
-                  fontFamily: "'Roboto',sans-serif",
-                  textTransform: 'none',
-                  letterSpacing: '0',
-                  fontSize: '16px',
-                  fontWeight: '500',
-                }}
-              >
-                <a
-                  className="hv-348c4d"
-                  href="/materials#kitchen-bath"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Kitchen & Bath
-                </a>
-                <a
-                  className="hv-348c4d"
-                  href="/materials#decking-railing"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Decking & Railing
-                </a>
-                <a
-                  className="hv-348c4d"
-                  href="/materials#windows"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Windows
-                </a>
-                <a
-                  className="hv-348c4d"
-                  href="/materials#exterior-doors"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Exterior Doors
-                </a>
-                <a
-                  className="hv-348c4d"
-                  href="/materials#interior-doors-trim"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Interior Doors & Trim
-                </a>
-                <a
-                  className="hv-348c4d"
-                  href="/materials#siding"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Siding
-                </a>
-                <a
-                  className="hv-348c4d"
-                  href="/materials#roofing"
-                  style={{ display: 'block', padding: '10px 20px', color: '#14183A' }}
-                >
-                  Roofing
-                </a>
-              </div>
-            )}
+            {vals.materialsOpen && <MaterialsDropdown />}
           </div>
           <div style={{ position: 'relative' }} onMouseEnter={vals.openDesign} onMouseLeave={vals.closeMenu}>
             <a

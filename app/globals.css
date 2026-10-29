@@ -1,4 +1,10 @@
 html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+/* Materials dropdown flyouts (second-level menus) sit to the right of the parent item. */
+.bbs-dd-item{position:relative}
+.bbs-dd-flyout{display:none;position:absolute;top:-8px;left:100%;min-width:220px;background:#fff;box-shadow:0 18px 40px rgba(20,24,58,.16);border-top:3px solid #E31E26;padding:8px 0;z-index:2}
+.bbs-dd-item:hover>.bbs-dd-flyout,.bbs-dd-item:focus-within>.bbs-dd-flyout{display:block}
+/* Keep a gapless hit area between the parent row and the flyout. */
+.bbs-dd-flyout::before{content:"";position:absolute;top:0;bottom:0;left:-12px;width:12px}
 /* The header overlays the hero, so the hero reserves the height of the visible header content (measured by
    HeaderHeightSync; the fallbacks match the header's resting height) and centers the text below it. The h1 and p
    margins trim the line-box space above the capitals and below the last baseline, so the space above and below

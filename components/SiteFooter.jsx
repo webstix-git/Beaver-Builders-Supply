@@ -142,19 +142,10 @@ export default function SiteFooter() {
             Decking & Railing
           </a>
           <a className="hv-b2d6c8" href="/materials#windows" style={{ color: '#fff' }}>
-            Windows
-          </a>
-          <a className="hv-b2d6c8" href="/materials#exterior-doors" style={{ color: '#fff' }}>
-            Exterior Doors
-          </a>
-          <a className="hv-b2d6c8" href="/materials#interior-doors-trim" style={{ color: '#fff' }}>
-            Interior Doors & Trim
-          </a>
-          <a className="hv-b2d6c8" href="/materials#siding" style={{ color: '#fff' }}>
-            Siding
+            Windows & Doors
           </a>
           <a className="hv-b2d6c8" href="/materials#roofing" style={{ color: '#fff' }}>
-            Roofing
+            Roofing & Siding
           </a>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '16px', lineHeight: '1.5' }}>

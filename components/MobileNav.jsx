@@ -1,16 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { MATERIALS_NAV } from './MaterialsDropdown';
 
-const MATERIALS = [
-  { slug: 'kitchen-bath', name: 'Kitchen & Bath' },
-  { slug: 'decking-railing', name: 'Decking & Railing' },
-  { slug: 'windows', name: 'Windows' },
-  { slug: 'exterior-doors', name: 'Exterior Doors' },
-  { slug: 'interior-doors-trim', name: 'Interior Doors & Trim' },
-  { slug: 'siding', name: 'Siding' },
-  { slug: 'roofing', name: 'Roofing' }
-];
 const DESIGN = [
   { href: '/design#drafting-contract', name: 'Drafting Contract' },
   { href: '/design#design-tools', name: 'Brand & Product Design Tools' }
@@ -53,6 +45,10 @@ export default function MobileNav({ active, onMaterial }) {
   const close = () => { setOpen(false); setSub(null); };
   const toggleSub = (name) => setSub(sub === name ? null : name);
   const linkClass = (name) => `bbs-mnav-link${active === name ? ' is-active' : ''}`;
+  const materialClick = (slug) => (e) => {
+    if (onMaterial) onMaterial(slug, e);
+    close();
+  };
 
   return (
     <div className="bbs-mnav-root">
@@ -87,21 +83,43 @@ export default function MobileNav({ active, onMaterial }) {
         <a className={linkClass('home')} href="/" onClick={close}>Home</a>
         <div className="bbs-mnav-row">
           <a className={linkClass('materials')} href="/materials" onClick={close}>Materials</a>
-          <button className="bbs-mnav-toggle" type="button" aria-label="Show materials" aria-expanded={sub === 'm'} onClick={() => toggleSub('m')}>
-            <Chevron open={sub === 'm'} />
+          <button className="bbs-mnav-toggle" type="button" aria-label="Show materials" aria-expanded={sub === 'm' || (typeof sub === 'string' && sub.startsWith('m:'))} onClick={() => toggleSub(sub === 'm' || (typeof sub === 'string' && sub.startsWith('m:')) ? null : 'm')}>
+            <Chevron open={sub === 'm' || (typeof sub === 'string' && sub.startsWith('m:'))} />
           </button>
         </div>
-        {sub === 'm' && (
+        {(sub === 'm' || (typeof sub === 'string' && sub.startsWith('m:'))) && (
           <div className="bbs-mnav-sub">
-            {MATERIALS.map((m) => (
-              <a
-                key={m.slug}
-                href={`/materials#${m.slug}`}
-                onClick={(e) => { if (onMaterial) onMaterial(m.slug, e); close(); }}
-              >
-                {m.name}
-              </a>
-            ))}
+            {MATERIALS_NAV.map((item) =>
+              item.children ? (
+                <div key={item.name}>
+                  <div className="bbs-mnav-row" style={{ borderBottom: 0 }}>
+                    <a href={item.href} onClick={materialClick(item.slug)}>{item.name}</a>
+                    <button
+                      className="bbs-mnav-toggle"
+                      type="button"
+                      aria-label={`Show ${item.name}`}
+                      aria-expanded={sub === `m:${item.slug}`}
+                      onClick={() => toggleSub(sub === `m:${item.slug}` ? 'm' : `m:${item.slug}`)}
+                    >
+                      <Chevron open={sub === `m:${item.slug}`} />
+                    </button>
+                  </div>
+                  {sub === `m:${item.slug}` && (
+                    <div className="bbs-mnav-sub" style={{ paddingLeft: '12px', borderBottom: 0 }}>
+                      {item.children.map((child) => (
+                        <a key={child.name} href={child.href} onClick={materialClick(child.slug)}>
+                          {child.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <a key={item.name} href={item.href} onClick={materialClick(item.slug)}>
+                  {item.name}
+                </a>
+              )
+            )}
           </div>
         )}
         <div className="bbs-mnav-row">
