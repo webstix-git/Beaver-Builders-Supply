@@ -327,24 +327,6 @@ export default class SiteMapPage extends React.Component {
                 <li style={{ padding: '5px 0', fontSize: '18px' }}>
                   <a
                     className="hv-b2d6c8"
-                    href="/#about"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/#gallery"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Gallery
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
                     href="/#contact"
                     style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
                   >
