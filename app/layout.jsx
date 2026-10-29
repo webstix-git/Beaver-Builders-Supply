@@ -35,7 +35,10 @@ export const metadata = {
     title: `${SITE_NAME} | Building Materials in Holmen, WI`,
     description: SITE_DESCRIPTION
   },
-  robots: { index: true, follow: true }
+  robots: { index: true, follow: true },
+  verification: {
+    google: 'B21iYGN3aWt06xDWdqFGc0ntLVZl-fm5CCmvOI_-zzw'
+  }
 };
 
 export default function RootLayout({ children }) {
