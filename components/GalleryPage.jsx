@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 import '../styles/inside.css';
@@ -220,10 +221,12 @@ export default class GalleryPage extends React.Component {
                 <div key={i} className={`bbs-gal ${b.cls}`}>
                   {b.items.map((g, j) => (
                     <div key={j} className={`bbs-gal-item ${g.cls}`} onClick={g.open}>
-                      <img
+                      <Image
                         src={g.src}
                         alt={g.tag}
-                        style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        style={{ objectFit: 'cover' }}
                       />
                     </div>
                   ))}
@@ -233,7 +236,7 @@ export default class GalleryPage extends React.Component {
           </div>
           {vals.lightboxOpen && (
             <div className="bbs-lightbox" onClick={vals.closeLightbox}>
-              <img className="bbs-lightbox-img is-natural" src={vals.lightboxSrc} alt={vals.lightboxAlt} onClick={vals.stopClick} />
+              <img className="bbs-lightbox-img is-natural" src={vals.lightboxSrc} alt={vals.lightboxAlt} onClick={vals.stopClick}  loading="lazy" decoding="async" />
               <button className="bbs-lb-btn bbs-lb-prev" type="button" aria-label="Previous image" onClick={vals.prevImage}>
                 <svg className="bbs-ico" width="26" height="26" viewBox="0 0 24 24">
                   <polyline points="15 18 9 12 15 6" />

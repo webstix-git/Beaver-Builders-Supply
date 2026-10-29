@@ -137,12 +137,14 @@ export default class AboutPage extends React.Component {
             <div className="bbs-split-media bbs-about-media" style={{ position: 'relative', padding: '0 0 56px 0' }}>
               <img
                 src="/New-img/Homepage/about-us-img-1.jpg"
-                alt=""
+                alt="Beaver Builders' Supply team and yard in Holmen, Wisconsin"
                 style={{ width: '86%', aspectRatio: '4/5', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="/New-img/Homepage/about-us-img-2.jpg"
-                alt=""
+                alt="Building materials and project work from Beaver Builders' Supply"
                 style={{
                   position: 'absolute',
                   right: '0',
@@ -154,6 +156,8 @@ export default class AboutPage extends React.Component {
                   borderRadius: '4px',
                   border: '8px solid #F6F4EF',
                 }}
+                loading="lazy"
+                decoding="async"
               />
               <div
                 className="bbs-about-badge"
@@ -410,7 +414,7 @@ export default class AboutPage extends React.Component {
                   src="/New-img/About/our-story.jpg"
                   alt="Stone fireplace with built-in cabinets and shelving"
                   style={{ width: '100%', aspectRatio: '5/4', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
-                />
+                 loading="lazy" decoding="async" />
                 <div
                   style={{
                     position: 'absolute',
@@ -479,9 +483,9 @@ export default class AboutPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/About/product-guidance.jpg"
-                    alt=""
+                    alt="Sales team providing product guidance in the showroom"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -494,8 +498,9 @@ export default class AboutPage extends React.Component {
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -505,7 +510,7 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Product Guidance
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     A sales team that knows how each product performs and helps you choose what fits your quality, value,
                     and budget.
@@ -551,9 +556,9 @@ export default class AboutPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/About/kitchen-and-bath.jpg"
-                    alt=""
+                    alt="Kitchen and bath design display"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -566,8 +571,9 @@ export default class AboutPage extends React.Component {
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -577,7 +583,7 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Kitchen & Bath Design
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     In-house cabinet design for kitchens, baths, storage rooms, garages, and more.
                   </div>
@@ -622,9 +628,9 @@ export default class AboutPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/About/drafting-and-layout.jpg"
-                    alt=""
+                    alt="Drafting and layout plans for a building project"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -637,8 +643,9 @@ export default class AboutPage extends React.Component {
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -648,7 +655,7 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Drafting & Layout
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Our staff helps you lay out your new home or project, at no extra cost when you build with Beaver.
                   </div>
@@ -693,9 +700,9 @@ export default class AboutPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/About/custom-truss.jpg"
-                    alt=""
+                    alt="Custom roof trusses built in-house"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -708,8 +715,9 @@ export default class AboutPage extends React.Component {
                   />
                 </div>
                 <div style={{ padding: '24px 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', flex: '1' }}>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -719,7 +727,7 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Custom Trusses
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     We are the only local lumber yard that builds trusses in-house, and every truss is custom built.
                   </div>
@@ -810,8 +818,9 @@ export default class AboutPage extends React.Component {
                 }}
               >
                 <div>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
@@ -821,14 +830,15 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Quality
-                  </div>
+                  </h3>
                   <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     Dependable products from brands we stand behind, recommended by people who know how they perform.
                   </div>
                 </div>
                 <div>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
@@ -838,14 +848,15 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Honesty
-                  </div>
+                  </h3>
                   <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     Straight answers and honest recommendations, so you can make the right call for your project and budget.
                   </div>
                 </div>
                 <div>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
@@ -855,15 +866,16 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Personal Service
-                  </div>
+                  </h3>
                   <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     You work with people who take the time to understand your project, from the first conversation to
                     delivery on site.
                   </div>
                 </div>
                 <div>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '24px',
                       fontWeight: '700',
@@ -873,7 +885,7 @@ export default class AboutPage extends React.Component {
                     }}
                   >
                     Community
-                  </div>
+                  </h3>
                   <div style={{ marginTop: '8px', color: '#fff', fontSize: '18px', lineHeight: '1.5' }}>
                     Locally owned, staffed by local neighbors, and rooted in the community we have served for more than 75
                     years.

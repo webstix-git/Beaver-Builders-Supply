@@ -642,8 +642,10 @@ export default class MaterialsPage extends React.Component {
                 <div style={{ position: 'relative' }}>
                   <img
                     src={cur.img}
-                    alt=""
+                    alt={`${cur.name} materials at Beaver Builders' Supply`}
                     style={{ width: '100%', aspectRatio: '5/4', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div
                     style={{
@@ -669,8 +671,9 @@ export default class MaterialsPage extends React.Component {
                   alignItems: 'baseline',
                 }}
               >
-                <div
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -679,7 +682,7 @@ export default class MaterialsPage extends React.Component {
                   }}
                 >
                   {cur.name} brands{cur.suffix1}
-                </div>
+                </h3>
                 <div style={{ fontSize: '18px', color: '#4A4F6A' }}>
                   Select a brand to visit the manufacturer's website.
                 </div>
@@ -757,7 +760,7 @@ export default class MaterialsPage extends React.Component {
                           objectFit: 'contain',
                           display: 'block',
                         }}
-                      />
+                       loading="lazy" decoding="async" />
                     </div>
                   )}
                   {cur.m1Dark && (
@@ -783,7 +786,7 @@ export default class MaterialsPage extends React.Component {
                           objectFit: 'contain',
                           display: 'block',
                         }}
-                      />
+                       loading="lazy" decoding="async" />
                     </div>
                   )}
                 </div>
@@ -853,7 +856,7 @@ export default class MaterialsPage extends React.Component {
                             objectFit: 'contain',
                             display: 'block',
                           }}
-                        />
+                         loading="lazy" decoding="async" />
                       </div>
                     )}
                     {cur.m2Dark && (
@@ -879,7 +882,7 @@ export default class MaterialsPage extends React.Component {
                             objectFit: 'contain',
                             display: 'block',
                           }}
-                        />
+                         loading="lazy" decoding="async" />
                       </div>
                     )}
                   </div>
@@ -935,7 +938,7 @@ export default class MaterialsPage extends React.Component {
                               objectFit: 'contain',
                               display: 'block',
                             }}
-                          />
+                           loading="lazy" decoding="async" />
                         </div>
                       )}
                     </div>
@@ -956,8 +959,9 @@ export default class MaterialsPage extends React.Component {
                       alignItems: 'baseline',
                     }}
                   >
-                    <div
+                    <h3
                       style={{
+                        margin: '0',
                         fontFamily: "'Roboto Condensed',sans-serif",
                         fontSize: '24px',
                         fontWeight: '700',
@@ -966,7 +970,7 @@ export default class MaterialsPage extends React.Component {
                       }}
                     >
                       {cur.name} brands{cur.suffix2}
-                    </div>
+                    </h3>
                     <div style={{ fontSize: '18px', color: '#4A4F6A' }}>
                       Select a brand to visit the manufacturer's website.
                     </div>
@@ -1035,7 +1039,7 @@ export default class MaterialsPage extends React.Component {
                               objectFit: 'contain',
                               display: 'block',
                             }}
-                          />
+                           loading="lazy" decoding="async" />
                         </div>
                       )}
                       {cur.m2Dark && (
@@ -1061,7 +1065,7 @@ export default class MaterialsPage extends React.Component {
                               objectFit: 'contain',
                               display: 'block',
                             }}
-                          />
+                           loading="lazy" decoding="async" />
                         </div>
                       )}
                     </div>
@@ -1115,7 +1119,7 @@ export default class MaterialsPage extends React.Component {
                                   objectFit: 'contain',
                                   display: 'block',
                                 }}
-                              />
+                               loading="lazy" decoding="async" />
                             </div>
                           )}
                         </div>

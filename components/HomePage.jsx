@@ -326,8 +326,9 @@ export default class HomePage extends React.Component {
                   gap: '10px',
                 }}
               >
-                <div
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -338,7 +339,7 @@ export default class HomePage extends React.Component {
                   }}
                 >
                   {p.t}
-                </div>
+                </h3>
                 <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A' }}>{p.d}</div>
               </div>
             ))}

@@ -1,8 +1,7 @@
 import DesignPage from '../../components/DesignPage';
+import { seoMetadata } from '../../lib/site';
 
-export const metadata = {
-  title: "Design | Beaver Builders' Supply"
-};
+export const metadata = seoMetadata('design');
 
 export default function Page() {
   return <DesignPage />;

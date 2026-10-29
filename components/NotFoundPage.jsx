@@ -3,7 +3,10 @@
 import React from 'react';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
+import { MATERIALS_NAV } from './MaterialsDropdown';
 import '../styles/inside.css';
+
+const linkStyle = { color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' };
 
 export default class NotFoundPage extends React.Component {
   state = { menu: null, scrolled: false };
@@ -198,69 +201,24 @@ export default class NotFoundPage extends React.Component {
                 Materials
               </h2>
               <ul style={{ margin: '24px 0 0', paddingLeft: '22px', listStyle: 'disc', color: '#4A4F6A' }}>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#kitchen-bath"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Kitchen & Bath
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#decking-railing"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Decking & Railing
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#windows"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Windows
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#exterior-doors"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Exterior Doors
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#interior-doors-trim"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Interior Doors & Trim
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#siding"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Siding
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/materials#roofing"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Roofing
-                  </a>
-                </li>
+                {MATERIALS_NAV.map((item) => (
+                  <li key={item.slug} style={{ padding: '5px 0', fontSize: '18px' }}>
+                    <a className="hv-b2d6c8" href={item.href} style={linkStyle}>
+                      {item.name}
+                    </a>
+                    {item.children?.length > 0 && (
+                      <ul style={{ margin: '8px 0 4px', paddingLeft: '22px', listStyle: 'disc' }}>
+                        {item.children.map((child) => (
+                          <li key={child.slug} style={{ padding: '4px 0', fontSize: '17px' }}>
+                            <a className="hv-b2d6c8" href={child.href} style={linkStyle}>
+                              {child.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
               </ul>
             </div>
             <div style={{ marginTop: '56px' }}>
@@ -291,7 +249,7 @@ export default class NotFoundPage extends React.Component {
                 <li style={{ padding: '5px 0', fontSize: '18px' }}>
                   <a
                     className="hv-b2d6c8"
-                    href="/#design"
+                    href="/design"
                     style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
                   >
                     Drafting & Design

@@ -1,9 +1,7 @@
 import ThankYouPage from '../../components/ThankYouPage';
+import { seoMetadata } from '../../lib/site';
 
-export const metadata = {
-  title: "Thank You | Beaver Builders' Supply",
-  robots: { index: false }
-};
+export const metadata = seoMetadata('thankYou');
 
 export default function Page() {
   return <ThankYouPage />;

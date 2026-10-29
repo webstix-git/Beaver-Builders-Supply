@@ -139,7 +139,7 @@ export default class DesignPage extends React.Component {
                 src="/New-img/Design/drafting-contract.jpg"
                 alt="New homes built with Beaver Builders' Supply"
                 style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block', borderRadius: '4px' }}
-              />
+               loading="lazy" decoding="async" />
             </div>
             <div className="bbs-split-text">
               <div
@@ -362,9 +362,9 @@ export default class DesignPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/Design/request-the-contract.jpg"
-                    alt=""
+                    alt="Drafting contract and project planning documents"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -396,8 +396,9 @@ export default class DesignPage extends React.Component {
                   >
                     1
                   </span>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -407,7 +408,7 @@ export default class DesignPage extends React.Component {
                     }}
                   >
                     Review the Contract
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Open our drafting contract to review the fees and terms, then tell us about your new home, addition, or
                     remodel.
@@ -431,9 +432,9 @@ export default class DesignPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/Design/design-staff.jpg"
-                    alt=""
+                    alt="Design staff reviewing project plans"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -465,8 +466,9 @@ export default class DesignPage extends React.Component {
                   >
                     2
                   </span>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -476,7 +478,7 @@ export default class DesignPage extends React.Component {
                     }}
                   >
                     Meet Our Design Staff
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Sit down with our team to lay out rooms, sizes, and the must-haves for your project.
                   </div>
@@ -499,9 +501,9 @@ export default class DesignPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/Design/review.jpg"
-                    alt=""
+                    alt="Reviewing materials and design options"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -533,8 +535,9 @@ export default class DesignPage extends React.Component {
                   >
                     3
                   </span>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -544,7 +547,7 @@ export default class DesignPage extends React.Component {
                     }}
                   >
                     Review Your Plans
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     We draft your plans in-house and walk through revisions with you until they are right.
                   </div>
@@ -567,9 +570,9 @@ export default class DesignPage extends React.Component {
                 <div style={{ position: 'relative', aspectRatio: '16/11', overflow: 'hidden', background: '#E9EAF1' }}>
                   <img
                     src="/New-img/Design/build.jpg"
-                    alt=""
+                    alt="Building project under construction"
                     style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                   loading="lazy" decoding="async" />
                   <div
                     style={{
                       position: 'absolute',
@@ -601,8 +604,9 @@ export default class DesignPage extends React.Component {
                   >
                     4
                   </span>
-                  <div
+                  <h3
                     style={{
+                      margin: '0',
                       fontFamily: "'Roboto Condensed',sans-serif",
                       fontSize: '26px',
                       fontWeight: '700',
@@ -612,7 +616,7 @@ export default class DesignPage extends React.Component {
                     }}
                   >
                     Build with Beaver
-                  </div>
+                  </h3>
                   <div style={{ fontSize: '18px', lineHeight: '1.5', color: '#4A4F6A', textWrap: 'pretty' }}>
                     Your plans become a materials list, and we deliver everything to your job site.
                   </div>
@@ -696,7 +700,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Kitchen-and-Bath/Countertops/cambria-h-rev-rgb-cusa-nav.svg"
                       alt="Cambria"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -712,8 +716,9 @@ export default class DesignPage extends React.Component {
                 >
                   Kitchen & Bath
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -723,7 +728,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Cambria Room Visualizer
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Upload a photo of your kitchen or bath, or use a sample room, and preview Cambria quartz countertops and
                   backsplashes.
@@ -783,7 +788,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Decking-and-railing/Trex-logo-30years-1996-2026-spruce-svg.svg"
                       alt="Trex"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -799,8 +804,9 @@ export default class DesignPage extends React.Component {
                 >
                   Decking & Railing
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -810,7 +816,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Trex Deck Designer
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Plan your deck in 3D with Trex decking and railing, then get a list of the materials you need.
                 </span>
@@ -869,7 +875,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Decking-and-railing/media_17d01ea215a1921f4155d544e142f109d1cac8805.svg"
                       alt="TimberTech"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -885,8 +891,9 @@ export default class DesignPage extends React.Component {
                 >
                   Decking & Railing
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -896,7 +903,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   TimberTech 3D Deck Designer
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Start from a template, a photo, or from scratch. Try decking, railing, and lighting, and download a
                   materials list.
@@ -956,7 +963,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Decking-and-railing/deckorators-horizontal-notagline-whiteandred-logo.webp"
                       alt="Deckorators"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -972,8 +979,9 @@ export default class DesignPage extends React.Component {
                 >
                   Decking & Railing
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -983,7 +991,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Deckorators Deck Visualizer
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Mix and match Deckorators decking, railing, and privacy screen colors on realistic home settings.
                 </span>
@@ -1042,7 +1050,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Windows/andersen_logo_tm_rectangle_rgb.svg"
                       alt="Andersen"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1058,8 +1066,9 @@ export default class DesignPage extends React.Component {
                 >
                   Windows
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1069,7 +1078,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Andersen Design Tool
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   See what an Andersen window or door could look like with different colors and options.
                 </span>
@@ -1128,7 +1137,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Exterior-Doors/therma-tru-whb-logo.png"
                       alt="Therma-Tru"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1144,8 +1153,9 @@ export default class DesignPage extends React.Component {
                 >
                   Exterior Doors
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1155,7 +1165,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Therma-Tru Design Your Door
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Choose a door style, glass, finish, and hardware, then save your project to share with our sales team.
                 </span>
@@ -1214,7 +1224,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Siding/james-hardie-vector-logo.svg"
                       alt="James Hardie"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1230,8 +1240,9 @@ export default class DesignPage extends React.Component {
                 >
                   Siding
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1241,7 +1252,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   James Hardie Hardie Designer
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Upload a photo of your home and try James Hardie siding styles and colors, then save the images to share.
                 </span>
@@ -1300,7 +1311,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Siding/logo.svg"
                       alt="CertainTeed"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1316,8 +1327,9 @@ export default class DesignPage extends React.Component {
                 >
                   Siding & Roofing
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1327,7 +1339,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   CertainTeed ColorView
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Coordinate CertainTeed siding, roofing, and trim colors on a sample home or a photo of your own.
                 </span>
@@ -1386,7 +1398,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Siding/rbs_horizontal_logo_en.png"
                       alt="Westlake Royal"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1402,8 +1414,9 @@ export default class DesignPage extends React.Component {
                 >
                   Siding, Trim & Stone
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1413,7 +1426,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Westlake Royal Design Canvas
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Upload a photo of your home or pick a sample home and try Westlake Royal siding, trim, stone, and roofing.
                 </span>
@@ -1472,7 +1485,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Roofing/oc-logo.svg"
                       alt="Owens Corning"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1488,8 +1501,9 @@ export default class DesignPage extends React.Component {
                 >
                   Roofing
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1499,7 +1513,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Owens Corning Design EyeQ
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Try Owens Corning shingle colors on a sample home or upload a photo of your own house.
                 </span>
@@ -1558,7 +1572,7 @@ export default class DesignPage extends React.Component {
                       src="/Supplier%27s-logo/Roofing/logo-horizontal-full-color.svg"
                       alt="Malarkey"
                       style={{ position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
+                     loading="lazy" decoding="async" />
                   </span>
                 </span>
                 <span
@@ -1574,8 +1588,9 @@ export default class DesignPage extends React.Component {
                 >
                   Roofing
                 </span>
-                <span
+                <h3
                   style={{
+                    margin: '0',
                     fontFamily: "'Roboto Condensed',sans-serif",
                     fontSize: '24px',
                     fontWeight: '700',
@@ -1585,7 +1600,7 @@ export default class DesignPage extends React.Component {
                   }}
                 >
                   Malarkey Roof Designer
-                </span>
+                </h3>
                 <span style={{ fontSize: '18px', lineHeight: '1.55', color: '#4A4F6A', flex: '1' }}>
                   Pick a home that looks like yours or upload a photo and explore Malarkey shingle colors.
                 </span>

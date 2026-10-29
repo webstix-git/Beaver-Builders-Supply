@@ -318,7 +318,7 @@ export default class SiteMapPage extends React.Component {
                 <li style={{ padding: '5px 0', fontSize: '18px' }}>
                   <a
                     className="hv-b2d6c8"
-                    href="/#design"
+                    href="/design"
                     style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
                   >
                     Drafting & Design
@@ -331,60 +331,6 @@ export default class SiteMapPage extends React.Component {
                     style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
                   >
                     Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div style={{ marginTop: '56px' }}>
-              <h2
-                style={{
-                  margin: '0',
-                  fontFamily: "'Roboto Condensed',sans-serif",
-                  fontSize: 'clamp(30px,3vw,38px)',
-                  fontWeight: '700',
-                  letterSpacing: '-.015em',
-                  textTransform: 'uppercase',
-                  color: '#14183A',
-                  lineHeight: '1.05',
-                }}
-              >
-                Policies & Information
-              </h2>
-              <ul style={{ margin: '24px 0 0', paddingLeft: '22px', listStyle: 'disc', color: '#4A4F6A' }}>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/privacy-policy"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/ai-policy"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    AI Policy
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/ai-readiness-service-index"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    AI Readiness Service Index
-                  </a>
-                </li>
-                <li style={{ padding: '5px 0', fontSize: '18px' }}>
-                  <a
-                    className="hv-b2d6c8"
-                    href="/site-map"
-                    style={{ color: '#313893', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                  >
-                    Site Map
                   </a>
                 </li>
               </ul>

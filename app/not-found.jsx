@@ -1,9 +1,7 @@
 import NotFoundPage from '../components/NotFoundPage';
+import { seoMetadata } from '../lib/site';
 
-export const metadata = {
-  title: "Page Not Found | Beaver Builders' Supply",
-  robots: { index: false }
-};
+export const metadata = seoMetadata('notFound');
 
 export default function NotFound() {
   return <NotFoundPage />;
