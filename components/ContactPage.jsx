@@ -3,7 +3,7 @@
 import React from 'react';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
-import Turnstile from './Turnstile';
+import Turnstile, { getTurnstileResponse } from './Turnstile';
 import '../styles/inside.css';
 import '../styles/contact-form.css';
 
@@ -44,7 +44,15 @@ export default class ContactPage extends React.Component {
   typeMenuRef = React.createRef();
 
   setTurnstileToken = (token) => {
-    this.setState({ turnstileToken: token || '' });
+    const turnstileToken = token || '';
+    this.setState((prev) => ({
+      turnstileToken,
+      // Clear the verification error as soon as Turnstile succeeds.
+      formError:
+        turnstileToken && prev.formError === 'Please complete the verification check before sending.'
+          ? ''
+          : prev.formError
+    }));
   };
 
   closeTypeMenu = () => {
@@ -142,19 +150,23 @@ export default class ContactPage extends React.Component {
     if (missing && badEmail) formError = 'Please fill in all required fields and enter a valid email address.';
     else if (missing) formError = 'Please fill in all required fields before sending your message.';
     else if (badEmail) formError = 'Please enter a valid email address.';
-    else if (TURNSTILE_ENABLED && !this.state.turnstileToken) {
+    else if (TURNSTILE_ENABLED && !this.getTurnstileToken()) {
       formError = 'Please complete the verification check before sending.';
     }
     return { values, errors, formError };
   }
 
-  async submitToEndpoint(values) {
+  getTurnstileToken() {
+    return (this.state.turnstileToken || getTurnstileResponse() || '').trim();
+  }
+
+  async submitToEndpoint(values, turnstileToken) {
     const res = await fetch(CONTACT_ENDPOINT, {
       method: 'POST',
       headers: { 'content-type': 'application/json', accept: 'application/json' },
       body: JSON.stringify({
         ...values,
-        turnstileToken: this.state.turnstileToken
+        turnstileToken
       })
     });
     const data = await res.json().catch(() => ({}));
@@ -218,6 +230,10 @@ export default class ContactPage extends React.Component {
         e.preventDefault();
         if (this.state.submitting) return;
         const form = e.currentTarget;
+        const turnstileToken = this.getTurnstileToken();
+        if (turnstileToken && turnstileToken !== this.state.turnstileToken) {
+          this.setState({ turnstileToken });
+        }
         const { values, errors, formError } = this.validate(form);
         this.setState({ errors, formError });
         if (formError) {
@@ -232,11 +248,10 @@ export default class ContactPage extends React.Component {
 
         this.setState({ submitting: true, formError: '' });
         try {
-          await this.submitToEndpoint(values);
+          await this.submitToEndpoint(values, turnstileToken);
         } catch (err) {
           this.setState({
             submitting: false,
-            turnstileToken: '',
             formError: err?.message || 'Unable to send your message. Please try again.'
           });
         }

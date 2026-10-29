@@ -3,7 +3,7 @@ import { SITE_URL } from '../../../lib/site';
 import { turnstileKey } from '../../../lib/turnstile';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const TO = (process.env.CONTACT_FORM_TO || 'sales@beaverbuilderssupply.com').trim();
+const TO = (process.env.CONTACT_FORM_TO || 'keren@webstix.com').trim();
 const VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${encodeURIComponent(TO)}`;
 
@@ -52,8 +52,11 @@ export async function POST(request) {
 
   const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   try {
+    if (!token && turnstileKey(process.env.TURNSTILE_SECRET_KEY)) {
+      return bad('Please complete the verification check before sending.', 403);
+    }
     const ok = await verifyTurnstile(token, ip);
-    if (!ok) return bad('Please complete the verification check before sending.', 403);
+    if (!ok) return bad('Verification expired or failed. Please wait for Success and try again.', 403);
   } catch {
     return bad('Verification unavailable. Please try again in a moment.', 503);
   }

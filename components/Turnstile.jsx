@@ -6,6 +6,22 @@ import { turnstileKey } from '../lib/turnstile';
 const SCRIPT_ID = 'cf-turnstile-script';
 const SCRIPT_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
+/** Latest Turnstile token for the contact form (iframe values are not readable via DOM). */
+let latestToken = '';
+let latestWidgetId = null;
+
+export function getTurnstileResponse() {
+  if (latestToken) return latestToken;
+  try {
+    if (latestWidgetId != null && window.turnstile?.getResponse) {
+      return String(window.turnstile.getResponse(latestWidgetId) || '').trim();
+    }
+  } catch {
+    /* ignore */
+  }
+  return '';
+}
+
 function loadScript() {
   if (typeof window === 'undefined') return Promise.resolve();
   if (window.turnstile) return Promise.resolve();
@@ -56,12 +72,20 @@ export default function Turnstile({ onToken }) {
   const wrapRef = useRef(null);
   const hostRef = useRef(null);
   const widgetId = useRef(null);
+  const onTokenRef = useRef(onToken);
   const siteKey = turnstileKey(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
+
+  onTokenRef.current = onToken;
 
   useEffect(() => {
     if (!siteKey || !hostRef.current) return undefined;
     let cancelled = false;
     let ro;
+
+    const emit = (token) => {
+      latestToken = token || '';
+      onTokenRef.current?.(latestToken);
+    };
 
     const scheduleFit = () => {
       requestAnimationFrame(() => fitWidget(wrapRef.current));
@@ -71,26 +95,34 @@ export default function Turnstile({ onToken }) {
       .then(() => {
         if (cancelled || !hostRef.current || !window.turnstile) return;
         if (widgetId.current != null) {
-          window.turnstile.remove(widgetId.current);
+          try {
+            window.turnstile.remove(widgetId.current);
+          } catch {
+            /* ignore */
+          }
           widgetId.current = null;
         }
         widgetId.current = window.turnstile.render(hostRef.current, {
           sitekey: siteKey,
           theme: 'light',
           size: 'flexible',
-          callback: (token) => onToken?.(token),
-          'expired-callback': () => onToken?.(''),
-          'error-callback': () => {
-            onToken?.('');
+          callback: (token) => {
+            emit(token);
             scheduleFit();
-          }
+          },
+          'expired-callback': () => emit(''),
+          'error-callback': () => {
+            emit('');
+            scheduleFit();
+          },
+          'timeout-callback': () => emit('')
         });
+        latestWidgetId = widgetId.current;
         scheduleFit();
-        // Error / challenge UI can appear a moment after render.
         setTimeout(scheduleFit, 400);
         setTimeout(scheduleFit, 1200);
       })
-      .catch(() => onToken?.(''));
+      .catch(() => emit(''));
 
     if (typeof ResizeObserver !== 'undefined' && wrapRef.current) {
       ro = new ResizeObserver(scheduleFit);
@@ -103,11 +135,20 @@ export default function Turnstile({ onToken }) {
       ro?.disconnect();
       window.removeEventListener('resize', scheduleFit);
       if (widgetId.current != null && window.turnstile) {
-        window.turnstile.remove(widgetId.current);
+        try {
+          window.turnstile.remove(widgetId.current);
+        } catch {
+          /* ignore */
+        }
+        if (latestWidgetId === widgetId.current) {
+          latestWidgetId = null;
+          latestToken = '';
+        }
         widgetId.current = null;
       }
     };
-  }, [siteKey, onToken]);
+    // Intentionally depend only on siteKey — onToken is read via ref so the widget is not remounted.
+  }, [siteKey]);
 
   if (!siteKey) return null;
 
