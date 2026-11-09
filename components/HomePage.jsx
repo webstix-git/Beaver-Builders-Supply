@@ -428,25 +428,6 @@ export default class HomePage extends React.Component {
                   </a>
                 </div>
               </div>
-              <div style={{ marginTop: '36px' }}>
-                <a
-                  className="hv-6a96a5"
-                  href="https://www.google.com/maps/search/?api=1&query=Beaver+Builders+Supply+N6838+Builders+Ct+Holmen+WI+54636"
-                  target="_blank"
-                  rel="noopener"
-                  style={{
-                    display: 'inline-block',
-                    padding: '17px 30px',
-                    background: '#E31E26',
-                    color: '#fff',
-                    fontWeight: '700',
-                    fontSize: '17px',
-                    borderRadius: '3px',
-                  }}
-                >
-                  Plan a Showroom Visit
-                </a>
-              </div>
             </div>
           </div>
         </section>
