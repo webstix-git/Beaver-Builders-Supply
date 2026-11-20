@@ -67,6 +67,12 @@ export default function RootLayout({ children }) {
             />
           </>
         ) : null}
+        <script
+          defer
+          data-site="221d82acada248c0"
+          data-endpoint="https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/track-event"
+          src="https://midwestfamilyportal.com/track.js"
+        />
       </head>
       <body>
         <TrackingScripts />
